@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_163052) do
+ActiveRecord::Schema.define(version: 2019_03_12_171122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,8 +38,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_163052) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.bigint "candidature_id"
-    t.index ["candidature_id"], name: "index_elections_on_candidature_id"
     t.index ["user_id"], name: "index_elections_on_user_id"
   end
 
@@ -60,8 +58,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_163052) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "first_name"
-    t.string "last_name"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -77,7 +73,6 @@ ActiveRecord::Schema.define(version: 2019_03_12_163052) do
 
   add_foreign_key "candidatures", "elections"
   add_foreign_key "candidatures", "users"
-  add_foreign_key "elections", "candidatures"
   add_foreign_key "elections", "users"
   add_foreign_key "eligible_voters", "elections"
   add_foreign_key "eligible_voters", "users"
