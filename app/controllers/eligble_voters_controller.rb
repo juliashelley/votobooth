@@ -1,0 +1,2 @@
+class EligibleVotersController < ApplicationController
+end
