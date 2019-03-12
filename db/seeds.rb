@@ -6,8 +6,6 @@ Candidature.destroy_all
 
 puts 'Creating user seeds'
 User.create(
-  first_name: 'Jimothy',
-  last_name: 'James',
   email: 'jimjames@gmail.com',
   password: 'password')
 
