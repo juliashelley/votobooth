@@ -6,7 +6,6 @@ class Election < ApplicationRecord
   validates :end_after_start
   validates :voting_start_date, :voting_end_date, :presence => true
 
-
   private
 
   def end_after_start
