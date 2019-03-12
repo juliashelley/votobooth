@@ -1,10 +1,11 @@
 class Election < ApplicationRecord
-  has_many :eligible_voters
-  has_many :candidatures
+  has_many :eligible_voters, dependent: :destroy
+  has_many :candidatures, dependent: :destroy
   belongs_to :user
   validates :name, presence: true
   validates :end_after_start
   validates :voting_start_date, :voting_end_date, :presence => true
+
 
   private
 
