@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_12_142650) do
+ActiveRecord::Schema.define(version: 2019_03_12_163052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,10 +19,13 @@ ActiveRecord::Schema.define(version: 2019_03_12_142650) do
     t.string "picture"
     t.string "name"
     t.string "video_url"
-    t.string "status"
-    t.integer "total_votes"
+    t.string "status", default: "Pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "election_id"
+    t.index ["election_id"], name: "index_candidatures_on_election_id"
+    t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
 
   create_table "elections", force: :cascade do |t|
@@ -32,14 +35,21 @@ ActiveRecord::Schema.define(version: 2019_03_12_142650) do
     t.date "voting_start_date"
     t.date "voting_end_date"
     t.date "campaign_close_date"
-    t.integer "results"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "candidature_id"
+    t.index ["candidature_id"], name: "index_elections_on_candidature_id"
+    t.index ["user_id"], name: "index_elections_on_user_id"
   end
 
   create_table "eligible_voters", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "election_id"
+    t.bigint "user_id"
+    t.index ["election_id"], name: "index_eligible_voters_on_election_id"
+    t.index ["user_id"], name: "index_eligible_voters_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -59,6 +69,18 @@ ActiveRecord::Schema.define(version: 2019_03_12_142650) do
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "candidatures_id"
+    t.bigint "eligible_voters_id"
+    t.index ["candidatures_id"], name: "index_votes_on_candidatures_id"
+    t.index ["eligible_voters_id"], name: "index_votes_on_eligible_voters_id"
   end
 
+  add_foreign_key "candidatures", "elections"
+  add_foreign_key "candidatures", "users"
+  add_foreign_key "elections", "candidatures"
+  add_foreign_key "elections", "users"
+  add_foreign_key "eligible_voters", "elections"
+  add_foreign_key "eligible_voters", "users"
+  add_foreign_key "votes", "candidatures", column: "candidatures_id"
+  add_foreign_key "votes", "eligible_voters", column: "eligible_voters_id"
 end
