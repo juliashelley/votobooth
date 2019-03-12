@@ -26,6 +26,6 @@ Candidature.create(
   name: User.first.first_name + " " + User.first.last_name,
   status: 'Approved',
   picture: 'url',
-  video: 'video_url'
+  video_url: 'video_url'
   )
 puts "Done, let's migrate!"
