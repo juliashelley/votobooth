@@ -12,6 +12,7 @@ User.create(
 puts 'Creating election seeds...'
 Election.create(
   name: 'Acapella group president',
+  user_id: User.first.id,
   status: 'Voting is still open!',
   description: "Year twelve's chance to elect the new president of the acapella group",
   voting_start_date: DateTime.yesterday,
@@ -21,7 +22,9 @@ Election.create(
 
 puts 'Creating candidatures seeds...'
 Candidature.create(
-  name: User.first.first_name + " " + User.first.last_name,
+  name: User.first.first_name,
+  user_id: User.first.id,
+  election_id: Election.first.id,
   status: 'Approved',
   picture: 'url',
   video_url: 'video_url'
