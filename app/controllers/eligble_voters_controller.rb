@@ -1,2 +1,2 @@
-class EligbleVotersController < ApplicationController
+class EligibleVotersController < ApplicationController
 end
