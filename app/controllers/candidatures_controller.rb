@@ -1,2 +1,3 @@
 class CandidaturesController < ApplicationController
+
 end
