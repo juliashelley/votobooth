@@ -1,7 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background-image: url(image_path('votobooth-bg-green.jpg'));
 }
+
+.navbar-fixed {
+  background-image: none;
+}
+
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
@@ -9,4 +14,13 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-toggler {
+  color: white;
+  border: none;
+}
+
+.navbar-toggler-icon {
+  filter: invert(100%);
 }
