@@ -1,0 +1,9 @@
+<%= simple_form_for(@election) do |f| %>
+  <%= f.input :name, label: 'Name your election', prompt: 'Type name here' %>
+  <%= f.input :description, label: 'Write a description', prompt: 'Let voters know what this election is all about' %>
+  <%= f.input :voting_start_date, label: 'When do the polls open?' %>
+  <%= f.input :voting_end_date, label: 'When do the polls close?' %>
+  <%= f.input :campaign_close_date, label: 'When is the last day for candidates to submit their manifesto for this election?' %>
+  <%= f.submit %>
+<% end %>
+

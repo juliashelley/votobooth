@@ -1,4 +1,5 @@
 class ElectionsController < ApplicationController
+
   def index
     @elections = Election.where(user_id: current_user.id)
   end
@@ -11,7 +12,7 @@ class ElectionsController < ApplicationController
     @election = Election.new(election_params)
     @election.user_id = current_user.id
     if @election.save
-      redirect_to election_path(current_user.id)
+      redirect_to new_election_eligible_voter_path(@election.id)
     else
       render :new
     end
