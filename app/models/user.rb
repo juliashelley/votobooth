@@ -6,4 +6,8 @@ class User < ApplicationRecord
   has_many :eligible_voters
   has_many :candidatures
   validates :email, presence: true
+
+  def eligible_voter?
+    EligibleVoter.find_by(user_id: self.id) ? true : false
+  end
 end

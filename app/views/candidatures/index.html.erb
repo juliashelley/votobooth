@@ -5,7 +5,7 @@
     <div class="candidate-card">
       <h4><%= candidate.name %></h4>
       <%= link_to 'More Info', candidature_path(candidate) %>
-      <%= link_to 'Vote', candidature_votes_path(candidate) %>
+      <%= link_to 'Vote', candidature_votes_path(candidate), :method=> :post %>
     </div>
   <% end %>
 </div>
