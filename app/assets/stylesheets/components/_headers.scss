@@ -1,0 +1,22 @@
+.heading-medium-gray-bold {
+  font-size: 1.5em;
+  line-height: 1.5em;
+  font-weight: 700;
+  color: $dark-grey;
+  margin-top: 40px;
+  margin-bottom: 30px;
+
+}
+
+.heading-regular-gray-thin {
+  font-size: 1em;
+  font-weight: 400;
+  color: $light-gray;
+}
+
+p {
+  font-size: .75em;
+  font-weight: 400;
+  color: $dark-grey;
+  line-height: 1.5em;
+}

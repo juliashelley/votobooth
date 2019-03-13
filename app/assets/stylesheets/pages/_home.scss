@@ -2,16 +2,6 @@
 .body {
   color: black;
   background-color: white;
-  h1 {
-    font-weight: bolder;
-    margin: 25px;
-    font-size: 50px;
-  }
-  p {
-    margin: 25px;
-    font-size: 20px;
-    margin-bottom: 60px;
-  }
 }
 
 .homepage {
@@ -36,4 +26,13 @@
   margin-top: 20px;
   margin-left: 25px;
   padding: 20px 30px;
+}
+
+
+.subtitle p {
+  margin: 25px;
+  font-size: 20px;
+  margin-bottom: 60px;
+  color: white;
+  font-weight: 400;
 }
