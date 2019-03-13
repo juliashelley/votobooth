@@ -1,1 +1,14 @@
-<h1>navbar placeholder</h1>
+<h1>Your elections</h1>
+
+
+<div class="election">
+  <% @user.election.each do |election| %>
+    <div class="election-card">
+     <h2><%= @election.name %></h2>
+    </div>
+
+  <% end %>
+
+
+
+</div>
