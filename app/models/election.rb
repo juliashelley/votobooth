@@ -6,6 +6,16 @@ class Election < ApplicationRecord
   validate :end_after_start
   validates :voting_start_date, :voting_end_date, :presence => true
 
+  def total_votes
+    total_votes = 0
+    @candidates = self.candidatures
+    @candidates.each do |candidate|
+      candidate.votes
+      binding.pry
+    end
+    total_votes
+  end
+
   private
 
   def end_after_start
