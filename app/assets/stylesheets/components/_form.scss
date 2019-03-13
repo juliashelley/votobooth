@@ -1,0 +1,56 @@
+.form-election-new {
+  padding: 15px;
+  margin-top: 10px;
+  .btn-large-green {
+  color: white;
+  background-color: $green;
+  border-radius: 5px;
+  padding: 10px 30px;
+  width: 100%;
+  border: none;
+  margin-bottom: 10px;
+  text-decoration: none;
+  }
+  h2 {
+    color: white;
+    font-weight: bold;
+  }
+  .input-field {
+    color: white;
+    .form-control-label {
+    }
+    .form-control {
+      border-radius: 0px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}
+
+.form-login {
+  color: white;
+  padding: 15px;
+  margin-top: 10px;
+  .btn-large-white {
+  color: #6E8387;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 30px;
+  width: 30%;
+  }
+  h2 {
+    font-weight: bold;
+    color: white;
+  }
+  .input-field {
+    .form-control-label {
+    }
+    .form-control {
+      border-radius: 0px;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+    }
+  }
+}
