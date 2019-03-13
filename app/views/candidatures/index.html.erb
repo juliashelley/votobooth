@@ -1,1 +1,12 @@
+<h2>Get to know your candidates</h2>
+
+<div class="candidate-cards-container">
+  <% @candidatures.each do |candidate| %>
+    <div class="candidate-card">
+      <h4><%= candidate.name %></h4>
+      <%= link_to 'More Info', candidature_path(candidate) %>
+      <%= link_to 'Vote', candidature_votes_path(candidate) %>
+    </div>
+  <% end %>
+</div>
 
