@@ -1,4 +1,39 @@
 // Specific CSS for your home-page
-body {
+.body {
+  color: black;
+  background-color: white;
+  h1 {
+    font-weight: bolder;
+    margin: 25px;
+    font-size: 50px;
+  }
+  p {
+    margin: 25px;
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}
+
+.homepage {
+  color: white;
   background-image: url(image_path('votobooth-bg-green.png'));
+  h1 {
+    font-weight: bolder;
+    margin: 25px;
+    font-size: 50px;
+  }
+  p {
+    margin: 25px;
+    font-size: 20px;
+    margin-bottom: 60px;
+  }
+}
+
+.btn-medium-white {
+  color: gray;
+  background-color: white;
+  border-radius: 5px;
+  margin-top: 20px;
+  margin-left: 25px;
+  padding: 20px 30px;
 }

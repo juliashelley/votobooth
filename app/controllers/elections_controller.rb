@@ -1,4 +1,5 @@
 class ElectionsController < ApplicationController
+require 'securerandom'
 
   def index
     @elections = Election.where(user_id: current_user.id)
@@ -26,6 +27,9 @@ class ElectionsController < ApplicationController
     @election = Election.find(params[:id])
     @election.update(election_params)
     if @election.save
+      unless election_params[:eligible_voters_string].nil?
+        assign_eligible_voters(@election)
+      end
       redirect_to election_path(@election.id)
     else
       render :edit
@@ -37,6 +41,19 @@ class ElectionsController < ApplicationController
   end
 
   private
+
+  def assign_eligible_voters(election)
+    email_array = election.eligible_voters_string.scan(/[a-z0-9!#$%&'*+\/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+\/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/)
+    email_array.each do |email|
+      user = User.find_by(email: email)
+      if user.nil?
+        user = User.new(email: email, password: SecureRandom.hex(8))
+      end
+      user.save
+      eligible_voters = EligibleVoter.new(user_id: user.id, election_id: election.id)
+      eligible_voters.save
+    end
+  end
 
   def election_params
     params.require(:election).permit!

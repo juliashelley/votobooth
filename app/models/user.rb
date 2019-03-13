@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :eligible_voters
   has_many :candidatures
+  has_many :elections
   validates :email, presence: true
 
   def eligible_voter?
