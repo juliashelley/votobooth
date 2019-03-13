@@ -1,0 +1,4 @@
+<%= simple_form_for(@election) do |f| %>
+  <%= f.input :eligible_voters_string, label: 'Who can vote in this election? Input voter email addresses', placeholder: 'Type email addresses here'%>
+  <%= f.submit %>
+<% end %>

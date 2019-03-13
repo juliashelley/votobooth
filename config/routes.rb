@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   resource :dashboard, only: [:show]
 
   resources :elections do
-    resources :eligible_voters, only: [:index, :create]
+    resources :eligible_voters, only: [:index, :new, :create]
     resources :candidatures, only: [:index, :new, :create]
   end
 
