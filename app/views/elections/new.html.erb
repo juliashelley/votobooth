@@ -1,11 +1,1 @@
 <h2>Build an election</h2>
-<div class="build-election">
-  <%= simple_form_for do [@election, current_user] |f| %>
-    <%= f.input,label: 'Name your election' %>
-    <%= f.input, label: 'Write a description' %>
-    <%= f.input, label: 'When do polls open?' %>
-    <%= f.input, label: 'When do polls close?' %>
-    <%= f.input, label: 'When is the deadline for candidates to submit their platform?' %>
-    <%= f.submit, label: 'Create election', class: "btn-large-green" %>
-  <% end %>
-</div>
