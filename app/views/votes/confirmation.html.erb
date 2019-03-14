@@ -14,10 +14,7 @@
     </div>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae accusantium magni cupiditate.</p>
   </div>
-
   <hr>
-
-
   <div class="confirmation-page-links">
     <div class="vote-button">
       <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post, class: "btn-large-green"%>
@@ -27,5 +24,5 @@
   </div>
 
 </div>
-
+<%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
 

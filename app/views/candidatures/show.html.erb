@@ -1,4 +1,5 @@
-  <div class="page-container-candidature">
+  <div class="page-container-candidature"   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @candidature.picture, gravity: :center %>')">">
       <h1 id="candidate-header"><%= @candidature.name %></h1>
 
   <div class="card promise-card">
@@ -26,5 +27,3 @@
     </div>
   </div>
 </div>
-
-<%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
