@@ -1,6 +1,12 @@
 .navbar-lewagon {
   justify-content: space-between;
   background-image: url(image_path('votobooth-bg-green.png'));
+
+  li:hover ul{
+    left:auto;
+    right:0;
+    margin-right:-10px;
+  }
 }
 
 .navbar-fixed {
@@ -23,4 +29,12 @@
 
 .navbar-toggler-icon {
   filter: invert(100%);
+}
+
+#navbarSupportedContent {
+  ul{
+    left:auto;
+    right:0;
+    margin-right:-10px;
+  }
 }

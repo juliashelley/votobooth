@@ -6,9 +6,11 @@
   <div class="input-field">
     <%= f.input :description, label: 'Write a description', prompt: 'Let voters know what this election is all about' %>
   </div>
-  <div class="input-field">
-    <%= f.input :voting_start_date, label: 'When do the polls open?' %>
+
+  <div class="input-field input-group date" id="datetimepicker8">
+    <%= f.input :voting_start_date, class: "form-control", label: 'When do the polls open?'%>
   </div>
+
   <div class="input-field">
     <%= f.input :voting_end_date, label: 'When do the polls close?' %>
   </div>
