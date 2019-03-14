@@ -8,7 +8,8 @@ class VotesController < ApplicationController
       @vote = Vote.create(candidature_id: @candidature.id, eligible_voter_id: @eligible_voter.id)
       redirect_to election_thank_you_path(@election) if @vote.save!
     else
-      redirect_to candidatures_path(@election) # error message
+      flash[:alert] = "You are not an eligible voter for this election. Please sign in or contact your election manager"
+      redirect_to election_candidatures_path(@election) # error message
     end
   end
 end
