@@ -1,12 +1,35 @@
-<h2>Get to know your candidates</h2>
+<div class="page-container">
 
-<div class="candidate-cards-container">
-  <% @candidatures.each do |candidate| %>
-    <div class="candidate-card">
-      <h4><%= candidate.name %></h4>
-      <%= link_to 'More Info', candidature_path(candidate) %>
-      <%= link_to 'Vote', candidature_votes_path(candidate), :method=> :post %>
-    </div>
-  <% end %>
+  <h2 class="heading-medium-gray-bold">Get to know your candidates</h2>
+
+  <div class="candidate-cards-container">
+
+    <% @candidatures.each do |candidate| %>
+
+      <div class="candidate-card">
+        <hr>
+        <div class="candidate-card-heading">
+
+          <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
+          <div>
+            <%= image_tag "penguin.jpg", class: "avatar-large"%>
+          </div>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae accusantium magni cupiditate.</p>
+        <div class="candidate-card-links">
+          <div class="candidate-card-link left-link">
+            <%= link_to 'More Info', candidature_path(candidate)%>
+          </div>
+          <div class="candidate-card-link right-link">
+            <%= link_to 'Vote', candidature_votes_path(candidate), :method=> :post %>
+          </div>
+        </div>
+      </div>
+
+    <% end %>
+
+  </div>
+
 </div>
+
 
