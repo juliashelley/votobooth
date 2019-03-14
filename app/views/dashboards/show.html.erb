@@ -1,24 +1,39 @@
 <h1>Your elections</h1>
 
 <%= link_to 'Build an election', new_election_path, class: 'btn btn-large-green' %>
-<hr>
 
 <div class="election">
+  <hr>
   <% current_user.elections.each do |election| %>
-    <div class="election-card">
-     <h2><%= election.name %></h2>
-     <div class="election-card-polling">
-       <p>Polling period</p>
-       <p><%= election.voting_start_date %> - <%= election.voting_end_date %></p>
-       <p>For <%=election.eligible_voters.count%> voters</p>
-     </div>
-     <p> <%= pluralize election.candidatures.count, "candidate"%>  to review</p>
-     <div class="election-card-status">
-        <li><%= election.total_votes %> votes cast</li>
-        <li><%= pluralize election.candidatures.count, "candidate"%></li>
-        <li>Time remaining</li>
-     </div>
-     <%= link_to 'Edit election', edit_election_path(election.id), class: 'btn btn-large-white' %>
+    <div class="election-card-header">
+     <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
+     <p>Live</p>
+    </div>
+     <div class="election-card-body">
+        <div class="election-card-body-polling">
+           <p>Polling period</p>
+           <p><strong><%= election.voting_start_date %> - <%= election.voting_end_date %></strong></p>
+           <p>For <%=election.eligible_voters.count%> voters</p>
+        </div>
+        <div class="election-card-body-candidates">
+          <h4><%= election.candidatures.count %></h4>
+          <p> <%= "candidate".pluralize(election.candidatures.count)%> to review</p>
+        </div>
+        <div class="election-card-status">
+          <div class="election-card-status-section">
+            <ul><%= election.total_votes %></ul>
+            <ul><%= "vote".pluralize(election.total_votes)%></ul>
+          </div>
+          <div class="election-card-status-section">
+            <ul><%= election.candidatures.count%></ul>
+            <ul><%= "candidate".pluralize(election.candidatures.count)%></ul>
+          </div>
+          <div class="election-card-status-section">
+            <ul>[Time remaining]</ul>
+            <ul>Time remaining</ul>
+          </div>
+        </div>
+        <%= link_to 'Edit election', edit_election_path(election.id), class: 'btn btn-large-white' %>
     </div>
 
   <% end %>
