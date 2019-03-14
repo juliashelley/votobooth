@@ -10,7 +10,7 @@ class Election < ApplicationRecord
     hour = Time.now.hour - voting_end_date.hour
     min = Time.now.min - voting_end_date.min
     sec = Time.now.sec - voting_end_date.sec
-    @time_group = [hour, min, sec]
+    @time_remaining = [hour, min, sec]
   end
 
   private
