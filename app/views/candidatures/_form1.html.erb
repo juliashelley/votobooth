@@ -5,8 +5,18 @@
   </div>
   <div class="input-field">
     <%= f.input :picture, label: 'Upload a candidature picture', prompt: 'Not yet hehe' %>
-
+  </div>
+  <div class="input-field">
+    <%= f.input :tagline, label: 'Present your candidature in a few lines', prompt: '' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise1, label: 'What’s one thing you want to tell your voters?', prompt: 'I promise...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise2, label: 'Another thing?', prompt: 'There will be...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise3, label: 'Final thought?', prompt: 'We are going to...' %>
   </div>
   <%= f.submit "Create candidature", class: "btn-large-green" %>
 <% end %>
-

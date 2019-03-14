@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_13_112927) do
+ActiveRecord::Schema.define(version: 2019_03_14_092313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,10 @@ ActiveRecord::Schema.define(version: 2019_03_13_112927) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "election_id"
+    t.string "promise1"
+    t.string "promise2"
+    t.string "promise3"
+    t.text "tagline"
     t.index ["election_id"], name: "index_candidatures_on_election_id"
     t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
@@ -66,10 +70,10 @@ ActiveRecord::Schema.define(version: 2019_03_13_112927) do
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "candidature_id"
-    t.bigint "eligible_voter_id"
-    t.index ["candidature_id"], name: "index_votes_on_candidature_id"
-    t.index ["eligible_voter_id"], name: "index_votes_on_eligible_voter_id"
+    t.bigint "candidatures_id"
+    t.bigint "eligible_voters_id"
+    t.index ["candidatures_id"], name: "index_votes_on_candidatures_id"
+    t.index ["eligible_voters_id"], name: "index_votes_on_eligible_voters_id"
   end
 
   add_foreign_key "candidatures", "elections"
@@ -77,6 +81,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_112927) do
   add_foreign_key "elections", "users"
   add_foreign_key "eligible_voters", "elections"
   add_foreign_key "eligible_voters", "users"
-  add_foreign_key "votes", "candidatures"
-  add_foreign_key "votes", "eligible_voters"
+  add_foreign_key "votes", "candidatures", column: "candidatures_id"
+  add_foreign_key "votes", "eligible_voters", column: "eligible_voters_id"
 end
