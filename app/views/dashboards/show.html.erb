@@ -40,6 +40,7 @@
           </div>
         </div>
         <%= link_to 'Edit election', edit_election_path(election.id), class: 'btn btn-large-white' %>
+        <%= link_to 'Eligible voters', new_election_eligible_voter_path(election.id), class: 'btn btn-large-white' %>
     </div>
   </div>
   <% end %>
