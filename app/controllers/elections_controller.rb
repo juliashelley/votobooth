@@ -30,7 +30,7 @@ require 'securerandom'
       unless election_params[:eligible_voters_string].nil?
         assign_eligible_voters(@election)
       end
-      redirect_to dashboard_path
+      redirect_to election_path(@election.id)
     else
       render :edit
     end

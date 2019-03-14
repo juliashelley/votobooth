@@ -1,0 +1,22 @@
+
+<%= simple_form_for(@election) do |f| %>
+  <div class="input-field">
+    <%= f.input :name, label: 'Name your election', prompt: 'Type name here' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :description, label: 'Write a description', prompt: 'Let voters know what this election is all about' %>
+  </div>
+
+  <div class="input-field input-group date" id="datetimepicker8">
+    <%= f.input :voting_start_date, class: "form-control", label: 'When do the polls open?'%>
+  </div>
+
+  <div class="input-field">
+    <%= f.input :voting_end_date, label: 'When do the polls close?' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :campaign_close_date, label: 'When is the last day for candidates to submit their manifesto for this election?' %>
+  </div>
+  <%= f.submit "Edit Election", class: "btn-large-green" %>
+<% end %>
+
