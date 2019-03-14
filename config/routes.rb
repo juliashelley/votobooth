@@ -7,12 +7,13 @@ Rails.application.routes.draw do
   resources :elections do
     resources :eligible_voters, only: [:index, :new, :create]
     resources :candidatures, only: [:index, :new, :create]
-    get 'thank_you', to: 'votes#thank_you', as: :thank_you
-    get 'confirmation', to: 'votes#confirmation', as: :confirmation
+
   end
 
   resources :candidatures, only: [] do
     resources :votes, only: [:create]
+    get 'thank_you', to: 'votes#thank_you', as: :thank_you
+    get 'confirmation', to: 'votes#confirmation', as: :confirmation
   end
 
 
