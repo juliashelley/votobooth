@@ -12,6 +12,15 @@ class Election < ApplicationRecord
     sec = Time.now.sec - voting_end_date.sec
     @time_remaining = [hour, min, sec]
   end
+  
+  def total_votes
+    total_votes = 0
+    @candidates = self.candidatures
+    @candidates.each do |candidate|
+      candidate.votes
+    end
+    total_votes
+  end
 
   private
 

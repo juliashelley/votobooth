@@ -1,1 +1,22 @@
+<div class="page-container">
+  <div class="candidature-wrapper">
+    <h1><%= @candidature.name %></h1>
+  </div>
+  <div class="card">
+    <div class="campaign-promise">
+      <h4>What I stand for...</h4>
+      <p>><%= @candidature.promise1 %></p>
+    </div>
+    <div class="campaign-promise">
+      <h4>And...</h4>
+      <p>><%= @candidature.promise1 %></p>
+    </div>
+    <div class="campaign-promise">
+      <h4>Also I like...</h4>
+      <p>><%= @candidature.promise1 %></p>
+    </div>
+  </div>
+  <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green" %>
+  <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
+</div>
 
