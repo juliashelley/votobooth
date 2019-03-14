@@ -1,0 +1,68 @@
+.candidate-card-links {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+  height: 50px;
+  position: relative;
+  .candidate-card-link {
+    flex: 0 50%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+  }
+  .left-link {
+    border-right: 1px solid $light-gray;
+  }
+  .right-link {
+    background-color: $green;
+    a {
+      color: white;
+    }
+  }
+}
+
+.candidate-card-link a {
+  color: $dark-grey;
+  font-size: .85em;
+}
+
+.candidate-card-link:hover {
+  // background-color: $gray-hover;
+}
+
+
+.candidate-card-link a:hover {
+  text-decoration: none;
+}
+
+
+.avatar-placeholder {
+  background-image: url(image_path("penguin.jpg"));
+  width: 50px;
+}
+
+.candidate-card p {
+  margin-right: 40px;
+  margin-bottom: 22px;
+}
+
+
+.candidate-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.candidate-card hr {
+  margin-bottom: 30px;
+}
+
+.candidate-card {
+  margin-bottom: 45px;
+}
+

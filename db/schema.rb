@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 2019_03_13_112927) do
   create_table "votes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "candidatures_id"
-    t.bigint "eligible_voters_id"
-    t.index ["candidatures_id"], name: "index_votes_on_candidatures_id"
-    t.index ["eligible_voters_id"], name: "index_votes_on_eligible_voters_id"
+    t.bigint "candidature_id"
+    t.bigint "eligible_voter_id"
+    t.index ["candidature_id"], name: "index_votes_on_candidature_id"
+    t.index ["eligible_voter_id"], name: "index_votes_on_eligible_voter_id"
   end
 
   add_foreign_key "candidatures", "elections"
@@ -77,6 +77,6 @@ ActiveRecord::Schema.define(version: 2019_03_13_112927) do
   add_foreign_key "elections", "users"
   add_foreign_key "eligible_voters", "elections"
   add_foreign_key "eligible_voters", "users"
-  add_foreign_key "votes", "candidatures", column: "candidatures_id"
-  add_foreign_key "votes", "eligible_voters", column: "eligible_voters_id"
+  add_foreign_key "votes", "candidatures"
+  add_foreign_key "votes", "eligible_voters"
 end
