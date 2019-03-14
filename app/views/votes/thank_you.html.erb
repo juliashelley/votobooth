@@ -1,0 +1,37 @@
+<div class="page-container">
+
+  <div class="ty-page-heading">
+    <h2 class="heading-medium-gray-bold">Thank you for participating</h2>
+    <p><%= @candidature.votes.count %> <%= "person".pluralize(@candidature.votes.count)%> voted today.</p>
+  </div>
+
+
+  <div class="election-card-container">
+
+    <hr>
+
+    <h2 class="heading-regular-gray-thin">
+      <%= @election.name %>
+    </h2>
+
+    <div class="election-card-stats">
+      <h4 class="election-card-votes">
+        <%= @election.total_votes %>
+      </h4>
+      <p class="election-card-time">
+        <%= @election.voting_end_date %>
+      </p>
+    </div>
+
+    <div class="election-card-stats-labels">
+      <p>Votes cast of <%= @election.eligible_voters.count %></p>
+      <p>Polls close
+      </p>
+    </div>
+
+    <hr>
+
+  </div>
+
+</div>
+
