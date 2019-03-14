@@ -11,7 +11,7 @@ class Election < ApplicationRecord
     @candidates = self.candidatures
     @candidates.each do |candidate|
       candidate.votes
-      binding.pry
+# START HERE TOMORROW - FIX THE BUG WHERE IT DOESN'T COUNT THE NO OF VOTES ASSOCIATED WITH EACH CANDIDATURE (IN ORDER TO TOTAL THEM TO GET TOTAL VOTES CAST SO FAR)
     end
     total_votes
   end
