@@ -6,12 +6,14 @@
   font-weight: lighter;
 }
 
-.btn-large-green {
+.btn-large-green-new {
   color: white;
   background-color: $green;
   border-radius: 5px;
   padding: 5px 30px;
-  font-weight: bold;
+  font-weight: 400;
+  font-size: .75em;
+  width: 100%;
 }
 
 .btn-medium-white {
@@ -42,7 +44,24 @@
 
 
 .btn-plain {
-  color: $dark-grey;
-  font-weight: 600;
+  a {
+    color: $dark-grey;
+    font-weight: 300;
+    font-size: .75em;
+  }
+}
+
+
+.btn-grn-lg {
+  width: 100%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  // color: white !important;
+  font-weight: 400;
   font-size: .75em;
+  border-radius: 5px;
+  background-color: $green;
+  a {
+    color:white;
+  }
 }

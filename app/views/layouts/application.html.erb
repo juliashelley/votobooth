@@ -14,12 +14,11 @@
     <body class="body <%= current_page?('/') ? 'homepage' : ''%>">
     <%= render 'shared/navbar' %>
 
-    <div class="alert-container">
-      <p class="notice"><%= notice %></p>
-    </div>
-    <div class="alert-container">
-      <p class="alert"><%= alert %></p>
-    </div>
+
+    <p class="notice"><%= notice %></p>
+
+    <p class="alert"><%= alert %></p>
+
 
     <%= yield %>
     <%= javascript_include_tag 'application' %>

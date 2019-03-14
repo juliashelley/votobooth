@@ -8,29 +8,50 @@
 
   <div class="election-card-container">
 
-    <hr>
+    <hr id="hr-top">
 
-    <h2 class="heading-regular-gray-thin">
-      <%= @election.name %>
-    </h2>
+    <div class="election-card-content-container">
 
-    <div class="election-card-stats">
-      <h4 class="election-card-votes">
-        <%= @election.total_votes %>
-      </h4>
-      <p class="election-card-time">
-        <%= @election.voting_end_date %>
-      </p>
+      <h2 class="heading-regular-gray-thin">
+        <%= @election.name %>
+      </h2>
+
+      <div class="election-card-stats">
+        <h4 class="election-card-votes">
+          <%= @election.total_votes %>
+        </h4>
+        <h6 class="election-card-time">
+          <%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %>
+        </h6>
+      </div>
+
+      <div class="election-card-stats election-card-stats-labels">
+        <p>Votes cast of <%= @election.eligible_voters.count %></p>
+        <p>Polls close
+        </p>
+      </div>
+
+      <hr id="hr-bottom">
+
     </div>
 
-    <div class="election-card-stats-labels">
-      <p>Votes cast of <%= @election.eligible_voters.count %></p>
-      <p>Polls close
-      </p>
-    </div>
-
-    <hr>
 
   </div>
+
+
+  <div class="confirmation-page-links">
+    <div class="btn-grn-lg">
+      <%= link_to 'Remind your friends'%>
+
+      </div>
+    <div class="btn-plain bottom-link">
+      <%= link_to 'Host your own election', new_election_path %>
+    </div>
+
+    </div>
+
+  </div>
+
+
 
 </div>

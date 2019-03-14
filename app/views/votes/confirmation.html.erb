@@ -19,11 +19,14 @@
 
 
   <div class="confirmation-page-links">
-    <div class="vote-button">
-      <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post, class: "btn-large-green"%>
+    <div class="btn-grn-lg">
+      <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post%>
     </div>
 
-    <%= link_to 'Back to candidates', election_candidatures_path(@election), class: "btn-plain" %>
+    <div class="btn-plain bottom-link">
+      <%= link_to 'Back to candidates', election_candidatures_path(@election)%>
+    </div>
+
   </div>
 
 </div>
