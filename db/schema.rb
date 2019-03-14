@@ -36,9 +36,9 @@ ActiveRecord::Schema.define(version: 2019_03_14_120129) do
     t.string "name"
     t.string "status"
     t.string "description"
-    t.date "voting_start_date"
-    t.date "voting_end_date"
-    t.date "campaign_close_date"
+    t.datetime "voting_start_date"
+    t.datetime "voting_end_date"
+    t.datetime "campaign_close_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
