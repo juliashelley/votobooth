@@ -3,14 +3,13 @@ class VotesController < ApplicationController
   before_action :set_election
 
   def create
-
     if current_user.eligible_voter?
       @eligible_voter = EligibleVoter.find_by(user_id: current_user)
       @vote = Vote.create(candidature_id: @candidature.id, eligible_voter_id: @eligible_voter.id)
-      redirect_to candidature_thank_you(@candidature) if @vote.save!
+      redirect_to candidature_thank_you_path(@candidature) if @vote.save!
     else
-      flash[:alert] = "You are not an eligible voter for this election. Please sign in or contact your election manager"
-      redirect_to new_user_session_path # error message
+      flash[:alert] = "Something went wrong. Please sign in or contact your election manager."
+      render :confirmation
     end
   end
 
