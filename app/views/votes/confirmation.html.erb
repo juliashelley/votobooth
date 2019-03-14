@@ -1,10 +1,5 @@
-<div class="page-container">
-  <h2>YOu are about to cast your vote for</h2>
-  <div class="card">
-    <%= @candidature.name %>
-    <%= @election.name %>
-    <%= @candidature.promise1 %>
-  </div>
-  <%= link_to 'Cast your vote', candidature_votes_path(@candidature), class: "btn-large-green" %>
-  <%= link_to 'Back to candidate', candidature_path(@candidature) %>
-</div>
+<h2>confirmation page</h2>
+
+<%= @candidature.name %>
+<%= @election.name %>
+

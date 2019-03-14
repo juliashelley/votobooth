@@ -52,5 +52,4 @@ class CandidaturesController < ApplicationController
   def candidature_params
     params.require(:candidature).permit!
   end
-
 end
