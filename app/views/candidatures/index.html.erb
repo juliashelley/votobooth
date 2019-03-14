@@ -21,7 +21,7 @@
             <%= link_to 'More Info', candidature_path(candidate)%>
           </div>
           <div class="candidate-card-link right-link">
-            <%= link_to 'Vote', candidature_votes_path(candidate), :method=> :post %>
+            <%= link_to 'Vote', candidature_confirmation_path(candidate)%>
           </div>
         </div>
       </div>
