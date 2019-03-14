@@ -6,6 +6,13 @@ class Election < ApplicationRecord
   validate :end_after_start
   validates :voting_start_date, :voting_end_date, :presence => true
 
+  def set_time_remaining
+    hour = Time.now.hour - voting_end_date.hour
+    min = Time.now.min - voting_end_date.min
+    sec = Time.now.sec - voting_end_date.sec
+    @time_remaining = [hour, min, sec]
+  end
+
   private
 
   def end_after_start
