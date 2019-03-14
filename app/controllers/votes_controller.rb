@@ -14,7 +14,6 @@ class VotesController < ApplicationController
   end
 
   def thank_you
-    flash[:alert] = "Your vote was successfully cast"
   end
 
   def confirmation
