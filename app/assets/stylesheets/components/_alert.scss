@@ -1,6 +1,28 @@
 .alert {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   position: fixed;
   bottom: 16px;
-  right: 16px;
   z-index: 1000;
+  width: 100%;
+  background-color: $dark-grey;
+  color: white;
+  font-weight: 400;
+  top: 95px;
+  border-radius: 0;
+  border: none;
+  margin: 0px auto;
+  font-size: .75em;
+  height: 70px;
+  padding: 10px 35px;
+  text-align: center;
+}
+
+.alert-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 44px;
+
 }
