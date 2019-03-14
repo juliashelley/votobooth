@@ -33,7 +33,7 @@ Candidature.create(
 
 puts 'Creating votes seeds...'
 Vote.create(
-  candidatures_id: jim.id,
-  eligible_voters_id: jim.id,
+  candidature_id: jim.id,
+  eligible_voter_id: jim.id,
   )
 puts "Finished seeding!"
