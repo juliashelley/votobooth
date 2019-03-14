@@ -1,1 +1,29 @@
+  <div class="page-container-candidature"   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
+         url('<%= cl_image_path @candidature.picture, gravity: :center %>')">">
+      <h1 id="candidate-header"><%= @candidature.name %></h1>
 
+  <div class="card promise-card">
+    <div class="campaign-promise">
+      <h4>What I stand for...</h4>
+      <p>><%= @candidature.promise1 %></p>
+      <hr>
+    </div>
+    <div class="campaign-promise">
+      <h4>And...</h4>
+      <p>><%= @candidature.promise1 %></p>
+      <hr>
+    </div>
+    <div class="campaign-promise">
+      <h4>Also I like...</h4>
+      <p>><%= @candidature.promise1 %></p>
+      <hr>
+    </div>
+
+    <div class="cast-vote-div">
+      <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
+      <br>
+      <br>
+      <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
+    </div>
+  </div>
+</div>

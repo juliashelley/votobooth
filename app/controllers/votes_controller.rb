@@ -1,14 +1,32 @@
 class VotesController < ApplicationController
-  def create
-    @candidature = Candidature.find(params[:candidature_id])
-    @election = @candidature.election
+  before_action :find_candidate
+  before_action :set_election
 
+  def create
     if current_user.eligible_voter?
       @eligible_voter = EligibleVoter.find_by(user_id: current_user)
       @vote = Vote.create(candidature_id: @candidature.id, eligible_voter_id: @eligible_voter.id)
-      redirect_to election_thank_you_path(@election) if @vote.save!
+      redirect_to candidature_thank_you_path(@candidature) if @vote.save!
     else
-      redirect_to candidatures_path(@election) # error message
+      flash[:alert] = "Something went wrong. Please sign in or contact your election manager."
+      render :confirmation
     end
+  end
+
+  def thank_you
+  end
+
+  def confirmation
+  end
+
+  private
+
+  def find_candidate
+    @candidature = Candidature.find(params[:candidature_id])
+  end
+
+  def set_election
+    find_candidate
+    @election = @candidature.election
   end
 end

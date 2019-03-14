@@ -4,7 +4,7 @@
 
   a {
   color: black;
-  text-decoration: none;
+  text-decoration: none !important;
   }
 }
 
@@ -21,4 +21,12 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
 }
+
+.dropdown-btn a {
+  color: $dark-grey;
+}
+.dropdown-btn a:hover {
+  text-decoration: none !important;
+  }
+
 

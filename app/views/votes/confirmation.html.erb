@@ -1,0 +1,31 @@
+<div class="page-container">
+  <h2 class="heading-medium-gray-bold">You are about to cast your vote for</h2>
+
+  <div class="candidate-card">
+    <hr>
+    <div class="candidate-card-heading">
+      <div class="heading-left">
+        <h4 class="heading-regular-gray-thin"><%= @candidature.name %></h4>
+        <p><%= @election.name %></p>
+      </div>
+      <div>
+        <%= image_tag "penguin.jpg", class: "avatar-large"%>
+      </div>
+    </div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae accusantium magni cupiditate.</p>
+  </div>
+  <hr>
+  <div class="confirmation-page-links">
+    <div class="btn-grn-lg">
+      <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post%>
+    </div>
+
+    <div class="btn-plain bottom-link">
+      <%= link_to 'Back to candidates', election_candidatures_path(@election)%>
+    </div>
+
+  </div>
+
+</div>
+<%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
+

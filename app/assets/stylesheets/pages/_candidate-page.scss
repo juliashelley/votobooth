@@ -1,0 +1,32 @@
+.page-container-candidature {
+  position: absolute;
+  top: 95px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: auto;
+  width: 100vw;
+  height: 100vh;
+}
+
+#candidate-header {
+  position: relative;
+  top: 500px;
+  margin-left: 30px;
+  color: white;
+}
+
+.promise-card {
+  top: 565px;
+  border-radius: 0px;
+
+}
+
+.campaign-promise {
+  margin: 15px;
+}
+
+.cast-vote-div {
+    text-align: center;
+    margin: 15px;
+}

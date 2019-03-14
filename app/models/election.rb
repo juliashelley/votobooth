@@ -13,7 +13,6 @@ class Election < ApplicationRecord
     @time_remaining = [hour, min, sec]
   end
 
-
   def total_votes
     total_votes = 0
     @candidates = self.candidatures

@@ -1,4 +1,16 @@
-<h1>Navbar placeholder</h1>
-<h1>Eligible voters</h1>
-
-<%= render './elections/form2' %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="form-election-new">
+        <h2>Eligible Voters</h2>
+        <% @election.eligible_voters.each do |eligible_voter| %>
+         <div class="eligible-card">
+           <h4><%= eligible_voter.user.first_name %> <%= eligible_voter.user.last_name %> <%= link_to 'Delete', eligible_voter_path(eligible_voter.id) %></h4>
+         </div>
+        <% end %>
+        <%= render './elections/form2' %>
+      </div>
+    </div>
+  </div>
+  <%= link_to 'Back to election', election_path(@election.id) %>
+</div>
