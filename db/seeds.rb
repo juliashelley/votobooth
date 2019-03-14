@@ -1,8 +1,8 @@
 puts 'Destroying seeds...'
-User.destroy_all
-Election.destroy_all
-Candidature.destroy_all
 Vote.destroy_all
+Candidature.destroy_all
+Election.destroy_all
+User.destroy_all
 
 
 puts 'Creating user seeds'
@@ -33,7 +33,7 @@ Candidature.create(
 
 puts 'Creating votes seeds...'
 Vote.create(
-  candidatures_id: jim.id,
-  eligible_voters_id: jim.id,
+  candidature_id: jim.id,
+  eligible_voter_id: jim.id,
   )
 puts "Finished seeding!"
