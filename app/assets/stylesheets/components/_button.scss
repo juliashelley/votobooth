@@ -32,3 +32,17 @@
   border-color: gray;
   padding: 5px 15px;
 }
+
+.btn-cast-vote {
+  background-color: $green;
+  border-radius: 5px;
+  padding: 5px 30px;
+  font-weight: lighter;
+}
+
+
+.btn-plain {
+  color: $dark-grey;
+  font-weight: 600;
+  font-size: .75em;
+}

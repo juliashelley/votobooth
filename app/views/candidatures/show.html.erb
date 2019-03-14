@@ -1,23 +1,30 @@
-<div class="page-container">
-  <div class="candidature-wrapper">
-    <h1><%= @candidature.name %></h1>
-  </div>
-  <div class="card">
+  <div class="page-container-candidature">
+      <h1 id="candidate-header"><%= @candidature.name %></h1>
+
+  <div class="card promise-card">
     <div class="campaign-promise">
       <h4>What I stand for...</h4>
       <p>><%= @candidature.promise1 %></p>
+      <hr>
     </div>
     <div class="campaign-promise">
       <h4>And...</h4>
       <p>><%= @candidature.promise1 %></p>
+      <hr>
     </div>
     <div class="campaign-promise">
       <h4>Also I like...</h4>
       <p>><%= @candidature.promise1 %></p>
+      <hr>
+    </div>
+
+    <div class="cast-vote-div">
+      <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
+      <br>
+      <br>
+      <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
     </div>
   </div>
-  <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green" %>
-  <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
 </div>
 
 <%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
