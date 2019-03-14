@@ -6,6 +6,7 @@ class CandidaturesController < ApplicationController
 
   def new
     @candidature = Candidature.new
+    @election = Election.find(params[:election_id])
   end
 
   def create
