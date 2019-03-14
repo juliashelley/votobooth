@@ -18,7 +18,6 @@ class Election < ApplicationRecord
     @candidates = self.candidatures
     @candidates.each do |candidate|
       candidate.votes
-      binding.pry
     end
     total_votes
   end
