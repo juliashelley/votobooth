@@ -1,6 +1,30 @@
 <div class="page-container">
-  <h4>ELECTION</h4>
-  <h2>@election.name</h2>
-  <p>@election.time_remaining</p>
+  <div class="election-home-banner">
+    <h4>ELECTION</h4>
+    <h2><%= @election.name %></h2>
+    <p></p>
+    <p><strong>POLLS CLOSE AT</strong> <%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
+    <%= link_to 'Go to polls', election_candidatures_path(@election), class: "btn-medium-white" %>
+  </div>
+
+  <div class="election-home-details">
+    <h4 class="heading-regular-gray-thin">
+      What am I voting for?
+    </h4>
+    <p>
+      <%= @election.name %>
+    </p>
+    <h4 class="heading-regular-gray-thin">
+      About this election
+    </h4>
+    <p>
+      <%= @election.description %>
+    </p>
+  </div>
+
+  <div class="election-home-footer">
+    <%= link_to 'Go to polls', election_candidatures_path(@election), class: "btn-large-green" %>
+  </div>
+
 
 </div>
