@@ -20,3 +20,4 @@
   <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
 </div>
 
+<%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
