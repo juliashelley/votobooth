@@ -17,11 +17,14 @@
 
   <hr>
 
-  <div class="vote-button">
-    <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post, class: "btn-large-green"%>
-  </div>
 
-  <%= link_to 'Back to candidates', election_candidatures_path(@election), class: "btn-plain" %>
+  <div class="confirmation-page-links">
+    <div class="vote-button">
+      <%= link_to 'Cast your vote', candidature_votes_path(@candidature), :method=> :post, class: "btn-large-green"%>
+    </div>
+
+    <%= link_to 'Back to candidates', election_candidatures_path(@election), class: "btn-plain" %>
+  </div>
 
 </div>
 
