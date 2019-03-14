@@ -1,0 +1,66 @@
+.election {
+  margin: 50px;
+  padding: 10px 5px;
+
+ hr {
+   margin-bottom: 10px;
+}
+}
+
+.election-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+
+h2 {
+  margin-bottom: 20px;
+
+  }
+
+ p {
+  font-size: .75em;
+  font-weight: 400;
+  color: $dark-grey;
+  line-height: 1.5em;
+}
+}
+
+.election-card-body-polling {
+  padding: 0 20px;
+
+p {
+  line-height: 0.5;
+  }
+}
+
+.election-card-body-candidates {
+  display: flex;
+
+  align-items: center;
+  padding: 0 20px;
+
+  h4 {
+    background-color: $green;
+    color: white;
+    font-size: 1em;
+    padding: 5px;
+    border-radius: 50%;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
