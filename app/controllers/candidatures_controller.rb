@@ -4,6 +4,11 @@ class CandidaturesController < ApplicationController
     @candidatures = Candidature.where(election_id: @election.id)
   end
 
+  def show
+    @candidature = Candidature.find(params[:id])
+    @election = @candidature.election.id
+  end
+
   def new
     @candidature = Candidature.new
     @election = Election.find(params[:election_id])
