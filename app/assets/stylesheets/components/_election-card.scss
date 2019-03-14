@@ -1,7 +1,8 @@
 
 .election {
-  margin: 50px;
+  margin: 5px;
   padding: 10px 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
 
  hr {
    margin-bottom: 10px;
@@ -27,6 +28,25 @@ h2 {
 }
 }
 
+.election-card-header .pending {
+    color:  $light-gray;
+    border: 1px solid $light-gray;
+    padding: 2px;
+  }
+
+.election-card-header .live {
+    color: $green;
+    border: 1px solid $green;
+    padding: 2px;
+  }
+
+.election-card-header .closed {
+    color: red;
+    border: 1px solid $red;
+    padding: 2px;
+  }
+
+
 .election-card-body-polling {
   padding: 0 20px;
 
@@ -37,9 +57,11 @@ p {
 
 .election-card-body-candidates {
   display: flex;
-
   align-items: center;
-  padding: 0 20px;
+  width: 50%;
+  justify-content: space-around;
+  padding-right: 50px;
+  padding-left: 20px;
 
   h4 {
     background-color: $green;
@@ -49,8 +71,9 @@ p {
     padding: 5px;
     border-radius: 50%;
     text-align: center;
-    width: 30px;
-    height: 30px;
+    width: 25px;
+    height: 25px;
+
   }
 }
 
@@ -65,17 +88,13 @@ p {
 }
 
 .election-card-status-section {
+  flex-grow: 1;
   text-align: center;
   line-height: 0.5;
 }
 
 
-.tabcontent {
-  // display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-}
+
 
 
 

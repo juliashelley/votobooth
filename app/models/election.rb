@@ -12,7 +12,7 @@ class Election < ApplicationRecord
     sec = Time.now.sec - voting_end_date.sec
     @time_remaining = [hour, min, sec]
   end
-  
+
   def total_votes
     total_votes = 0
     @candidates = self.candidatures
@@ -20,6 +20,17 @@ class Election < ApplicationRecord
       candidate.votes
     end
     total_votes
+  end
+
+
+  def election_status
+    if Time.now < voting_start_date
+      "Polls not yet open"
+    elsif Time.now > voting_end_date
+      "Polls closed"
+    else
+      "Election live"
+    end
   end
 
   private
