@@ -20,9 +20,18 @@
           <p> <%= "candidate".pluralize(election.candidatures.count)%> to review</p>
         </div>
         <div class="election-card-status">
-           <li><%= election.total_votes %> votes cast</li>
-           <li><%= pluralize election.candidatures.count, "candidate"%></li>
-           <li>Time remaining</li>
+          <div class="election-card-status-section">
+            <ul><%= election.total_votes %></ul>
+            <ul><%= "vote".pluralize(election.total_votes)%></ul>
+          </div>
+          <div class="election-card-status-section">
+            <ul><%= election.candidatures.count%></ul>
+            <ul><%= "candidate".pluralize(election.candidatures.count)%></ul>
+          </div>
+          <div class="election-card-status-section">
+            <ul>[Time remaining]</ul>
+            <ul>Time remaining</ul>
+          </div>
         </div>
         <%= link_to 'Edit election', edit_election_path(election.id), class: 'btn btn-large-white' %>
     </div>
