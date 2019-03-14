@@ -1,1 +1,17 @@
+<div class="candidature-background">
 
+  <h1><%= @candidature.name %></h1>
+</div>
+
+<div class="page-container">
+  <h3>I care about...</h3>
+  <p><%= @candidature.promise1 %></p>
+
+  <h3>Also...</h3>
+  <h2><%= @candidature.promise2 %></h2>
+
+  <h3>And most importantly...</h3>
+  <h2><%= @candidature.promise3 %></h2>
+</div>
+
+<%= link_to 'Vote for candidate', election_candidature_confirmation_path(@election, @candidature) %>
