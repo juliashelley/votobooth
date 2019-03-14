@@ -6,14 +6,11 @@ class Election < ApplicationRecord
   validate :end_after_start
   validates :voting_start_date, :voting_end_date, :presence => true
 
-  def total_votes
-    total_votes = 0
-    @candidates = self.candidatures
-    @candidates.each do |candidate|
-      candidate.votes
-# START HERE TOMORROW - FIX THE BUG WHERE IT DOESN'T COUNT THE NO OF VOTES ASSOCIATED WITH EACH CANDIDATURE (IN ORDER TO TOTAL THEM TO GET TOTAL VOTES CAST SO FAR)
-    end
-    total_votes
+  def set_time_remaining
+    hour = Time.now.hour - voting_end_date.hour
+    min = Time.now.min - voting_end_date.min
+    sec = Time.now.sec - voting_end_date.sec
+    @time_remaining = [hour, min, sec]
   end
 
   private
