@@ -1,8 +1,8 @@
 puts 'Destroying seeds...'
-User.destroy_all
-Election.destroy_all
-Candidature.destroy_all
 Vote.destroy_all
+Candidature.destroy_all
+Election.destroy_all
+User.destroy_all
 
 
 puts 'Creating user seeds'
