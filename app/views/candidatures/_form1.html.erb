@@ -4,9 +4,6 @@
     <%= f.input :name, label: 'Name your candidature', prompt: 'Input name' %>
   </div>
   <div class="input-field">
-    <%= f.input :picture, label: 'Upload a candidature picture', prompt: 'Not yet hehe' %>
-  </div>
-  <div class="input-field">
     <%= f.input :tagline, label: 'Present your candidature in a few lines', prompt: '' %>
   </div>
   <div class="input-field">
@@ -17,6 +14,9 @@
   </div>
   <div class="input-field">
     <%= f.input :promise3, label: 'Final thought?', prompt: 'We are going to...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :picture, input_html: { class: 'hidden'},label_html: { class: 'upload-photo'}, label: 'Upload a photo', prompt: 'Not yet hehe' %>
   </div>
   <%= f.submit "Create your candidate profile", class: "btn-large-green" %>
 <% end %>
