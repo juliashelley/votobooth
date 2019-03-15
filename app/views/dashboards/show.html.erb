@@ -1,30 +1,37 @@
-<div class="container">
-<%= link_to 'Build an election', new_election_path, class: 'btn btn-large-green' %>
-<hr>
-<div class="tabs nav nav-tabs">
-  <a class="tab" data-toggle="tab" href="#hosting">Hosting</a>
-  <a class="tab"  data-toggle="tab" href="#running">Running</a>
- <a class="tab" data-toggle="tab" href="#voting">Voting</a>
-</div>
+<div class="page-container">
 
-
-<div class="tab-content">
-<div id="hosting" class="tab-pane show active">
-  <div class="card-grid col-lg-6">
-  <% current_user.elections.each do |election| %>
-  <div class="election">
-    <div class="election-card-header">
-     <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
-     <p class="<%=election.status%>">
-      <%= election.election_status%>
-    </p>
+  <div class="build-election-btn">
+    <div class="btn-large-green-new">
+      <%= link_to 'Build an election', new_election_path %>
     </div>
-     <div class="election-card-body">
-        <div class="election-card-body-polling">
+  </div>
+
+  <hr>
+
+  <div class="tabs nav nav-tabs">
+    <a class="tab" data-toggle="tab" href="#hosting">Hosting</a>
+    <a class="tab"  data-toggle="tab" href="#running">Running</a>
+    <a class="tab" data-toggle="tab" href="#voting">Voting</a>
+  </div>
+
+
+  <div class="tab-content">
+    <div id="hosting" class="tab-pane show active">
+      <div class="card-grid col-lg-6">
+        <% current_user.elections.each do |election| %>
+        <div class="election">
+          <div class="election-card-header">
+           <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
+           <p class="<%=election.status%>">
+            <%= election.election_status%>
+          </p>
+        </div>
+        <div class="election-card-body">
+          <div class="election-card-body-polling">
            <p>Polling period: <strong><%= election.voting_start_date.strftime("%a %e %b %Y, %H:%M") %> - <%= election.voting_end_date.strftime("%a %e %b %Y, %H:%M") %></strong></p>
            <p>For <%=election.eligible_voters.count%> voters</p>
-        </div>
-        <div class="election-card-body-candidates">
+         </div>
+         <div class="election-card-body-candidates">
           <h4><%= election.candidatures.count %></h4>
           <p> <%= "candidate".pluralize(election.candidatures.count)%> to review</p>
         </div>
@@ -43,38 +50,37 @@
           </div>
         </div>
         <%= link_to 'View details', election_path(election.id), class: 'btn btn-small-white' %>
+      </div>
     </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-<hr>
 </div>
 
 <div id="running" class="tab-pane fade election">
   <% current_user.candidatures.each do |candidature| %>
-    <div class="card-grid col-xs-12 col-lg-6">
-      <div class="election-card-header">
-       <h2 class="heading-regular-gray-thin"><%= candidature.election.name %></h2>
-      </div>
-      <div class="election-card-body-polling">
-        <p>Election Date</p>
-        <p><strong><%= candidature.election.voting_start_date %> - <%= candidature.election.voting_end_date %></strong></p>
-      </div>
-      <div class="btn-group">
-        <button type="button" class="btn btn-large-white dropdown-toggle" data-toggle="dropdown">
-          Options <span class="caret"></span>
-        </button>
+  <div class="card-grid col-xs-12 col-lg-6">
+    <div class="election-card-header">
+     <h2 class="heading-regular-gray-thin"><%= candidature.election.name %></h2>
+   </div>
+   <div class="election-card-body-polling">
+    <p>Election Date</p>
+    <p><strong><%= candidature.election.voting_start_date %> - <%= candidature.election.voting_end_date %></strong></p>
+  </div>
+  <div class="btn-group">
+    <button type="button" class="btn btn-large-white dropdown-toggle" data-toggle="dropdown">
+      Options <span class="caret"></span>
+    </button>
 
-        <ul class="dropdown-menu" role="menu">
-          <li class="dropdown-btn"><%= link_to "Edit candidature", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-          <li class="dropdown-btn"><%= link_to "Withdraw from race", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
-        </ul>
-      </div>
+    <ul class="dropdown-menu" role="menu">
+      <li class="dropdown-btn"><%= link_to "Edit candidature", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+      <li class="dropdown-btn"><%= link_to "Withdraw from race", "#",{:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></li>
+    </ul>
+  </div>
 
 
-      <hr>
-    </div>
-  <% end %>
+  <hr>
+</div>
+<% end %>
 </div>
 
 <div id="voting" class="tab-pane fade election">

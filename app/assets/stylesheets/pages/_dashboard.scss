@@ -1,5 +1,5 @@
 .tabs {
- margin: 15px 0px;
+ margin-top: 40px;
  display: flex;
 
   a {
@@ -27,6 +27,13 @@
 }
 .dropdown-btn a:hover {
   text-decoration: none !important;
-  }
+}
+
+.build-election-btn {
+  margin-bottom: 40px;
+}
 
 
+.nav-tabs {
+  border-bottom: none;
+}
