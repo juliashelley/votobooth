@@ -1,7 +1,6 @@
 <div class="page-container">
 
   <div class="election-home-banner">
-<<<<<<< HEAD
     <div class="banner-content">
       <h4>ELECTION</h4>
       <h1><%= @election.name %></h1>
@@ -13,12 +12,6 @@
         <%= link_to 'Go to polls', election_candidatures_path(@election)%>
       </div>
     </div>
-
-=======
-    <h4>ELECTION</h4>
-    <h2><%= @election.name %></h2>
-    <p><strong>POLLS CLOSE AT</strong> <%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
->>>>>>> master
   </div>
 
   <div class="election-home-details">
@@ -37,15 +30,12 @@
   </div>
 
   <div class="election-home-footer">
-<<<<<<< HEAD
     <div class="btn-large-green-new">
       <%= link_to 'Go to polls', election_candidatures_path(@election)%>
     </div>
-=======
     <%= link_to 'Edit election', edit_election_path(@election.id), class: 'btn btn-small-white' %>
     <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id), class: 'btn btn-small-white' %>
     <%= link_to 'See candidates', election_candidatures_path(@election.id), class: "btn btn-small-white" %>
->>>>>>> master
   </div>
 
 
