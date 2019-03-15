@@ -1,7 +1,5 @@
 class EligibleVotersController < ApplicationController
-
   def new
-    @election = Election.find(params[:election_id])
-  end
-
+  @election = Election.find(params[:election_id])
+ end
 end
