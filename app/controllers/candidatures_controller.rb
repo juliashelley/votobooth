@@ -26,6 +26,11 @@ class CandidaturesController < ApplicationController
     end
   end
 
+  def photo?
+    @candidature = Candidature.new(candidature_params)
+    @candidature.picture.nil?
+  end
+
   def edit
     @candidature = Candidature.find(params[:id])
   end
