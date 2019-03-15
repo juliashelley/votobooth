@@ -3,9 +3,11 @@
   <div class="election-home-banner">
     <div class="banner-content">
       <h4>ELECTION</h4>
-      <h2><%= @election.name %></h2>
-      <p><%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
-      <h6>POLLS CLOSE</h6>
+      <h1><%= @election.name %></h1>
+      <div class="election-time-left">
+        <p><%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
+        <h6>POLLS CLOSE</h6>
+      </div>
       <div class="btn-small-white-no-border">
         <%= link_to 'Go to polls', election_candidatures_path(@election)%>
       </div>
