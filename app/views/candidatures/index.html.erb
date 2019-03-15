@@ -3,7 +3,7 @@
 
   <% if @candidatures.empty? %>
     <h4 class="candidate-card-heading">Go ahead and add some candidates!</h4>
-
+  <% end %>
   <div class="candidate-cards-container">
   <%= link_to 'Add a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
   <%= link_to 'Back to election', election_path(@election.id), class: "btn btn-small-white" %>
@@ -33,7 +33,6 @@
           </div>
         </div>
       <% end %>
-    <% end %>
   </div>
 
 </div>
