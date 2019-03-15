@@ -29,6 +29,8 @@ require 'securerandom'
     if @election.save
       unless election_params[:eligible_voters_string].nil?
         assign_eligible_voters(@election)
+        redirect_to new_election_eligible_voter_path(@election.id)
+        return
       end
       redirect_to election_path(@election.id)
     else

@@ -38,7 +38,6 @@ puts 'Creating election seeds...'
 acapella = Election.create(
   name: 'Acapella group president',
   user_id: rebecca.id,
-  status: 'live',
   description: "Year twelve's chance to elect the new president of the acapella group",
   voting_start_date: DateTime.yesterday,
   voting_end_date: DateTime.tomorrow,
@@ -48,7 +47,6 @@ acapella = Election.create(
 prime = Election.create(
   name: 'English Prime Minister',
   user_id: pontus.id,
-  status: 'live',
   description: "Anything to stop May",
   voting_start_date: DateTime.yesterday,
   voting_end_date: DateTime.tomorrow,
