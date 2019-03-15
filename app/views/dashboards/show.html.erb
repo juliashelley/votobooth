@@ -17,7 +17,7 @@
 
   <div class="tab-content">
     <div id="hosting" class="tab-pane show active">
-      <div class="card-grid col-lg-6">
+      <div class="dashboard-card-container">
         <% current_user.elections.each do |election| %>
         <div class="election">
           <div class="election-card-header">
@@ -28,28 +28,38 @@
         </div>
         <div class="election-card-body">
           <div class="election-card-body-polling">
-           <p>Polling period: <strong><%= election.voting_start_date.strftime("%a %e %b %Y, %H:%M") %> - <%= election.voting_end_date.strftime("%a %e %b %Y, %H:%M") %></strong></p>
+           <p>Polling period</p>
+           <p id="election-date">
+             <%= election.voting_start_date.strftime("%a %e %b %Y, %H:%M") %> - <%= election.voting_end_date.strftime("%a %e %b %Y, %H:%M") %></p>
            <p>For <%=election.eligible_voters.count%> voters</p>
          </div>
          <div class="election-card-body-candidates">
-          <h4><%= election.candidatures.count %></h4>
+          <div class="number-badge">
+            <h4><%= election.candidatures.count %></h4>
+          </div>
           <p> <%= "candidate".pluralize(election.candidatures.count)%> to review</p>
         </div>
         <div class="election-card-status">
           <div class="election-card-status-section">
-            <ul><strong><%= election.total_votes %></strong></ul>
-            <ul><%= "vote".pluralize(election.total_votes)%></ul>
+            <h4 class="heading-regular-gray-thin"><%= election.total_votes %></h4>
+            <p>
+              <%= "vote".pluralize(election.total_votes)%>
+            </p>
           </div>
           <div class="election-card-status-section">
-            <ul><strong><%= election.candidatures.count%></strong></ul>
-            <ul><%= "candidate".pluralize(election.candidatures.count)%></ul>
+            <h4 class="heading-regular-gray-thin">
+              <%= election.candidatures.count%>
+            </h4>
+            <p><%= "candidate".pluralize(election.candidatures.count)%></p>
           </div>
           <div class="election-card-status-section">
-            <ul><strong><%= election.set_time_remaining[0] %> hours, <%= election.set_time_remaining[1] %> mins</strong></ul>
-            <ul>Time remaining</ul>
+            <h6><%= election.set_time_remaining[0] %> hours, <%= election.set_time_remaining[1] %> mins</h6>
+            <p id="time-remaining">Time remaining</p>
           </div>
         </div>
-        <%= link_to 'View details', election_path(election.id), class: 'btn btn-small-white' %>
+        <div class="btn-small-white">
+          <%= link_to 'View details', election_path(election.id)%>
+        </div>
       </div>
     </div>
     <% end %>
