@@ -1,12 +1,22 @@
 .tabs {
- margin: 15px 0px;
+ margin-top: 40px;
  display: flex;
-
-  a {
-  color: black;
-  text-decoration: none !important;
+ text-align: center;
+ width: 100%;
+ margin-bottom: 30px;
+   a {
+    color: $dark-grey;
+    text-decoration: none !important;
+    font-weight: 300;
+    padding-bottom: 10px;
+  }
+  .active {
+    font-weight: 700;
+    border-bottom: 3px solid $green;
   }
 }
+
+
 
 .tabs:hover {
   text-decoration: none;
@@ -16,7 +26,7 @@
   flex: 1 1 auto;
 }
 
- .cards-grid {
+.cards-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 16px;
@@ -27,6 +37,13 @@
 }
 .dropdown-btn a:hover {
   text-decoration: none !important;
-  }
+}
+
+.build-election-btn {
+  margin-bottom: 40px;
+}
 
 
+.nav-tabs {
+  border-bottom: none;
+}
