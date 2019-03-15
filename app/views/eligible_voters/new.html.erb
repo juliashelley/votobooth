@@ -5,13 +5,13 @@
         <h2>Eligible Voters</h2>
         <% @election.eligible_voters.each do |eligible_voter| %>
          <div class="eligible-card">
-           <h4><%= eligible_voter.user.first_name %> <%= eligible_voter.user.last_name %></h4>
+           <h4><%= eligible_voter.user.email %></h4>
            <%= link_to 'Delete', eligible_voter_path(eligible_voter.id), method: :delete, data: { confirm: "Do you want to remove #{eligible_voter.user.first_name}?" } %>
          </div>
         <% end %>
         <%= render './elections/form2' %>
+        <%= link_to 'See your election', election_path(@election.id), class: 'btn btn-large-white' %>
       </div>
     </div>
   </div>
-  <%= link_to 'Back to election', election_path(@election.id) %>
 </div>

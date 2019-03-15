@@ -2,9 +2,7 @@
   <div class="election-home-banner">
     <h4>ELECTION</h4>
     <h2><%= @election.name %></h2>
-    <p></p>
     <p><strong>POLLS CLOSE AT</strong> <%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
-    <%= link_to 'Go to polls', election_candidatures_path(@election), class: "btn-medium-white" %>
   </div>
 
   <div class="election-home-details">
@@ -23,7 +21,9 @@
   </div>
 
   <div class="election-home-footer">
-    <%= link_to 'Go to polls', election_candidatures_path(@election), class: "btn-large-green" %>
+    <%= link_to 'Edit election', edit_election_path(@election.id), class: 'btn btn-small-white' %>
+    <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id), class: 'btn btn-small-white' %>
+    <%= link_to 'See candidates', election_candidatures_path(@election.id), class: "btn btn-small-white" %>
   </div>
 
 
