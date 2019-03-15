@@ -1,4 +1,5 @@
-<div class="page-container">
+<div class="home-page-container">
+
   <div class="election-home-banner">
     <h4>ELECTION</h4>
     <h2><%= @election.name %></h2>
@@ -6,6 +7,12 @@
     <p><strong>POLLS CLOSE AT</strong> <%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
     <%= link_to 'Go to polls', election_candidatures_path(@election), class: "btn-medium-white" %>
   </div>
+
+</div>
+
+
+<div class="page-container">
+
 
   <div class="election-home-details">
     <h4 class="heading-regular-gray-thin">
