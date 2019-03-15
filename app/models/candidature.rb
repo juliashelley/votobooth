@@ -4,4 +4,9 @@ class Candidature < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
   mount_uploader :picture, PhotoUploader
+
+  # preferred way of making background picture dynamic
+  # def picture_URL
+  #   picture.url || "penguin.jpg"
+  # end
 end

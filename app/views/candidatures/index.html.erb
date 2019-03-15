@@ -12,7 +12,11 @@
 
           <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
           <div>
-            <%= image_tag "penguin.jpg", class: "avatar-large"%>
+            <% if candidate.picture.url.nil? %>
+              <%= image_tag "penguin.jpg", class: "avatar-large"%>
+            <% else %>
+              <%= image_tag candidate.picture.url, class: "avatar-large" %>
+            <% end %>
           </div>
         </div>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae accusantium magni cupiditate.</p>
