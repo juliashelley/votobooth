@@ -8,7 +8,7 @@
     <%= favicon_link_tag 'votobooth-logo.png' %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
     <div class="home-page-container <%= home_page? || election_page? ? 'green-background' : '' %>">
