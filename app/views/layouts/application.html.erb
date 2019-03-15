@@ -11,7 +11,7 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <div class="home-page-container <%= (current_page?('/') || current_page?(controller: 'elections', action: 'show')) ? 'green-background' : '' %>">
+    <div class="home-page-container <%= current_page?('/') || current_page?(controller: 'elections', action: 'show') ? 'green-background' : '' %>">
 
       <%= render 'shared/navbar' %>
 
