@@ -1,8 +1,6 @@
-
 .election {
-  margin: 5px;
-  padding: 10px 5px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 25px 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 
  hr {
    margin-bottom: 10px;
@@ -15,17 +13,33 @@
   align-items: center;
   margin-top: 15px;
 
-h2 {
-  margin-bottom: 20px;
+  h2 {
+    margin-bottom: 20px;
 
+    }
+
+   p {
+    font-size: .75em;
+    font-weight: 400;
+    color: $dark-grey;
+    line-height: 1.5em;
+    text-align: right;
   }
-
- p {
-  font-size: .75em;
-  font-weight: 400;
-  color: $dark-grey;
-  line-height: 1.5em;
 }
+
+
+.election-card-body-polling {
+  h4 {
+    color: $dark-grey;
+    font-size: .75em;
+    margin-bottom: 5px;
+  }
+  #election-date {
+    font-weight: 700;
+  }
+  p {
+    margin-bottom: 5px;
+  }
 }
 
 .election-card-header .pending {
@@ -58,22 +72,28 @@ p {
 .election-card-body-candidates {
   display: flex;
   align-items: center;
-  width: 50%;
-  justify-content: space-around;
-  padding-right: 50px;
-  padding-left: 20px;
+  width: 100%;
+  justify-content: flex-start;
+  margin: 15px 0px;
+  p {
+    margin-bottom: 0px;
+    margin-left: 10px;
+  }
 
-  h4 {
+  .number-badge {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     background-color: $green;
-    border-color: $green;
     color: white;
-    font-size: 1em;
-    padding: 5px;
     border-radius: 50%;
-    text-align: center;
     width: 25px;
     height: 25px;
-
+    h4 {
+      font-size: 1em;
+      text-align: center;
+      margin-bottom: 0px;
+    }
   }
 }
 
@@ -91,6 +111,15 @@ p {
   flex-grow: 1;
   text-align: center;
   line-height: 0.5;
+  h6 {
+    color: $dark-grey;
+    font-weight: 700;
+    font-size: .75em;
+    text-align: right;
+  }
+  #time-remaining {
+    text-align: right;
+  }
 }
 
 .election-card-body-polling p {
