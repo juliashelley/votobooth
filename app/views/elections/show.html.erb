@@ -10,7 +10,7 @@
           <h6>POLLS CLOSE</h6>
         </div>
         <div class="btn-small-white-no-border">
-          <%= link_to 'Go to polls', election_candidatures_path(@election)%>
+          <%= link_to 'View candidates', election_candidatures_path(@election)%>
         </div>
       </div>
     </div>
@@ -31,11 +31,7 @@
     </div>
 
     <div class="election-home-footer">
-      <div class="btn-large-green-new">
-        <%= link_to 'Go to polls', election_candidatures_path(@election)%>
-      </div>
       <div class="page-links">
-
         <div class="btn-small-white">
           <%= link_to 'Edit election', edit_election_path(@election.id)%>
         </div>
@@ -43,7 +39,7 @@
           <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id)%>
         </div>
         <div class="btn-small-white">
-          <%= link_to 'See candidates', election_candidatures_path(@election.id)%>
+          <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
         </div>
 
       </div>
