@@ -13,7 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 20px;
+  margin-top: 15px;
 
 h2 {
   margin-bottom: 20px;
@@ -48,7 +48,7 @@ h2 {
 
 
 .election-card-body-polling {
-  padding: 0 20px;
+  // padding: 0 20px;
 
 p {
   line-height: 0.5;
@@ -93,7 +93,9 @@ p {
   line-height: 0.5;
 }
 
-
+.election-card-body-polling p {
+  line-height: 1.25em;
+}
 
 
 
