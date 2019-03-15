@@ -10,30 +10,58 @@
   color: white;
   background-color: $green;
   border-radius: 5px;
-  padding: 5px 30px;
+  padding: 15px 15px;
+  text-align: center;
   font-weight: 400;
   font-size: .75em;
   width: 100%;
+  a {
+    color: white
+  }
 }
 
 .btn-small-white {
   font-size: 0.75em;
-  color: gray;
+  color: $dark-grey;
   background-color: white;
   border: solid 1px;
-  border-color: gray;
+  border-color: $dark-grey;
   padding: 5px 15px;
 }
 
 .btn-medium-white {
   border-style: solid;
-  border-color: gray;
+  border-color: $dark-grey;
   border-width: 1px;
   border-radius: 5px;
   background-color: white;
-  color: gray;
+  color: $dark-grey;
   padding: 10px;
   font-weight: lighter;
+}
+
+.btn-small-white-no-border {
+  font-size: 0.75em;
+  background-color: white;
+  padding: 15px 15px;
+  border-radius: 5px;
+  width: 50%;
+  text-align: center;
+  a {
+    color: $dark-grey;
+  }
+}
+
+.btn-medium-white-no-border {
+  border-radius: 5px;
+  background-color: white;
+  color: $dark-grey;
+
+  padding: 10px;
+  font-weight: lighter;
+  a {
+    color: $dark-grey;
+  }
 }
 
 .btn-large-white {
