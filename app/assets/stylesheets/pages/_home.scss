@@ -8,7 +8,7 @@
 .green-background {
   color: white;
   background: url(image_path('votobooth-bg-green.png'));
-  height: 85vh;
+  height: 100vh;
   background-size: cover;
   h1 {
     font-weight: bolder;
@@ -17,15 +17,6 @@
 
   p {
     font-size: 20px;
-  }
-}
-
-.btn-medium-white {
-  background-color: white;
-  border-radius: 5px;
-  padding: 20px 30px;
-  a {
-    color: $dark-grey;
   }
 }
 
@@ -40,4 +31,5 @@
 a:hover {
   text-decoration: none;
 }
+
 
