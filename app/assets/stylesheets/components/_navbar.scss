@@ -1,7 +1,7 @@
 .navbar-lewagon {
   display: flex;
-  position: absolute;
-  top: 0px;
+  // position: absolute;
+  // top: 0px;
   width: 100vw;
   justify-content: space-between;
   background-image: url(image_path('votobooth-bg-green.png'));
@@ -21,6 +21,8 @@
 
 .navbar-fixed {
   background-image: none;
+  position: absolute;
+  top: 0px;
 }
 
 
