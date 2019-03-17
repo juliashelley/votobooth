@@ -1,15 +1,19 @@
-  <div class="home-banner green-background election-home-banner">
-    <div class="home-banner-content">
-      <h4>ELECTION</h4>
-      <h1><%= @election.name %></h1>
-      <div class="election-time-left">
-        <p><%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
-        <h6>POLLS CLOSE</h6>
-      </div>
-      <div class="btn-small-white-no-border">
-        <%= link_to 'View candidates', election_candidatures_path(@election)%>
+  <div class="green-background ">
+
+    <div class="home-banner election-home-banner">
+      <div class="page-container">
+        <h4>ELECTION</h4>
+        <h1><%= @election.name %></h1>
+        <div class="election-time-left">
+          <p><%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
+          <h6>POLLS CLOSE</h6>
+        </div>
+        <div class="btn-small-white-no-border">
+          <%= link_to 'View candidates', election_candidatures_path(@election)%>
+        </div>
       </div>
     </div>
+
   </div>
 
   <div class="page-container election-details-container">
@@ -30,7 +34,7 @@
     </div>
 
 
-<!--     <%# if @election.user == current_user %> -->
+    <% if @election.user == current_user %>
 
       <div class="election-home-footer">
         <div class="page-links">
@@ -45,9 +49,15 @@
           </div>
 
         </div>
+
+    <% else %>
+
+        <div class="btn-large-green-new" id="candidates-btn">
+          <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+        </div>
       </div>
 
- <!--    <%# end %> -->
+    <% end %>
 
 
   </div>

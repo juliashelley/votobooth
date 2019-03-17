@@ -19,6 +19,11 @@
   }
 }
 
+// .election-home-details {
+
+//   height: 100%;
+// }
+
 
 .election-time-left {
   margin-top: 20px;
@@ -28,6 +33,11 @@
   font-size: .75em;
 }
 
-.election-home-details {
-  margin-bottom: 55px;
+
+.election-details-container {
+  margin-bottom: 4rem;
+  margin-top: 3.25rem;
+  #candidates-btn {
+    margin-top: 2rem;
+  }
 }
