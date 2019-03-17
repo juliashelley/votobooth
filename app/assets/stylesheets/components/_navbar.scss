@@ -9,6 +9,12 @@
   }
 }
 
+
+.navbar {
+  padding: 0.5rem 2rem;
+}
+
+
 .navbar-fixed {
   background-image: none;
 }
@@ -38,3 +44,28 @@
     margin-right:-10px;
   }
 }
+
+.navbar-light .navbar-toggler-icon {
+    background-image: none;
+}
+
+
+.navbar-light .navbar-toggler {
+    opacity: 1 !important;
+    color: rgb(0, 0, 0);
+    border-color: rgb(0, 0, 0);
+    padding: 0px;
+}
+
+
+.navbar-toggler-icon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+#hamburger-menu {
+  font-size: 1.25em;
+}
+
+
