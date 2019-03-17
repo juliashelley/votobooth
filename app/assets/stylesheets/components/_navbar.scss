@@ -1,4 +1,8 @@
 .navbar-lewagon {
+  display: flex;
+  position: absolute;
+  top: 0px;
+  width: 100vw;
   justify-content: space-between;
   background-image: url(image_path('votobooth-bg-green.png'));
 
@@ -66,6 +70,10 @@
 
 #hamburger-menu {
   font-size: 1.25em;
+}
+
+.nav-item a {
+  color: white !important;
 }
 
 
