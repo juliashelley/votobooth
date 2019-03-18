@@ -52,6 +52,11 @@ class CandidaturesController < ApplicationController
     redirect_to election_path(@election.id)
   end
 
+  def approval
+    @election = Election.find(params[:election_id])
+    @candidates = @election.candidatures
+  end
+
   private
 
   def candidature_params

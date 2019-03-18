@@ -33,12 +33,15 @@
              <%= election.voting_start_date.strftime("%a %e %b %Y, %H:%M") %> - <%= election.voting_end_date.strftime("%a %e %b %Y, %H:%M") %></p>
            <p>For <%=election.eligible_voters.count%> voters</p>
          </div>
-         <div class="election-card-body-candidates">
-          <div class="number-badge">
-            <h4><%= election.candidatures.count %></h4>
+        <%= link_to election_approval_path(election) do %>
+          <div class="election-card-body-candidates">
+            <div class="number-badge">
+              <h4><%= election.pending_candidates.count %></h4>
+            </div>
+            <p> <%= "candidate".pluralize(election.pending_candidates.count)%> to review</p>
           </div>
-          <p> <%= "candidate".pluralize(election.candidatures.count)%> to review</p>
-        </div>
+        <% end %>
+
         <div class="election-card-status">
           <div class="election-card-status-section">
             <h4 class="heading-regular-gray-thin"><%= election.total_votes %></h4>
@@ -48,9 +51,9 @@
           </div>
           <div class="election-card-status-section">
             <h4 class="heading-regular-gray-thin">
-              <%= election.candidatures.count%>
+              <%= election.approved_candidates.count%>
             </h4>
-            <p><%= "candidate".pluralize(election.candidatures.count)%></p>
+            <p>candidates</p>
           </div>
           <div class="election-card-status-section">
             <h6><%= election.set_time_remaining[0] %> hours, <%= election.set_time_remaining[1] %> mins</h6>

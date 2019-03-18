@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.string "picture"
     t.string "name"
     t.string "video_url"
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

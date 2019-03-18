@@ -22,7 +22,6 @@ class Election < ApplicationRecord
     total_votes
   end
 
-
   def election_status
     if Time.now < voting_start_date
       "Polls not yet open"
@@ -31,6 +30,18 @@ class Election < ApplicationRecord
     else
       "Election live"
     end
+  end
+
+  def approved_candidates
+    self.candidatures.where(status: "approved")
+  end
+
+  def pending_candidates
+    self.candidatures.where(status: "pending")
+  end
+
+  def denied_candidates
+    self.candidatures.where(status: "denied")
   end
 
   private
