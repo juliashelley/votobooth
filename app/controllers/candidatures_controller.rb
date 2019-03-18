@@ -1,7 +1,7 @@
 class CandidaturesController < ApplicationController
   def index
     @election = Election.find(params[:election_id])
-    @candidatures = Candidature.where(election_id: @election.id)
+    @candidatures = @election.approved_candidates
   end
 
   def show
