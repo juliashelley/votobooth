@@ -2,12 +2,21 @@
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <style>
-      /* Email styles need to be inline */
+    <style type="text/css" media="screen">
+      body {
+        background-color: rgb(252,252,252);
+      }
+      p { font-family: Arial; font-size: 20px;}
+      ul { list-style: none; }
+      .email-body { margin: auto; padding: 30px; background-color: rgb(252,252,252); height: 70vh; width: 70vh; }
+      .btn-large-green-new { color: white; background-color: #0CCA4A; border-radius: 5px; padding: 15px 15px; text-align: center; font-weight: 400; font-size: .75em; width: 100%; text-decoration:
+        a { color: white !important; font-family: Arial;}
     </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="email-body">
+      <%= yield %>
+    </div>
   </body>
 </html>

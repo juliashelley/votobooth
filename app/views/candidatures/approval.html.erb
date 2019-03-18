@@ -5,9 +5,8 @@
     <h2 class="heading-medium-gray-bold">Pending Candidates</h2>
   </div>
 
+  <% if @candidates%>
 
-
-  <% if @candidatures%>
 
     <% @candidates.each do |candidate| %>
       <div class="candidate-card">

@@ -9,5 +9,4 @@ class EligibleVotersController < ApplicationController
     @eligible_voter.destroy
     redirect_to new_election_eligible_voter_path(@election.id)
   end
-
 end

@@ -17,7 +17,7 @@ class Election < ApplicationRecord
     total_votes = 0
     @candidates = self.candidatures
     @candidates.each do |candidate|
-      candidate.votes
+      total_votes += candidate.votes.count
     end
     total_votes
   end
@@ -30,6 +30,20 @@ class Election < ApplicationRecord
     else
       "Election live"
     end
+  end
+
+  def winner
+    winner = self.candidatures.first
+    self.candidatures.each do |candidate|
+      if candidate.total_votes > winner.total_votes
+        winner = candidate
+      end
+    end
+    winner
+  end
+
+  def turnout
+    turnout =(self.total_votes.to_f / self.eligible_voters.count.to_f) * 100
   end
 
   def approved_candidates
