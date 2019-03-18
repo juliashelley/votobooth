@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <title>Make your voice heard!</title>
 </head>
 <body>
@@ -15,6 +16,6 @@
   </ul>
   <br>
   <%= link_to 'Reset your password', new_user_password_url %>
-  <p>If you think you can make a bigger influence by running in this election, press the create candidacy.</p>
+  <p>If you think you can make a bigger influence by running in this election, you can <%= link_to 'become a candidate!', new_election_candidature_url(@election), class: "btn-large-green-new" %></p>
 </body>
 </html>
