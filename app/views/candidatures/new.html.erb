@@ -1,10 +1,11 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
-      <div class="form-election-new">
-        <h2>Become a candidate for <%= @election.name %></h2>
-        <%= render 'form1' %>
-      </div>
-    </div>
+<div class="candidature-new-banner">
+  <div class="page-container">
+    <h2 class="heading-medium-white-bold">Become a candidate </h2>
+    <h6>for <%= @election.name %></h6>
+
   </div>
+</div>
+
+<div class="form-election-new page-container">
+  <%= render 'form1' %>
 </div>
