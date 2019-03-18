@@ -3,7 +3,7 @@
   <div class="input-field">
     <%= f.input :name, label: 'Name your election', prompt: 'Type name here' %>
   </div>
-  <div class="input-field">
+  <div class="input-field" id="long-input">
     <%= f.input :description, label: 'Write a description', prompt: 'Let voters know what this election is all about' %>
   </div>
 
@@ -14,9 +14,9 @@
   <div class="input-field">
     <%= f.input :voting_end_date, as: :string, label: 'When do the polls close?', input_html: {class: "datepicker"} %>
   </div>
-  <div class="input-field">
-    <%= f.input :campaign_close_date, as: :string, label: 'When is the last day for candidates to submit their manifesto for this election?', input_html: {class: "datepicker"} %>
+
+  <div class="btn-large-green-new">
+    <%= f.submit "Create Election"%>
   </div>
-  <%= f.submit "Create Election", class: "btn-large-green" %>
 <% end %>
 
