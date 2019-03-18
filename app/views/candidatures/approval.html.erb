@@ -1,0 +1,62 @@
+<div class="page-container">
+
+  <div class="approval-page-heading">
+    <h4 class="heading-regular-gray-thin"><%= @election.name %></h4>
+    <h2 class="heading-medium-gray-bold">Pending Candidates</h2>
+  </div>
+
+
+
+  <% if @candidatures%>
+
+    <% @candidates.each do |candidate| %>
+      <div class="candidate-card">
+        <hr>
+        <div class="candidate-card-heading">
+
+          <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
+          <div>
+            <% if candidate.picture.url.nil? %>
+              <%= image_tag "penguin.jpg", class: "avatar-large"%>
+            <% else %>
+              <%= image_tag candidate.picture.url, class: "avatar-large" %>
+            <% end %>
+          </div>
+        </div>
+        <p><%= candidate.tagline %></p>
+
+        <div class="candidate-card-links-container">
+          <div class="candidate-card-links">
+            <div class="candidate-card-link left-link">
+              <%= link_to 'Deny', election_candidature_deny_path(@election, candidate), method: :put %>
+            </div>
+            <div class="candidate-card-link right-link">
+              <%= link_to 'Accept', election_candidature_accept_path(@election, candidate), method: :put %>
+            </div>
+          </div>
+          <div class="btn-plain text-center">
+            <%= link_to 'View full profile', candidature_path(candidate)%>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+  <% else %>
+
+    <p>There are no candidates to review.</p>
+
+  <% end %>
+
+
+  <div class="links-footer">
+    <div class="candidate-card-links">
+      <div class="candidate-card-link left-link">
+        <%= link_to 'Manage Elections', dashboard_path %>
+      </div>
+      <div class="candidate-card-link right-link">
+        <%= link_to 'Add Candidates', new_election_candidature_path(@election) %>
+      </div>
+    </div>
+  </div>
+</div>
+

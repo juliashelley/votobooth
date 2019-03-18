@@ -6,9 +6,12 @@ Rails.application.routes.draw do
 
   resources :elections do
     resources :eligible_voters, only: [:index, :new, :create]
-    resources :candidatures, only: [:index, :new, :create]
     resources :results, only: [:index]
-
+    resources :candidatures, only: [:index, :new, :create] do
+      put 'deny', to: 'candidatures#deny', as: :deny
+      put 'accept', to: 'candidatures#accept', as: :accept
+    end
+    get 'approval', to: 'candidatures#approval', as: :approval
   end
 
   resources :candidatures, only: [] do
