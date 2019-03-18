@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Votobooth | Organize, Run, and Vote in an election</title>
+    <script src="http://d3js.org/d3.v3.min.js" language="JavaScript"></script>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'votobooth-logo.png' %>
     <%= action_cable_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
   </head>
   <body>
 
