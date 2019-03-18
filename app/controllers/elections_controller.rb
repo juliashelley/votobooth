@@ -53,6 +53,8 @@ require 'securerandom'
         user = User.new(email: email, password: password)
         user.save
         UserMailer.with(user: user).eligible_email(user, election, password).deliver_now
+      else
+        UserMailer.with(user: user).existing_voter(user, election).deliver_now
       end
         eligible_voters = EligibleVoter.new(user_id: user.id, election_id: election.id)
         eligible_voters.save
