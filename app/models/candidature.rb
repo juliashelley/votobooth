@@ -5,8 +5,11 @@ class Candidature < ApplicationRecord
   validates :name, presence: true
   mount_uploader :picture, PhotoUploader
   validates :status, inclusion: { in: ["approved", "pending", "denied"] }
-  # preferred way of making background picture dynamic
-  # def picture_URL
-  #   picture.url || "penguin.jpg"
-  # end
+
+  def total_votes
+    self.votes.count
+  end
+
+
+ 
 end

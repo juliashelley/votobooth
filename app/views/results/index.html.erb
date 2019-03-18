@@ -1,0 +1,518 @@
+<div class="page-container" >
+  <h4 class="heading-medium-gray-bold-smaller-margin">Results of <%= @election.name%>:</h4>
+  <div class="winner-card">
+    <h4 class="heading-medium-gray-thin-smaller-margin">The winner is...</h4>
+    <h5><%= @winner.name %></h5>
+  </div>
+
+<div class="election">
+    <% if @winner.picture.url.nil? %>
+    <%= image_tag "penguin.jpg", gravity: :center, width: 278.75, height: 300, crop: :fill %>
+     <% else %>
+      <%=  cl_image_path @winner.picture,width: 278.75, height: 300, crop: :fill, gravity: :center %>
+    <% end %>
+<hr>
+<h4 class="heading-medium-gray-thin-smaller-margin">Election statistics</h4>
+
+<div class="election-statistics">
+<div id="thermo"></div>
+<p class="total-votes-text"><%= @election.total_votes %></p>
+
+  <style> .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; } </style>
+  <div class="Column"><svg id="fillgauge1" width="97%" height="100" onclick="gauge1.update(NewValue());"></svg></div>
+
+<script>
+  var width = 63,
+    height = 108,
+    maxTemp = 60,
+    minTemp = 42,
+    currentTemp = 19.2;
+
+var bottomY = height - 5,
+    topY = 5,
+    bulbRadius = 20,
+    tubeWidth = 21.5,
+    tubeBorderWidth = 1,
+    mercuryColor = "#40C9A2",
+    innerBulbColor = "#40C9A2",
+    tubeBorderColor = "#999999";
+
+var bulb_cy = bottomY - bulbRadius,
+    bulb_cx = width/2,
+    top_cy = topY + tubeWidth/2;
+
+
+var svg = d3.select("#thermo")
+  .append("svg")
+  .attr("width", width)
+  .attr("height", height);
+
+
+var defs = svg.append("defs");
+
+// Define the radial gradient for the bulb fill colour
+var bulbGradient = defs.append("radialGradient")
+  .attr("id", "bulbGradient")
+  .attr("cx", "50%")
+  .attr("cy", "50%")
+  .attr("r", "50%")
+  .attr("fx", "50%")
+  .attr("fy", "50%");
+
+bulbGradient.append("stop")
+  .attr("offset", "0%")
+  .style("stop-color", innerBulbColor);
+
+bulbGradient.append("stop")
+  .attr("offset", "90%")
+  .style("stop-color", mercuryColor);
+
+
+
+
+// Circle element for rounded tube top
+svg.append("circle")
+  .attr("r", tubeWidth/2)
+  .attr("cx", width/2)
+  .attr("cy", top_cy)
+  .style("fill", "#FFFFFF")
+  .style("stroke", tubeBorderColor)
+  .style("stroke-width", tubeBorderWidth + "px");
+
+
+// Rect element for tube
+svg.append("rect")
+  .attr("x", width/2 - tubeWidth/2)
+  .attr("y", top_cy)
+  .attr("height", bulb_cy - top_cy)
+  .attr("width", tubeWidth)
+  .style("shape-rendering", "crispEdges")
+  .style("fill", "#FFFFFF")
+  .style("stroke", tubeBorderColor)
+  .style("stroke-width", tubeBorderWidth + "px");
+
+
+// White fill for rounded tube top circle element
+// to hide the border at the top of the tube rect element
+svg.append("circle")
+  .attr("r", tubeWidth/2 - tubeBorderWidth/2)
+  .attr("cx", width/2)
+  .attr("cy", top_cy)
+  .style("fill", "#FFFFFF")
+  .style("stroke", "none")
+
+
+
+// Main bulb of thermometer (empty), white fill
+svg.append("circle")
+  .attr("r", bulbRadius)
+  .attr("cx", bulb_cx)
+  .attr("cy", bulb_cy)
+  .style("fill", "#FFFFFF")
+  .style("stroke", tubeBorderColor)
+  .style("stroke-width", tubeBorderWidth + "px");
+
+
+// Rect element for tube fill colour
+svg.append("rect")
+  .attr("x", width/2 - (tubeWidth - tubeBorderWidth)/2)
+  .attr("y", top_cy)
+  .attr("height", bulb_cy - top_cy)
+  .attr("width", tubeWidth - tubeBorderWidth)
+  .style("shape-rendering", "crispEdges")
+  .style("fill", "#FFFFFF")
+  .style("stroke", "none");
+
+
+// Scale step size
+var step = 5;
+
+// Determine a suitable range of the temperature scale
+var domain = [
+  step * Math.floor(minTemp / step),
+  step * Math.ceil(maxTemp / step)
+  ];
+
+if (minTemp - domain[0] < 0.66 * step)
+  domain[0] -= step;
+
+
+
+// D3 scale object
+var scale = d3.scale.linear()
+  .range([bulb_cy - bulbRadius/2 - 8.5, top_cy])
+  .domain(domain);
+
+
+// Max and min temperature lines
+[minTemp, maxTemp].forEach(function(t) {
+
+  var isMax = (t == maxTemp),
+      label = (isMax ? "" : ""),
+      textCol = (isMax ? "#6E8387" : "#6E8387"),
+      textOffset = (isMax ? -4 : 4);
+
+  svg.append("line")
+    .attr("id", label + "Line")
+    .attr("x1", width/2 - tubeWidth/2)
+    .attr("x2", width/2 + tubeWidth/2 + 12)
+    .attr("y1", scale(t))
+    .attr("y2", scale(t))
+    .style("stroke", tubeBorderColor)
+    .style("stroke-width", "0px")
+    .style("shape-rendering", "crispEdges");
+
+  svg.append("text")
+    .attr("x", width/2 + tubeWidth/2 + 2)
+    .attr("y", scale(t) + textOffset)
+    .attr("dy", isMax ? null : "0.75em")
+    .text(label)
+    .style("fill", textCol)
+    .style("font-size", "8px")
+
+});
+
+
+var tubeFill_bottom = bulb_cy,
+    tubeFill_top = scale(minTemp);
+
+// Rect element for the red mercury column
+svg.append("rect")
+  .attr("x", width/2 - (tubeWidth - 10)/2)
+  .attr("y", tubeFill_top)
+  .attr("width", tubeWidth - 10)
+  .attr("height", tubeFill_bottom - tubeFill_top)
+  .style("shape-rendering", "crispEdges")
+  .style("fill", mercuryColor)
+
+
+// Main thermometer bulb fill
+svg.append("circle")
+  .attr("r", bulbRadius - 6)
+  .attr("cx", bulb_cx)
+  .attr("cy", bulb_cy)
+  .style("fill", "url(#bulbGradient)")
+  .style("stroke", mercuryColor)
+  .style("stroke-width", "2px");
+
+
+// Values to use along the scale ticks up the thermometer
+var tickValues = d3.range((domain[1] - domain[0])/step + 1).map(function(v) { return domain[0] + v * step; });
+
+
+// D3 axis object for the temperature scale
+var axis = d3.svg.axis()
+  .scale(scale)
+  .innerTickSize(7)
+  .outerTickSize(0)
+  .tickValues(tickValues)
+  .orient("left");
+
+// Add the axis to the image
+var svgAxis = svg.append("g")
+  .attr("id", "tempScale")
+  .attr("transform", "translate(" + (width/2 - tubeWidth/2) + ",0)")
+  .call(axis);
+
+// Format text labels
+svgAxis.selectAll(".tick text")
+    .style("fill", "#777777")
+    .style("font-size", "8px");
+
+// Set main axis line to no stroke or fill
+svgAxis.select("path")
+  .style("stroke", "none")
+  .style("fill", "none")
+
+// Set the style of the ticks
+svgAxis.selectAll(".tick line")
+  .style("stroke", tubeBorderColor)
+  .style("shape-rendering", "crispEdges")
+  .style("stroke-width", "1px");
+
+
+
+</script>
+
+
+<script>
+  function liquidFillGaugeDefaultSettings(){
+    return {
+        minValue: 0, // The gauge minimum value.
+        maxValue: 100, // The gauge maximum value.
+        circleThickness: 0.05, // The outer circle thickness as a percentage of it's radius.
+        circleFillGap: 0.05, // The size of the gap between the outer circle and wave circle as a percentage of the outer circles radius.
+        circleColor: "#40C9A2", // The color of the outer circle.
+        waveHeight: 0.05, // The wave height as a percentage of the radius of the wave circle.
+        waveCount: 1, // The number of full waves per width of the wave circle.
+        waveRiseTime: 1000, // The amount of time in milliseconds for the wave to rise from 0 to it's final height.
+        waveAnimateTime: 18000, // The amount of time in milliseconds for a full wave to enter the wave circle.
+        waveRise: true, // Control if the wave should rise from 0 to it's full height, or start at it's full height.
+        waveHeightScaling: true, // Controls wave size scaling at low and high fill percentages. When true, wave height reaches it's maximum at 50% fill, and minimum at 0% and 100% fill. This helps to prevent the wave from making the wave circle from appear totally full or empty when near it's minimum or maximum fill.
+        waveAnimate: true, // Controls if the wave scrolls or is static.
+        waveColor: "#40C9A2", // The color of the fill wave.
+        waveOffset: 0, // The amount to initially offset the wave. 0 = no offset. 1 = offset of one full wave.
+        textVertPosition: .5, // The height at which to display the percentage text withing the wave circle. 0 = bottom, 1 = top.
+        textSize: 1, // The relative height of the text to display in the wave circle. 1 = 50%
+        valueCountUp: true, // If true, the displayed value counts up from 0 to it's final value upon loading. If false, the final value is displayed.
+        displayPercent: true, // If true, a % symbol is displayed after the value.
+        textColor: "#40C9A2", // The color of the value text when the wave does not overlap it.
+        waveTextColor: "#6E8387" // The color of the value text when the wave overlaps it.
+    };
+}
+
+function loadLiquidFillGauge(elementId, value, config) {
+    if(config == null) config = liquidFillGaugeDefaultSettings();
+
+    var gauge = d3.select("#" + elementId);
+    var radius = Math.min(parseInt(gauge.style("width")), parseInt(gauge.style("height")))/2;
+    var locationX = parseInt(gauge.style("width"))/2 - radius;
+    var locationY = parseInt(gauge.style("height"))/2 - radius;
+    var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
+
+    var waveHeightScale;
+    if(config.waveHeightScaling){
+        waveHeightScale = d3.scale.linear()
+            .range([0,config.waveHeight,0])
+            .domain([0,50,100]);
+    } else {
+        waveHeightScale = d3.scale.linear()
+            .range([config.waveHeight,config.waveHeight])
+            .domain([0,100]);
+    }
+
+    var textPixels = (config.textSize*radius/2);
+    var textFinalValue = parseFloat(value).toFixed(2);
+    var textStartValue = config.valueCountUp?config.minValue:textFinalValue;
+    var percentText = config.displayPercent?"%":"";
+    var circleThickness = config.circleThickness * radius;
+    var circleFillGap = config.circleFillGap * radius;
+    var fillCircleMargin = circleThickness + circleFillGap;
+    var fillCircleRadius = radius - fillCircleMargin;
+    var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
+
+    var waveLength = fillCircleRadius*2/config.waveCount;
+    var waveClipCount = 1+config.waveCount;
+    var waveClipWidth = waveLength*waveClipCount;
+
+    // Rounding functions so that the correct number of decimal places is always displayed as the value counts up.
+    var textRounder = function(value){ return Math.round(value); };
+    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+        textRounder = function(value){ return parseFloat(value).toFixed(1); };
+    }
+    if(parseFloat(textFinalValue) != parseFloat(textRounder(textFinalValue))){
+        textRounder = function(value){ return parseFloat(value).toFixed(2); };
+    }
+
+    // Data for building the clip wave area.
+    var data = [];
+    for(var i = 0; i <= 40*waveClipCount; i++){
+        data.push({x: i/(40*waveClipCount), y: (i/(40))});
+    }
+
+    // Scales for drawing the outer circle.
+    var gaugeCircleX = d3.scale.linear().range([0,2*Math.PI]).domain([0,1]);
+    var gaugeCircleY = d3.scale.linear().range([0,radius]).domain([0,radius]);
+
+    // Scales for controlling the size of the clipping path.
+    var waveScaleX = d3.scale.linear().range([0,waveClipWidth]).domain([0,1]);
+    var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
+
+    // Scales for controlling the position of the clipping path.
+    var waveRiseScale = d3.scale.linear()
+        // The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
+        // such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
+        // circle at 100%.
+        .range([(fillCircleMargin+fillCircleRadius*2+waveHeight),(fillCircleMargin-waveHeight)])
+        .domain([0,1]);
+    var waveAnimateScale = d3.scale.linear()
+        .range([0, waveClipWidth-fillCircleRadius*2]) // Push the clip area one full wave then snap back.
+        .domain([0,1]);
+
+    // Scale for controlling the position of the text within the gauge.
+    var textRiseScaleY = d3.scale.linear()
+        .range([fillCircleMargin+fillCircleRadius*2,(fillCircleMargin+textPixels*0.7)])
+        .domain([0,1]);
+
+    // Center the gauge within the parent SVG.
+    var gaugeGroup = gauge.append("g")
+        .attr('transform','translate('+locationX+','+locationY+')');
+
+    // Draw the outer circle.
+    var gaugeCircleArc = d3.svg.arc()
+        .startAngle(gaugeCircleX(0))
+        .endAngle(gaugeCircleX(1))
+        .outerRadius(gaugeCircleY(radius))
+        .innerRadius(gaugeCircleY(radius-circleThickness));
+    gaugeGroup.append("path")
+        .attr("d", gaugeCircleArc)
+        .style("fill", config.circleColor)
+        .attr('transform','translate('+radius+','+radius+')');
+
+    // Text where the wave does not overlap.
+    var text1 = gaugeGroup.append("text")
+        .text(textRounder(textStartValue) + percentText)
+        // .attr("class", "liquidFillGaugeText")
+        .attr("text-anchor", "middle")
+        .attr("font-size", textPixels + "px")
+        .style("fill", config.textColor)
+        .attr('transform','translate('+radius+','+textRiseScaleY(config.textVertPosition)+')');
+
+    // The clipping wave area.
+    var clipArea = d3.svg.area()
+        .x(function(d) { return waveScaleX(d.x); } )
+        .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+        .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+    var waveGroup = gaugeGroup.append("defs")
+        .append("clipPath")
+        .attr("id", "clipWave" + elementId);
+    var wave = waveGroup.append("path")
+        .datum(data)
+        .attr("d", clipArea)
+        .attr("T", 0);
+
+    // The inner circle with the clipping wave attached.
+    var fillCircleGroup = gaugeGroup.append("g")
+        .attr("clip-path", "url(#clipWave" + elementId + ")");
+    fillCircleGroup.append("circle")
+        .attr("cx", radius)
+        .attr("cy", radius)
+        .attr("r", fillCircleRadius)
+        .style("fill", config.waveColor);
+
+    // Text where the wave does overlap.
+    var text2 = fillCircleGroup.append("text")
+        .text(textRounder(textStartValue) + percentText)
+        .attr("class", "liquidFillGaugeText")
+        .attr("text-anchor", "middle")
+        .attr("font-size", textPixels + "px")
+        .style("fill", config.waveTextColor)
+        .attr('transform','translate('+radius+','+textRiseScaleY(config.textVertPosition)+')');
+
+    // Make the value count up.
+    if(config.valueCountUp){
+        var textTween = function(){
+            var i = d3.interpolate(this.textContent, textFinalValue);
+            return function(t) { this.textContent = textRounder(i(t)) + percentText; }
+        };
+        text1.transition()
+            .duration(config.waveRiseTime)
+            .tween("text", textTween);
+        text2.transition()
+            .duration(config.waveRiseTime)
+            .tween("text", textTween);
+    }
+
+    // Make the wave rise. wave and waveGroup are separate so that horizontal and vertical movement can be controlled independently.
+    var waveGroupXPosition = fillCircleMargin+fillCircleRadius*2-waveClipWidth;
+    if(config.waveRise){
+        waveGroup.attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(0)+')')
+            .transition()
+            .duration(config.waveRiseTime)
+            .attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(fillPercent)+')')
+            .each("start", function(){ wave.attr('transform','translate(1,0)'); }); // This transform is necessary to get the clip wave positioned correctly when waveRise=true and waveAnimate=false. The wave will not position correctly without this, but it's not clear why this is actually necessary.
+    } else {
+        waveGroup.attr('transform','translate('+waveGroupXPosition+','+waveRiseScale(fillPercent)+')');
+    }
+
+    if(config.waveAnimate) animateWave();
+
+    function animateWave() {
+        wave.attr('transform','translate('+waveAnimateScale(wave.attr('T'))+',0)');
+        wave.transition()
+            .duration(config.waveAnimateTime * (1-wave.attr('T')))
+            .ease('linear')
+            .attr('transform','translate('+waveAnimateScale(1)+',0)')
+            .attr('T', 1)
+            .each('end', function(){
+                wave.attr('T', 0);
+                animateWave(config.waveAnimateTime);
+            });
+    }
+
+    function GaugeUpdater(){
+        this.update = function(value){
+            var newFinalValue = parseFloat(value).toFixed(2);
+            var textRounderUpdater = function(value){ return Math.round(value); };
+            if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+                textRounderUpdater = function(value){ return parseFloat(value).toFixed(1); };
+            }
+            if(parseFloat(newFinalValue) != parseFloat(textRounderUpdater(newFinalValue))){
+                textRounderUpdater = function(value){ return parseFloat(value).toFixed(2); };
+            }
+
+            var textTween = function(){
+                var i = d3.interpolate(this.textContent, parseFloat(value).toFixed(2));
+                return function(t) { this.textContent = textRounderUpdater(i(t)) + percentText; }
+            };
+
+            text1.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+            text2.transition()
+                .duration(config.waveRiseTime)
+                .tween("text", textTween);
+
+            var fillPercent = Math.max(config.minValue, Math.min(config.maxValue, value))/config.maxValue;
+            var waveHeight = fillCircleRadius*waveHeightScale(fillPercent*100);
+            var waveRiseScale = d3.scale.linear()
+                // The clipping area size is the height of the fill circle + the wave height, so we position the clip wave
+                // such that the it will overlap the fill circle at all when at 0%, and will totally cover the fill
+                // circle at 100%.
+                .range([(fillCircleMargin+fillCircleRadius*2+waveHeight),(fillCircleMargin-waveHeight)])
+                .domain([0,1]);
+            var newHeight = waveRiseScale(fillPercent);
+            var waveScaleX = d3.scale.linear().range([0,waveClipWidth]).domain([0,1]);
+            var waveScaleY = d3.scale.linear().range([0,waveHeight]).domain([0,1]);
+            var newClipArea;
+            if(config.waveHeightScaling){
+                newClipArea = d3.svg.area()
+                    .x(function(d) { return waveScaleX(d.x); } )
+                    .y0(function(d) { return waveScaleY(Math.sin(Math.PI*2*config.waveOffset*-1 + Math.PI*2*(1-config.waveCount) + d.y*2*Math.PI));} )
+                    .y1(function(d) { return (fillCircleRadius*2 + waveHeight); } );
+            } else {
+                newClipArea = clipArea;
+            }
+
+            var newWavePosition = config.waveAnimate?waveAnimateScale(1):0;
+            wave.transition()
+                .duration(0)
+                .transition()
+                .duration(config.waveAnimate?(config.waveAnimateTime * (1-wave.attr('T'))):(config.waveRiseTime))
+                .ease('linear')
+                .attr('d', newClipArea)
+                .attr('transform','translate('+newWavePosition+',0)')
+                .attr('T','1')
+                .each("end", function(){
+                    if(config.waveAnimate){
+                        wave.attr('transform','translate('+waveAnimateScale(0)+',0)');
+                        animateWave(config.waveAnimateTime);
+                    }
+                });
+            waveGroup.transition()
+                .duration(config.waveRiseTime)
+                .attr('transform','translate('+waveGroupXPosition+','+newHeight+')')
+        }
+    }
+
+    return new GaugeUpdater();
+}
+
+
+  var gauge1 = loadLiquidFillGauge("fillgauge1", <%=@election.turnout%>);
+  var config1 = liquidFillGaugeDefaultSettings();
+  // config1.circleColor = "#0CCA4A";
+  //   config1.textColor = "#0CCA4A";
+  //   config1.waveTextColor = "#0CCA4A";
+  //   config1.waveColor = "#0CCA4A";
+    // config1.circleThickness = 0.2;
+    // config1.textVertPosition = 0.2;
+    // config1.waveAnimateTime = 1000;
+
+</script>
+  <p><%= @winner.name %>'s total votes </p>
+  <p>Participants</p>
+  <p>Election turnout</p>
+</div>
+</div>
+</div>
