@@ -49,11 +49,13 @@ require 'securerandom'
     email_array.each do |email|
       user = User.find_by(email: email)
       if user.nil?
-        user = User.new(email: email, password: SecureRandom.hex(8))
+        password = SecureRandom.hex(8)
+        user = User.new(email: email, password: password)
+        user.save
+        UserMailer.with(user: user).eligible_email(user, election, password).deliver_now
       end
-      user.save
-      eligible_voters = EligibleVoter.new(user_id: user.id, election_id: election.id)
-      eligible_voters.save
+        eligible_voters = EligibleVoter.new(user_id: user.id, election_id: election.id)
+        eligible_voters.save
     end
   end
 
