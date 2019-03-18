@@ -1,18 +1,8 @@
 .election-home-banner {
-  height: 68vh;
-  // margin-top: 80pxp
-  display: flex;
   margin-bottom: 70px;
-  align-items: center;
   h4 {
     font-size: 1.15em;
   }
-  // h2 {
-  //   font-size: 2.5em;
-  //   font-weight: 700;
-  //   line-height: 1.5em;
-  //   letter-spacing: 1px;
-  // }
   h6 {
     color: white;
     font-weight: 700;
@@ -29,6 +19,11 @@
   }
 }
 
+// .election-home-details {
+
+//   height: 100%;
+// }
+
 
 .election-time-left {
   margin-top: 20px;
@@ -38,6 +33,11 @@
   font-size: .75em;
 }
 
-.election-home-details {
-  margin-bottom: 55px;
+
+.election-details-container {
+  margin-bottom: 4rem;
+  margin-top: 3.25rem;
+  #candidates-btn {
+    margin-top: 2rem;
+  }
 }

@@ -1,8 +1,7 @@
+  <div class="green-background ">
 
-  <div class="page-container">
-
-    <div class="election-home-banner">
-      <div class="banner-content">
+    <div class="home-banner election-home-banner">
+      <div class="page-container">
         <h4>ELECTION</h4>
         <h1><%= @election.name %></h1>
         <div class="election-time-left">
@@ -14,6 +13,10 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <div class="page-container election-details-container">
 
     <div class="election-home-details">
       <h4 class="heading-regular-gray-thin">
@@ -30,20 +33,31 @@
       </p>
     </div>
 
-    <div class="election-home-footer">
-      <div class="page-links">
-        <div class="btn-small-white">
-          <%= link_to 'Edit election', edit_election_path(@election.id)%>
-        </div>
-        <div class="btn-small-white">
-          <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id)%>
-        </div>
-        <div class="btn-small-white">
-          <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+
+    <% if @election.user == current_user %>
+
+      <div class="election-home-footer">
+        <div class="page-links">
+          <div class="btn-small-white">
+            <%= link_to 'Edit election', edit_election_path(@election.id)%>
+          </div>
+          <div class="btn-small-white">
+            <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id)%>
+          </div>
+          <div class="btn-small-white">
+            <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+          </div>
+
         </div>
 
+    <% else %>
+
+        <div class="btn-large-green-new" id="candidates-btn">
+          <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+        </div>
       </div>
-    </div>
+
+    <% end %>
 
 
   </div>
