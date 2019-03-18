@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Make your voice heard!</title>
+</head>
+<body>
+  <h1>Welcome to VotoBooth</h1>
+  <p>Hello, constituent!</p>
+  <p>You have been added to the eligible voters list for <%= @election.name %>.</p>
+  <p>To make your voice heard in this election. Please follow these steps</p>
+  <ul>
+    <li>1.<%= link_to ' Log in here with your email and password.', election_url(@election) %></li>
+    <li>2. Select your candidate and place your vote.</li>
+  </ul>
+  <br>
+  <%= link_to 'Reset your password', new_user_password_url %>
+  <p>If you think you can make a bigger influence by running in this election, press the create candidacy.</p>
+</body>
+</html>
