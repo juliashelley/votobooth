@@ -11,8 +11,4 @@ class Candidature < ApplicationRecord
 
 
 
-  # preferred way of making background picture dynamic
-  # def picture_URL
-  #   picture.url || "penguin.jpg"
-  # end
 end
