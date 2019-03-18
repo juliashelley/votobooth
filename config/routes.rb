@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :elections do
     resources :eligible_voters, only: [:index, :new, :create]
     resources :candidatures, only: [:index, :new, :create]
+    resources :results, only: [:index]
 
   end
 

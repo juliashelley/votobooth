@@ -5,6 +5,12 @@ class Candidature < ApplicationRecord
   validates :name, presence: true
   mount_uploader :picture, PhotoUploader
 
+  def total_votes
+    self.votes.count
+  end
+
+
+
   # preferred way of making background picture dynamic
   # def picture_URL
   #   picture.url || "penguin.jpg"
