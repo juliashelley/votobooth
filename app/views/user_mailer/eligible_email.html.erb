@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Make your voice heard!</title>
+</head>
+<body>
+  <h1>Welcome to VotoBooth</h1>
+  <p>You have been added to the eligible voters list for <%= @election.name %>.</p>
+  <p>If you think you can make a bigger difference by signing up as a candidate you can do that <%= link_to 'here', new_election_candidature_path(@election) %></p>
+</body>
+</html>
