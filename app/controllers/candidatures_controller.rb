@@ -1,7 +1,7 @@
 class CandidaturesController < ApplicationController
   def index
     @election = Election.find(params[:election_id])
-    @candidatures = Candidature.where(election_id: @election.id)
+    @candidatures = @election.approved_candidates
   end
 
   def show
@@ -50,6 +50,33 @@ class CandidaturesController < ApplicationController
     @election = Election.find(@candidature.election_id)
     @candidature.destroy
     redirect_to election_path(@election.id)
+  end
+
+  def approval
+    @election = Election.find(params[:election_id])
+    @candidates = @election.pending_candidates
+  end
+
+  def deny
+    @election = Election.find(params[:election_id])
+    @candidate = Candidature.find(params[:candidature_id])
+    @candidate.status = "denied"
+    if @candidate.save
+      redirect_to election_approval_path(@election)
+    else
+      render :approval
+    end
+  end
+
+  def accept
+    @election = Election.find(params[:election_id])
+    @candidate = Candidature.find(params[:candidature_id])
+    @candidate.status = "approved"
+    if @candidate.save
+      redirect_to election_approval_path(@election)
+    else
+      render :approval
+    end
   end
 
   private
