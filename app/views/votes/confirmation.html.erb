@@ -9,7 +9,7 @@
         <p><%= @election.name %></p>
       </div>
       <div>
-        <%= image_tag "penguin.jpg", class: "avatar-large"%>
+        <%= cl_image_tag @candidature.picture, class: "avatar-large"%>
       </div>
     </div>
     <p><%= @election.description %></p>
@@ -27,5 +27,5 @@
   </div>
 
 </div>
-<%= cl_image_tag @candidature.picture, height: 300, width: 400, crop: :fill %>
+
 

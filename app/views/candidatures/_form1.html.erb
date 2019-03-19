@@ -1,10 +1,13 @@
 
 <%= simple_form_for(@candidature, url: election_candidatures_path) do |f| %>
   <div class="input-field">
-    <%= f.input :name, label: 'Name your candidature', prompt: 'Input name' %>
+    <%= f.input :name, input_html: { class: 'campaign-promise'}, label: 'What is your name', prompt: 'Input name' %>
   </div>
   <div class="input-field">
-    <%= f.input :tagline, label: 'Present your candidature in a few lines', prompt: '' %>
+    <%= f.input :tagline, label: 'State your campaign in a few lines', prompt: '' %>
+  </div>
+   <div class="input-field">
+    <%= f.input :aboutme, label: 'How would you describe yourself?', prompt: 'I am...' %>
   </div>
   <div class="input-field">
     <%= f.input :promise1, label: 'What’s one thing you want to tell your voters?', prompt: 'I promise...' %>
@@ -14,6 +17,9 @@
   </div>
   <div class="input-field">
     <%= f.input :promise3, label: 'Final thought?', prompt: 'We are going to...' %>
+  </div>
+    <div class="input-field">
+    <%= f.input :whyme, label: 'Why vote for me:', prompt: 'I will...' %>
   </div>
   <div class="input-field">
     <%= f.input :picture, input_html: { class: 'hidden'},label_html: { class: 'upload-photo'}, label: 'Upload a photo', prompt: 'Not yet hehe' %>

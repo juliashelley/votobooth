@@ -20,7 +20,7 @@ class CandidaturesController < ApplicationController
   end
 
   def create
-    @candidature = Candidature.new(candidature_params)
+    @candidature = Candidature.create(candidature_params)
     @candidature.user_id = current_user.id
     @election = Election.find(params[:election_id])
     @candidature.election_id = @election.id

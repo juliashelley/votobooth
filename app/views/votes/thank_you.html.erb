@@ -26,7 +26,7 @@
       </div>
 
       <div class="election-card-stats election-card-stats-labels">
-        <p>Votes cast of <%= @election.eligible_voters.count %></p>
+        <p><%= "vote".pluralize(@election.total_votes)%> cast out of <%= @election.eligible_voters.count %> possible votes</p>
         <p>Voting ends
         </p>
       </div>
