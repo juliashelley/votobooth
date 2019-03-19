@@ -1,27 +1,23 @@
-class ElectionPolicy < ApplicationPolicy
+class CandidaturePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
+  def index?
+    return true
+  end
+
   def show?
     true
   end
 
-  def update?
+  def new?
     record.user == user
   end
 
-  def edit?
-    return true
-  end
-
   def create?
-    return true
-  end
-
-  def index?
-    return true
+    record.user == user
   end
 end

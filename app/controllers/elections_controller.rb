@@ -2,7 +2,8 @@ class ElectionsController < ApplicationController
 require 'securerandom'
 
   def index
-    @elections = Election.where(user_id: current_user.id)
+    @election = Election.where(user_id: current_user.id)
+    @elections = policy_scope(@election)
     authorize @election
   end
 
@@ -24,6 +25,7 @@ require 'securerandom'
 
   def edit
     @election = Election.find(params[:id])
+    authorize @election
   end
 
   def update
