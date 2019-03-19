@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
   after_action :verify_authorized, except: [ :home, :index ], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: [ :home, :index ], unless: :skip_pundit?
 
-  #new election
-  #election show
-  #candidate show
-
   # Uncomment when you *really understand* Pundit!
   # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   # def user_not_authorized

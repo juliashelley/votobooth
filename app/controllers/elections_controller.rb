@@ -3,15 +3,18 @@ require 'securerandom'
 
   def index
     @elections = Election.where(user_id: current_user.id)
+    authorize @election
   end
 
   def new
     @election = Election.new
+    authorize @election
   end
 
   def create
     @election = Election.new(election_params)
     @election.user_id = current_user.id
+    authorize @election
     if @election.save
       redirect_to new_election_eligible_voter_path(@election.id)
     else
@@ -26,6 +29,7 @@ require 'securerandom'
   def update
     @election = Election.find(params[:id])
     @election.update(election_params)
+    authorize @election
     if @election.save
       unless election_params[:eligible_voters_string].nil?
         assign_eligible_voters(@election)
@@ -40,6 +44,7 @@ require 'securerandom'
 
   def show
     @election = Election.find(params[:id])
+    authorize @election
   end
 
   private
