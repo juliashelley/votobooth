@@ -8,11 +8,7 @@
   </div>
 
   <div class="input-field">
-    <%= f.input :voting_start_date, as: :string, class: "form-control", label: 'When do the polls open?', input_html: {class: "datepicker"} %>
-  </div>
-
-  <div class="input-field">
-    <%= f.input :voting_end_date, as: :string, label: 'When do the polls close?', input_html: {class: "datepicker"} %>
+    <%= f.input :dates, as: :string, class: "form-control", label: 'When can people vote? (Polls open at 00:01 and close at 23:59)', input_html: {class: "datepicker"} %>
   </div>
 
   <%= f.submit "Create Election", class: "btn-large-green" %>
