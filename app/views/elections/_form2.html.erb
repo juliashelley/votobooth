@@ -1,15 +1,8 @@
 <%= simple_form_for @election, defaults: { input_html: { id: 'eligible-voters-form' } } do |f| %>
   <div class="input-field">
-<<<<<<< HEAD
     <%= f.input :eligible_voters_string, label: 'Who can vote in this election? Input voter email addresses', placeholder: 'Type email addresses here', as: :text, input_html: {rows: 1} %>
   </div>
   <div class="btn-large-green-new">
     <%= f.submit 'Add voters', { input_html: { onclick: 'resetForm()' } } %>
-=======
-    <%= f.input :eligible_voters_string, label: 'Who can vote in this election? Input email addresses of voters separated by a comma.', placeholder: 'Type email addresses here', input_html: {value: ""} %>
-  </div>
-  <div class="input-field">
-    <%= f.submit 'Add voters', class: "btn-large-green", id: "button-add-voters" %>
->>>>>>> master
   </div>
 <% end %>
