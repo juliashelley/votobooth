@@ -143,7 +143,6 @@
 }
 
 .dropdown-menu {
-  left: -25px !important;
   padding: 15px !important;
   li {
     margin-bottom: .5rem;
@@ -194,4 +193,9 @@
 .dropdown .dropdown-toggle {
   color: $dark-grey !important;
 }
+
+
+  .btn-group .btn:focus {
+    box-shadow: 0 0 0 0 transparent;
+  }
 

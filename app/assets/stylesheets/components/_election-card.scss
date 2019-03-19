@@ -124,7 +124,20 @@ p {
 }
 
 
+.dropdown-lg {
+  width: 100%;
+  margin-top: 1.5rem;
+  button {
+    text-align: left;
+  }
+}
 
+.dropdown-lg-menu {
+  width: 100%;
+  .element {
+    text-align: left !important;
+  }
+}
 
 
 

@@ -14,7 +14,7 @@
     <a class="tab" data-toggle="tab" href="#voting">Voting</a>
   </div>
 
-
+<!-- hosting -->
   <div class="tab-content">
     <div id="hosting" class="tab-pane show active">
       <div class="dashboard-card-container">
@@ -30,7 +30,7 @@
           <div class="election-card-body-polling">
            <p>Polling period</p>
            <p id="election-date">
-             <%= election.voting_start_date.strftime("%a %e %b %Y, %H:%M") %> - <%= election.voting_end_date.strftime("%a %e %b %Y, %H:%M") %></p>
+             <%= election.voting_start_date.strftime("%b %e, %l:%M %p") %> - <%= election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
            <p>For <%=election.eligible_voters.count%> voters</p>
          </div>
         <%= link_to election_approval_path(election) do %>
@@ -71,23 +71,26 @@
   </div>
 </div>
 
+<!-- running -->
+
 <div id="running" class="tab-pane fade election">
   <% current_user.candidatures.each do |candidature| %>
-  <div class="card-grid col-xs-12 col-lg-6">
     <div class="election-card-header">
      <h2 class="heading-regular-gray-thin"><%= candidature.election.name %></h2>
    </div>
    <div class="election-card-body-polling">
     <p>Election Date</p>
-    <p><strong><%= candidature.election.voting_start_date %> - <%= candidature.election.voting_end_date %></strong></p>
+    <p><strong><%= candidature.election.voting_start_date.strftime("%b %e, %l:%M %p") %> - <%= candidature.election.voting_end_date.strftime("%b %e, %l:%M %p") %></strong></p>
   </div>
-  <div class="btn-group">
-    <button type="button" class="btn btn-large-white dropdown-toggle" data-toggle="dropdown">
-      Options <span class="caret"></span>
+
+  <div class="btn-group dropdown-lg">
+    <button type="button" class="btn btn-small-white dropdown-toggle" data-toggle="dropdown">
+      Options
+      <span class="caret"></span>
     </button>
 
-    <ul class="dropdown-menu" role="menu">
-      <li class="dropdown-btn ">
+    <ul class="dropdown-menu dropdown-lg-menu" role="menu">
+      <li class="dropdown-btn">
         <div class="element"><%= link_to "Edit candidature", edit_candidature_path(candidature.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %> </div> </li>
       <li class="dropdown-btn">
         <div class="element"><%= link_to "Withdraw from race", candidature_path(candidature.id), method: :delete, data: { confirm: "Do you want to remove #{candidature.name}?" }, html: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></div> </li>
@@ -95,11 +98,13 @@
   </div>
 
 
-  <hr>
-</div>
+
+
 <% end %>
 </div>
 
+
+<!-- voting  -->
 <div id="voting" class="tab-pane fade election">
   <h1>Placeholder - voting </h1>
 </div>
