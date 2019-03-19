@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.string "picture"
     t.string "name"
     t.string "video_url"
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "eligible_voters_string"
+    t.text "eligible_voters_string"
     t.index ["user_id"], name: "index_elections_on_user_id"
   end
 

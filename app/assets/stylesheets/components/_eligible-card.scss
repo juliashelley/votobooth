@@ -1,11 +1,18 @@
 .eligible-card {
   display: flex;
-  padding: 5px 5px;
+  padding: 16px 10px;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
   justify-content: space-between;
   align-items: center;
   p {
     margin: 10px;
+  }
+  h4 {
+    color: $dark-grey;
+    font-size: 1em;
+  }
+  a {
+    color: $green;
   }
 }
 
@@ -19,7 +26,7 @@
   padding: 5px 5px;
   text-align: center;
   a {
-    color: $dark-grey
+    color: $dark-grey;
   }
 }
 
