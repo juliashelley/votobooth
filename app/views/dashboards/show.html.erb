@@ -62,8 +62,8 @@
             <p id="time-remaining">Time remaining</p>
           </div>
         </div>
-        <div class="btn-small-white">
-          <%= link_to 'View election', election_path(election.id)%>
+        <div class="election-card-button">
+          <%= link_to 'View election', election_path(election.id), class: "btn-medium-white view-election"%>
         </div>
       </div>
     </div>

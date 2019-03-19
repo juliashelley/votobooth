@@ -68,12 +68,8 @@
   border-radius: 5px;
   background-color: white;
   color: $dark-grey;
-
   padding: 10px;
   font-weight: lighter;
-  a {
-    color: $dark-grey;
-  }
 }
 
 .btn-large-white {
@@ -193,5 +189,13 @@
 
 .dropdown .dropdown-toggle {
   color: $dark-grey !important;
+}
+
+.election-card-button {
+  display: flex;
+}
+
+.view-election {
+  width: -webkit-fill-available;
 }
 

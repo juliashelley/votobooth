@@ -10,9 +10,6 @@
   <div class="input-field">
     <%= f.input :dates, as: :string, class: "form-control", label: 'When can people vote? (Polls open at 00:01 and close at 23:59)', input_html: {class: "datepicker"} %>
   </div>
-
-  <div class="btn-large-green-new">
-    <%= f.submit "Create Election" %>
-  </div>
+    <%= f.submit "Create Election", class: "btn-large-green-new"  %>
 <% end %>
 
