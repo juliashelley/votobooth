@@ -5,4 +5,8 @@ flatpickr(".datepicker", {
   // enableTime: true,
   minDate: "today",
   disableMobile: "true",
+  altInput: true,
+  altFormat: "F j, Y",
+  dateFormat: "Y-m-d",
+  mode: "range",
 })

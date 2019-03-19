@@ -4,7 +4,7 @@ class Election < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
   validate :end_after_start
-  validates :voting_start_date, :voting_end_date, :presence => true
+  validates :voting_start_date, presence: true
 
   def set_time_remaining
     hour = Time.now.hour - voting_end_date.hour

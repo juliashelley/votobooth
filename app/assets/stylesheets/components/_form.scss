@@ -1,13 +1,8 @@
 .form-election-new {
   // padding: 15px;
   margin-top: 10px;
-  .btn-large-green {
-  color: white;
-  background-color: $green;
-  border-radius: 5px;
-  // padding: 10px 30px;
-  width: 100%;
-  border: none;
+  .btn-large-green-new {
+  margin-top: 3rem;
   margin-bottom: 10px;
   text-decoration: none;
   }
@@ -44,14 +39,20 @@
     font-weight: bold;
     color: white;
   }
-  .input-field {
-    .form-control-label {
-    }
-    .form-control {
-      border-radius: 0px;
-      border-top: none;
-      border-left: none;
-      border-right: none;
-    }
+  .form-control {
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   }
+}
+
+
+.form-group input {
+  background-color: transparent !important;
+}
+
+
+.form-group {
+  margin-bottom: 2rem;
 }

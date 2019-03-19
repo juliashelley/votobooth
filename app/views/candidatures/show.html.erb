@@ -1,14 +1,18 @@
 <% if @candidature.picture.url.nil? %>
-<div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "penguin.jpg", gravity: :center %>)">
+  <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "penguin.jpg", gravity: :center %>)">
   <% else %>
   <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @candidature.picture, gravity: :center %>)">
 <% end %>
 
-
   <h1 id="candidate-header"><%= @candidature.name %></h1>
   <h2 id="candidate-header"> For <%=@candidature.election.name %></h2>
   <h4 id="candidate-header"><%= @candidature.tagline %></h4>
-  <div class="card promise-card">
+    
+        <div class="btn-scroll-down">
+      <a href="#promise-card"><span></span></a>
+    </div>
+  <div class="card promise-card" id="promise-card">
+
     <div class="campaign-promise">
       <h5>Who am I?</h5>
       <p><%= @candidature.aboutme %></p>
@@ -39,4 +43,21 @@
       <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
     </div>
   </div>
-</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
