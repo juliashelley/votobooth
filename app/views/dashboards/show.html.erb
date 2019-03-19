@@ -9,9 +9,9 @@
   <hr>
 
   <div class="tabs nav nav-tabs">
-    <a class="tab active" data-toggle="tab" href="#hosting">Hosting</a>
-    <a class="tab"  data-toggle="tab" href="#running">Running</a>
-    <a class="tab" data-toggle="tab" href="#voting">Voting</a>
+    <a class="tab active" data-toggle="tab" href="#hosting">Hosting (<%= @elections.count %>)</a>
+    <a class="tab"  data-toggle="tab" href="#running">Running (<%= @candidatures.count %>)</a>
+    <a class="tab" data-toggle="tab" href="#voting">Voting (<%= @voter.count %>)</a>
   </div>
 
 
