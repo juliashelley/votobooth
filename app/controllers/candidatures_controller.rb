@@ -39,6 +39,7 @@ class CandidaturesController < ApplicationController
 
   def edit
     @candidature = Candidature.find(params[:id])
+    authorize @candidature
   end
 
   def update

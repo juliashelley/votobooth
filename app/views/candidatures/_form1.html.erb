@@ -22,9 +22,25 @@
     <%= f.input :whyme, label: 'Why vote for me:', prompt: 'I will...' %>
   </div>
   <div class="input-field">
-    <%= f.input :picture, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+    <div class="upload-photo" id="photoBox">
+      📷 Upload a photo
+    </div>
+    <%= f.input :picture, label: false, input_html: { id: 'photoBrowse'} %>
   </div>
   <div class="btn-large-green-new">
    <%= f.submit "Submit" %></div>
 
 <% end %>
+
+<style>
+  #photoBrowse {
+    display: none;
+  }
+</style>
+
+<script>
+  photoBox.addEventListener("click", (event) => {
+    document.getElementById("photoBrowse").click();
+  })
+</script>
+
