@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_18_092312) do
+ActiveRecord::Schema.define(version: 2019_03_19_104812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.string "picture"
     t.string "name"
     t.string "video_url"
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.string "promise3"
     t.text "tagline"
     t.boolean "approved", default: false
+    t.string "aboutme"
+    t.string "whyme"
     t.index ["election_id"], name: "index_candidatures_on_election_id"
     t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
@@ -43,7 +45,7 @@ ActiveRecord::Schema.define(version: 2019_03_18_092312) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
-    t.string "eligible_voters_string"
+    t.text "eligible_voters_string"
     t.index ["user_id"], name: "index_elections_on_user_id"
   end
 

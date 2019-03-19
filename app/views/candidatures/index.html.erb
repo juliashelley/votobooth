@@ -2,7 +2,7 @@
   <h2 class="heading-medium-gray-bold">Get to know your candidates</h2>
 
   <div class="candidate-cards-container">
-  <%= link_to 'Add a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
+  <%= link_to 'Become a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
   <%= link_to 'Back to election', election_path(@election.id), class: "btn btn-small-white" %>
       <% @candidatures.each do |candidate| %>
 
@@ -22,7 +22,7 @@
           <p><%= candidate.tagline %></p>
           <div class="candidate-card-links">
             <div class="candidate-card-link left-link">
-              <%= link_to 'More Info', candidature_path(candidate)%>
+              <%= link_to 'Read more', candidature_path(candidate)%>
             </div>
             <div class="candidate-card-link right-link">
               <%= link_to 'Vote', candidature_confirmation_path(candidate)%>

@@ -47,15 +47,15 @@ class Election < ApplicationRecord
   end
 
   def approved_candidates
-    self.candidatures.where(status: "Approved")
+    self.candidatures.where(status: "approved")
   end
 
   def pending_candidates
-    self.candidatures.where(status: "Pending")
+    self.candidatures.where(status: "pending")
   end
 
   def denied_candidates
-    self.candidatures.where(status: "Denied")
+    self.candidatures.where(status: "denied")
   end
 
   private
