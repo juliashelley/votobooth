@@ -9,16 +9,16 @@
   <hr>
 
   <div class="tabs nav nav-tabs">
-    <a class="tab active" data-toggle="tab" href="#hosting">Hosting</a>
-    <a class="tab"  data-toggle="tab" href="#running">Running</a>
-    <a class="tab" data-toggle="tab" href="#voting">Voting</a>
+    <a class="tab active" data-toggle="tab" href="#hosting">Hosting (<%= @elections.count %>)</a>
+    <a class="tab"  data-toggle="tab" href="#running">Running (<%= @candidatures.count %>)</a>
+    <a class="tab" data-toggle="tab" href="#voting">Voting (<%= @voter.count %>)</a>
   </div>
 
 <!-- hosting -->
   <div class="tab-content">
     <div id="hosting" class="tab-pane show active">
       <div class="dashboard-card-container">
-        <% current_user.elections.each do |election| %>
+        <% @elections.each do |election| %>
         <div class="election">
           <div class="election-card-header">
            <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
@@ -62,8 +62,8 @@
             <p id="time-remaining">Time remaining</p>
           </div>
         </div>
-        <div class="btn-small-white">
-          <%= link_to 'View election', election_path(election.id)%>
+        <div class="election-card-button">
+          <%= link_to 'View election', election_path(election.id), class: "btn-medium-white view-election"%>
         </div>
       </div>
     </div>
@@ -106,7 +106,13 @@
 
 <!-- voting  -->
 <div id="voting" class="tab-pane fade election">
-  <h1>Placeholder - voting </h1>
+  <% @voter.each do |voter| %>
+    <div class="vote-in-election">
+      <h2><%= voter.election.name %></h2>
+      <%= link_to 'See candidates', election_candidatures_path(voter.election), class: "btn-small-white"%>
+    </div>
+    <hr>
+  <% end %>
 </div>
 </div>
 </div>

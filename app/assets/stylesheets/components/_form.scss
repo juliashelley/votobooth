@@ -52,7 +52,14 @@
   background-color: transparent !important;
 }
 
+#user_email, #user_password {
+  box-shadow: none;
+}
 
 .form-group {
   margin-bottom: 2rem;
+}
+
+.log-in-form {
+    color: $dark-grey;
 }
