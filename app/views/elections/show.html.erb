@@ -13,10 +13,13 @@
         </div>
       </div>
     </div>
-
+    <div class="btn-scroll-down">
+      <a href="#promise-card"><span></span></a>
+    </div>
   </div>
 
-  <div class="page-container election-details-container">
+
+  <div class="page-container election-details-container" id="promise-card">
 
     <div class="election-home-details">
       <h4 class="heading-regular-gray-thin">
@@ -47,7 +50,11 @@
           <div class="btn-small-white">
             <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
           </div>
-
+          <% unless @election.pending_candidates.empty? %>
+            <div class="btn-small-white">
+            <%= link_to 'Review pending candidates', election_approval_path(@election)%>
+          </div>
+          <% end %>
         </div>
 
     <% else %>
@@ -59,6 +66,21 @@
 
     <% end %>
 
-
   </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>

@@ -2,16 +2,20 @@ class ElectionsController < ApplicationController
 require 'securerandom'
 
   def index
-    @elections = Election.where(user_id: current_user.id)
+    @election = Election.where(user_id: current_user.id)
+    @elections = policy_scope(@election)
+    authorize @election
   end
 
   def new
     @election = Election.new
+    authorize @election
   end
 
   def create
     @election = Election.new(election_params)
     @election.user_id = current_user.id
+    authorize @election
     @election.voting_start_date = @election.dates.split(' to ')[0]
     @election.voting_end_date = @election.dates.split(' to ')[1]
     if @election.save
@@ -23,11 +27,13 @@ require 'securerandom'
 
   def edit
     @election = Election.find(params[:id])
+    authorize @election
   end
 
   def update
     @election = Election.find(params[:id])
     @election.update(election_params)
+    authorize @election
     if @election.save
       unless election_params[:eligible_voters_string].nil?
         assign_eligible_voters(@election)
@@ -42,6 +48,7 @@ require 'securerandom'
 
   def show
     @election = Election.find(params[:id])
+    authorize @election
   end
 
   private

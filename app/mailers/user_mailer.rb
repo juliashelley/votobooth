@@ -3,12 +3,12 @@ class UserMailer < ApplicationMailer
     @election = election
     @user = user
     @password = password
-    mail(to: @user.email, subject: "Vote for #{@election}!")
+    mail(to: @user.email, subject: "Vote for #{@election.name}!")
   end
 
   def existing_voter(user, election)
     @election = election
     @user = user
-    mail(to: @user.email, subject: "Vote for #{@election}!")
+    mail(to: @user.email, subject: "Vote for #{@election.name}!")
   end
 end
