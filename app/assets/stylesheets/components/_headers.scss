@@ -50,3 +50,12 @@ p {
   color: $dark-grey;
   line-height: 1.5em;
 }
+
+
+.header-link {
+  margin-top: 2rem;
+  text-align: right;
+  a {
+    color: $dark-grey;
+  }
+}

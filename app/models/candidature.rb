@@ -11,5 +11,5 @@ class Candidature < ApplicationRecord
   end
 
 
- 
+
 end

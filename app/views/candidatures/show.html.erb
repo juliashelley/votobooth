@@ -4,30 +4,36 @@
   <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= cl_image_path @candidature.picture, gravity: :center %>)">
 <% end %>
 
-
-    <h1 id="candidate-header"><%= @candidature.name %></h1>
-    <div class="btn-scroll-down">
+  <h1 id="candidate-header"><%= @candidature.name %></h1>
+  <h2 id="candidate-header"> For <%=@candidature.election.name %></h2>
+  <h4 id="candidate-header"><%= @candidature.tagline %></h4>
+    
+        <div class="btn-scroll-down">
       <a href="#promise-card"><span></span></a>
     </div>
-  </div>
-
   <div class="card promise-card" id="promise-card">
+
     <div class="campaign-promise">
-     <p><%= @candidature.tagline %></p>
+      <h5>Who am I?</h5>
+      <p><%= @candidature.aboutme %></p>
       <hr>
-      <h4>What I stand for...</h4>
+      <h5>What I stand for...</h5>
       <p><%= @candidature.promise1 %></p>
       <hr>
     </div>
     <div class="campaign-promise">
-      <h4>And...</h4>
+      <h5>And...</h5>
       <p><%= @candidature.promise2 %></p>
       <hr>
     </div>
     <div class="campaign-promise">
-      <h4>Also I like...</h4>
+      <h5>Also I like...</h5>
       <p><%= @candidature.promise3 %></p>
       <hr>
+    </div>
+    <div class="campaign-promise">
+    <h5 >Why vote for me:</h5>
+    <p><%= @candidature.whyme %></p>
     </div>
 
     <div class="cast-vote-div">

@@ -102,6 +102,7 @@
 }
 
 .btn-plain-bold {
+  color: $dark-grey;
   a {
     color: $dark-grey;
     font-weight: 700;
@@ -114,7 +115,7 @@
   width: 100%;
   padding-top: 18px;
   padding-bottom: 18px;
-  // color: white !important;
+  color: white !important;
   font-weight: 400;
   font-size: .75em;
   border-radius: 5px;
@@ -142,10 +143,18 @@
 }
 
 .dropdown-menu {
+  left: -25px !important;
+  padding: 15px !important;
+  li {
+    margin-bottom: .5rem;
+    margin-top: .5rem;
+    text-align: right;
+  }
   .element {
     padding: 10px !important;
   }
 }
+
 
 .btn-scroll-down {
   position: absolute;
@@ -181,3 +190,8 @@
     box-sizing: border-box;
   }
 }
+
+.dropdown .dropdown-toggle {
+  color: $dark-grey !important;
+}
+
