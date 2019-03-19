@@ -8,8 +8,8 @@
           <p><%= @election.voting_end_date.strftime("%b %e, %l:%M %p") %></p>
           <h6>POLLS CLOSE</h6>
         </div>
-        <div class="btn-small-white-no-border">
-          <%= link_to 'View candidates', election_candidatures_path(@election)%>
+        <div>
+          <%= link_to 'View candidates', election_candidatures_path(@election), class: "btn-small-white-no-border"%>
         </div>
       </div>
     </div>
@@ -59,8 +59,8 @@
 
     <% else %>
 
-        <div class="btn-large-green-new" id="candidates-btn">
-          <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+        <div>
+          <%= link_to 'View candidates', election_candidatures_path(@election.id), class: "btn-large-green-new", id: "candidates-btn"%>
         </div>
       </div>
 
