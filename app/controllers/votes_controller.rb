@@ -6,6 +6,7 @@ class VotesController < ApplicationController
     if current_user.eligible_voter?
       @eligible_voter = EligibleVoter.find_by(user_id: current_user)
       @vote = Vote.create(candidature_id: @candidature.id, eligible_voter_id: @eligible_voter.id)
+      authorize @vote
       redirect_to candidature_thank_you_path(@candidature) if @vote.save!
     else
       flash[:alert] = "Something went wrong. Please sign in or contact your election manager."
@@ -14,9 +15,11 @@ class VotesController < ApplicationController
   end
 
   def thank_you
+    authorize @candidature
   end
 
   def confirmation
+    authorize @candidature
   end
 
   private

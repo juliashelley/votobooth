@@ -1,17 +1,22 @@
 class CandidaturesController < ApplicationController
   def index
     @election = Election.find(params[:election_id])
-    @candidatures = @election.approved_candidates
+    # @candidatures = @election.approved_candidates
+    # policy scope is from pundit to allow us to show candidates on index pages
+    @candidatures = policy_scope(@election.approved_candidates)
+    authorize @candidatures
   end
 
   def show
     @candidature = Candidature.find(params[:id])
     @election = @candidature.election.id
+    authorize @candidature
   end
 
   def new
     @candidature = Candidature.new
     @election = Election.find(params[:election_id])
+    authorize @election
   end
 
   def create
@@ -19,6 +24,7 @@ class CandidaturesController < ApplicationController
     @candidature.user_id = current_user.id
     @election = Election.find(params[:election_id])
     @candidature.election_id = @election.id
+    authorize @candidature
     if @candidature.save
       redirect_to election_path(@election.id)
     else
@@ -48,13 +54,14 @@ class CandidaturesController < ApplicationController
   def destroy
     @candidature = Candidature.find(params[:id])
     @election = Election.find(@candidature.election_id)
+    authorize @candidature
     @candidature.destroy
     redirect_to election_path(@election.id)
   end
 
   def approval
     @election = Election.find(params[:election_id])
-    @candidates = @election.pending_candidates
+    @candidates = policy_scope(@election.pending_candidates)
   end
 
   def deny
@@ -71,6 +78,7 @@ class CandidaturesController < ApplicationController
   def accept
     @election = Election.find(params[:election_id])
     @candidate = Candidature.find(params[:candidature_id])
+    authorize @candidate
     @candidate.status = "approved"
     if @candidate.save
       redirect_to election_approval_path(@election)

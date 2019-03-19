@@ -18,7 +18,7 @@
   <div class="tab-content">
     <div id="hosting" class="tab-pane show active">
       <div class="dashboard-card-container">
-        <% current_user.elections.each do |election| %>
+        <% @elections.each do |election| %>
         <div class="election">
           <div class="election-card-header">
            <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
@@ -72,7 +72,7 @@
 </div>
 
 <div id="running" class="tab-pane fade election">
-  <% current_user.candidatures.each do |candidature| %>
+  <% @candidatures.each do |candidature| %>
   <div class="card-grid col-xs-12 col-lg-6">
     <div class="election-card-header">
      <h2 class="heading-regular-gray-thin"><%= candidature.election.name %></h2>
@@ -101,7 +101,13 @@
 </div>
 
 <div id="voting" class="tab-pane fade election">
-  <h1>Placeholder - voting </h1>
+  <% @voter.each do |voter| %>
+    <div class="vote-in-election">
+      <h2><%= voter.election.name %></h2>
+      <%= link_to 'See candidates', election_candidatures_path(voter.election), class: "btn-small-white"%>
+    </div>
+    <hr>
+  <% end %>
 </div>
 </div>
 </div>
