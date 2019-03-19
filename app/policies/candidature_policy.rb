@@ -26,10 +26,19 @@ class CandidaturePolicy < ApplicationPolicy
   end
 
   def accept?
-    record.user == user
+    record.election.user == user
   end
 
   def destroy?
     record.user == user
+  end
+
+  # should confirmation be here? Check vote_policy.rb
+  def confirmation?
+    true
+  end
+
+  def thank_you?
+    true
   end
 end

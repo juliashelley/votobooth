@@ -78,8 +78,8 @@ class CandidaturesController < ApplicationController
   def accept
     @election = Election.find(params[:election_id])
     @candidate = Candidature.find(params[:candidature_id])
-    @candidate.status = "approved"
     authorize @candidate
+    @candidate.status = "approved"
     if @candidate.save
       redirect_to election_approval_path(@election)
     else
