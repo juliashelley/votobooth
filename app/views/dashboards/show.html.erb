@@ -105,14 +105,53 @@
 
 
 <!-- voting  -->
-<div id="voting" class="tab-pane fade election">
+<div id="voting" class="tab-pane fade">
   <% @voter.each do |voter| %>
-    <div class="vote-in-election">
-      <h2><%= voter.election.name %></h2>
-      <%= link_to 'See candidates', election_candidatures_path(voter.election), class: "btn-small-white"%>
+  <div class="election-card-container">
+
+    <hr id="hr-top">
+
+    <div class="election-card-content-container">
+
+      <div class="election-card-header">
+
+        <h2 class="heading-regular-gray-thin">
+          <%= voter.election.name %>
+        </h2>
+        <p class="<%=voter.election.status%>">
+              <%= voter.election.election_status%>
+            </p>
+      </div>
+
+      <div class="election-card-stats">
+        <h4 class="election-card-votes">
+          <%= voter.election.total_votes %>
+        </h4>
+        <h6 class="election-card-time">
+          <%= voter.election.voting_end_date.strftime("%b %e, %l:%M %p") %>
+        </h6>
+      </div>
+
+      <div class="election-card-stats election-card-stats-labels">
+        <p><%= "vote".pluralize(voter.election.total_votes)%> cast out of <%= voter.election.eligible_voters.count %> <br> possible votes</p>
+        <p>Voting ends
+        </p>
+      </div>
+
+      <div class="btn-small-white">
+        <%= link_to 'View Candidates',  election_candidatures_path(voter.election) %>
+      </div>
+
     </div>
-    <hr>
+
+  </div>
   <% end %>
 </div>
+
+
+
+
+
+
 </div>
 </div>
