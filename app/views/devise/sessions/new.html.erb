@@ -6,12 +6,13 @@
         <h2>Log in</h2>
 
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
+          <div class="form-inputs log-in-form">
             <div class="input-field">
               <%= f.input :email,
                         required: false,
                         autofocus: true,
-                        input_html: { autocomplete: "email" } %>
+                        input_html: { autocomplete: "email" },
+                        label: 'Enter email' %>
             </div>
             <div class="input-field">
               <%= f.input :password,
