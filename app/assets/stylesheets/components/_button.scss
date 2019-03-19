@@ -123,3 +123,26 @@
     color:white;
   }
 }
+
+#button-add-voters {
+  color: white;
+  background-color: $green;
+  border-radius: 5px;
+  padding: 15px 15px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 1em;
+  width: 100%;
+  a {
+    color: white !important;
+  }
+  input {
+    color: white !important;
+  }
+}
+
+.dropdown-menu {
+  .element {
+    padding: 10px !important;
+  }
+}

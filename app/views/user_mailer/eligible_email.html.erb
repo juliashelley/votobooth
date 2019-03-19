@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <meta charset="UTF-8">
   <title>Make your voice heard!</title>
 </head>
@@ -15,6 +16,9 @@
     <li>3. Select your candidate and place your vote.</li>
   </ul>
   <br>
-  <p>If you think you can make a bigger influence by running in this election, press the create candidacy.</p>
+  <p>If you think you can make a bigger influence by running in this election, you can sign up as a candidate below.</p>
+
+  <%= link_to 'Become a candidate', new_election_candidature_url(@election), class: "btn-large-green-new" %></p>
+
 </body>
 </html>

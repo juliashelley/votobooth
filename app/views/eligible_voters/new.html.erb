@@ -15,14 +15,9 @@
        <%= link_to 'Delete', eligible_voter_path(eligible_voter.id), method: :delete, data: { confirm: "Do you want to remove #{eligible_voter.user.first_name}?" } %>
      </div>
     <% end %>
+
   </div>
 
 
 </div>
 
-
-<script>
-  function formReset() {
-    document.getElementById("eligible-voters-form").reset();
-  }
-</script>
