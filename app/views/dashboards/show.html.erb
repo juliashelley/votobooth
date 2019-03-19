@@ -101,10 +101,13 @@
 </div>
 
 <div id="voting" class="tab-pane fade election">
-  <h1>Placeholder - voting </h1>
-
- <p>Eligible voter  <%= @voter %> </p>
- <p>Make an each statement ussing @voter</p>
+  <% @voter.each do |voter| %>
+    <div class="vote-in-election">
+      <h2><%= voter.election.name %></h2>
+      <%= link_to 'See candidates', election_candidatures_path(voter.election), class: "btn-small-white"%>
+    </div>
+    <hr>
+  <% end %>
 </div>
 </div>
 </div>

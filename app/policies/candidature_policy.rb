@@ -28,4 +28,8 @@ class CandidaturePolicy < ApplicationPolicy
   def accept?
     record.user == user
   end
+
+  def destroy?
+    record.user == user
+  end
 end

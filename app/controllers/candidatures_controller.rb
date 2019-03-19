@@ -54,6 +54,7 @@ class CandidaturesController < ApplicationController
   def destroy
     @candidature = Candidature.find(params[:id])
     @election = Election.find(@candidature.election_id)
+    authorize @candidature
     @candidature.destroy
     redirect_to election_path(@election.id)
   end
