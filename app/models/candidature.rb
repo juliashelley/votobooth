@@ -4,12 +4,12 @@ class Candidature < ApplicationRecord
   belongs_to :user
   validates :name, presence: true
   mount_uploader :picture, PhotoUploader
-  validates :status, inclusion: { in: ["approved", "pending", "denied"] }
+  validates :status, inclusion: { in: ["Approved", "Pending", "Denied"] }
 
   def total_votes
     self.votes.count
   end
 
 
- 
+
 end
