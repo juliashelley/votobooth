@@ -1,0 +1,29 @@
+.winner-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+
+.election-statistics {
+  display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+
+    .total-votes-text {
+      font-size: 2em;
+      color: #40C9A2;
+      font-weight: 500;
+      align-items: center;
+      margin: 20px;
+    }
+
+
+p {
+  text-align: center;
+}
+}
+
+#thermo {
+  text-align: center;
+}
