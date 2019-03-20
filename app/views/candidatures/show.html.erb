@@ -7,7 +7,7 @@
   <h1 id="candidate-header"><%= @candidature.name %></h1>
   <h2 id="candidate-header"> For <%=@candidature.election.name %></h2>
   <h4 id="candidate-header"><%= @candidature.tagline %></h4>
-    
+
         <div class="btn-scroll-down">
       <a href="#promise-card"><span></span></a>
     </div>
@@ -35,6 +35,10 @@
     <h5 >Why vote for me:</h5>
     <p><%= @candidature.whyme %></p>
     </div>
+
+    <% unless @candidature.youtube_url.nil? %>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %>
 
     <div class="cast-vote-div">
       <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
