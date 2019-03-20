@@ -21,8 +21,8 @@
         <% @elections.each do |election| %>
         <div class="election">
           <div class="election-card-header">
-           <h2 class="heading-regular-gray-thin"><%= election.name %></h2>
-           <p class="<%=election.status%>">
+            <h2 class="heading-regular-gray-thin"><%= link_to election.name, election_path(election.id), class: "heading-regular-gray-thin" %></h2>
+            <p class="<%=election.status%>">
             <%= election.election_status%>
           </p>
         </div>
@@ -76,7 +76,7 @@
 <div id="running" class="tab-pane fade election">
   <% current_user.candidatures.each do |candidature| %>
     <div class="election-card-header">
-     <h2 class="heading-regular-gray-thin"><%= candidature.election.name %></h2>
+    <h2 class="heading-regular-gray-thin"><%= link_to candidature.election.name, candidature_path(candidature.id) %></h2>
    </div>
    <div class="election-card-body-polling">
     <p>Election Date</p>
@@ -116,7 +116,7 @@
       <div class="election-card-header">
 
         <h2 class="heading-regular-gray-thin">
-          <%= voter.election.name %>
+          <%= link_to voter.election.name, election_path(voter.election.id) %>
         </h2>
         <p class="<%=voter.election.status%>">
               <%= voter.election.election_status%>
