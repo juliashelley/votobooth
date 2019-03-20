@@ -1,14 +1,6 @@
 Welcome to VotoBooth
 
-Hello, constituent!
-You have been added to the eligible voters list for <%= @election.name %>.
+You have been added to the eligible voters list for.
 
-To make your voice heard in this election, please follow these steps:
-
-1. <%= link_to ' Log in here with your email and password.', election_url(@election) %>
-2. Select your candidate and place your vote.
-
-If you don't remember your password, don't hesitate to:
 <%= link_to 'Reset your password', new_user_password_url %>
-
-If you think you can make a bigger influence by running in this election, you can <%= link_to 'become a candidate!', new_election_candidature_url(@election) %>
+  <p>If you think you can make a bigger influence by running in this election, you can <%= link_to 'become a candidate!', new_election_candidature_url(@election) %>.</p>
