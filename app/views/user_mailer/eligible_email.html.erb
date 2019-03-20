@@ -9,16 +9,15 @@
   <h1>Welcome to VotoBooth</h1>
   <p>Hello, constituent!</p>
   <p>You have been added to the eligible voters list for <%= @election.name %>.</p>
-  <p>To make your voice heard in this election. Please follow these steps</p>
-  <ul>
-    <li>1. Copy the password: <%= @password %></li>
-    <li>2.<%= link_to ' Log in here with your email.', election_url(@election) %></li>
-    <li>3. Select your candidate and place your vote.</li>
-  </ul>
+  <p>To make your voice heard in this election, please follow these steps:</p>
+  <ol>
+    <li>Copy the password: <%= @password %></li>
+    <li><%= link_to ' Log in here with your email.', election_url(@election) %></li>
+    <li>Select your candidate and place your vote.</li>
+  </ol>
   <br>
-  <p>If you think you can make a bigger influence by running in this election, you can sign up as a candidate below.</p>
-
-  <%= link_to 'Become a candidate', new_election_candidature_url(@election), class: "btn-large-green-new" %></p>
+  <p>If you think you can make a bigger influence by running in this election, you can sign up as a candidate below:</p>
+  <p><%= link_to 'Become a candidate', new_election_candidature_url(@election), class: "btn-large-green-new" %></p>
 
 </body>
 </html>
