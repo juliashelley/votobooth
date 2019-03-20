@@ -204,6 +204,9 @@
 .election-show-link {
   width: -webkit-fill-available;
   margin-bottom: 5px;
+  a {
+    color: $dark-grey;
+  }
 }
 
 ////////////////////////////////////////
@@ -211,5 +214,7 @@
 a.btn-small-white-no-border {
     color: $dark-grey;
 }
-
+a.btn-medium-white:click {
+  color: $dark-grey;
+}
 

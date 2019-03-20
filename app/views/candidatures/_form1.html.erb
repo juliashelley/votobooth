@@ -24,7 +24,8 @@
   <div class="input-field">
     <%= f.input :picture, input_html: { class: 'hidden'},label_html: { class: 'upload-photo'}, label: 'Upload a photo', prompt: 'Not yet hehe' %>
   </div>
-  <div class="btn-large-green-new">
-   <%= f.submit "Submit" %></div>
+  <div>
+    <%= f.submit "Submit", class: "btn-grn-lg" %>
+  </div>
 
 <% end %>
