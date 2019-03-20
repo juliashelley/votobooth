@@ -55,13 +55,11 @@
 .btn-small-white-no-border {
   font-size: 0.75em;
   background-color: white;
+  color: $dark-grey;
   padding: 15px 15px;
   border-radius: 5px;
   width: 150px;
   text-align: center;
-  a {
-    color: $dark-grey;
-  }
 }
 
 .btn-medium-white-no-border {
@@ -198,7 +196,28 @@
   display: flex;
 }
 
+.election-home-links {
+  display: flex;
+}
+
 .view-election {
   width: -webkit-fill-available;
+}
+
+.election-show-link {
+  width: -webkit-fill-available;
+  margin-bottom: 5px;
+  a {
+    color: $dark-grey;
+  }
+}
+
+////////////////////////////////////////
+// LINK TEXT STYLING ////
+a.btn-small-white-no-border {
+    color: $dark-grey;
+}
+a.btn-medium-white:click {
+  color: $dark-grey;
 }
 

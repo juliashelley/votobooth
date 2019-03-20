@@ -40,27 +40,24 @@
     <% if @election.user == current_user %>
 
       <div class="election-home-footer">
-        <div class="page-links">
-          <div class="btn-small-white">
-            <%= link_to 'Edit election', edit_election_path(@election.id)%>
+          <div class="election-home-links">
+            <%= link_to 'Edit election', edit_election_path(@election.id), class: "btn-medium-white election-show-link"%>
           </div>
-          <div class="btn-small-white">
-            <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id)%>
+          <div class="election-home-links">
+            <%= link_to 'See eligible voters', new_election_eligible_voter_path(@election.id), class: "btn-medium-white election-show-link"%>
           </div>
-          <div class="btn-small-white">
-            <%= link_to 'View candidates', election_candidatures_path(@election.id)%>
+          <div class="election-home-links">
+            <%= link_to 'View candidates', election_candidatures_path(@election.id), class: "btn-medium-white election-show-link"%>
           </div>
           <% unless @election.pending_candidates.empty? %>
-            <div class="btn-small-white">
-            <%= link_to 'Review pending candidates', election_approval_path(@election)%>
+            <div class="election-home-links">
+            <%= link_to 'Review pending candidates', election_approval_path(@election), class: "btn-medium-white election-show-link"%>
           </div>
           <% end %>
-        </div>
-
     <% else %>
 
-        <div>
-          <%= link_to 'View candidates', election_candidatures_path(@election.id), class: "btn-large-green-new", id: "candidates-btn"%>
+        <div class="election-home-links">
+          <%= link_to 'View candidates', election_candidatures_path(@election.id), class: "btn-large-green-new election-show-link"%>
         </div>
       </div>
 
