@@ -33,4 +33,15 @@ a:hover {
   text-decoration: none;
 }
 
-
+.wrapper-white {
+  text-align: center;
+  background-color: white;
+  color: $dark-grey;
+  height: 70vh;
+}
+.wrapper-light-grey {
+  text-align: center;
+  background-color: rgb(245,245,245);
+  color: $dark-grey;
+  height: 70vh;
+}
