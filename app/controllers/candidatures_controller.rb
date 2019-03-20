@@ -26,7 +26,7 @@ class CandidaturesController < ApplicationController
     @candidature.election_id = @election.id
     authorize @candidature
     if @candidature.save
-      redirect_to election_path(@election.id)
+      redirect_to dashboard_path
     else
       render :new
     end
