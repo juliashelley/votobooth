@@ -1,36 +1,42 @@
 <div class="page-container">
   <h2 class="heading-medium-gray-bold">Get to know your candidates</h2>
 
+    <% if @candidatures.empty? %>
+    <p>There are no candidates listed in this election yet.</p>
   <div class="candidate-cards-container">
   <%= link_to 'Become a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
   <%= link_to 'Back to election', election_path(@election.id), class: "btn btn-small-white" %>
-      <% @candidatures.each do |candidate| %>
+      <% else %>
+      <div class="candidate-cards-container">
+        <%= link_to 'Become a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
+        <%= link_to 'Back to election', election_path(@election.id), class: "btn btn-small-white" %>
+        <% @candidatures.each do |candidate| %>
+          <div class="candidate-card">
+            <br>
+            <div class="candidate-card-heading">
 
-        <div class="candidate-card">
-          <hr>
-          <div class="candidate-card-heading">
-
-            <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
-            <div>
-              <% if candidate.picture.url.nil? %>
-                <%= image_tag "penguin.jpg", class: "avatar-large"%>
-              <% else %>
-                <%= image_tag candidate.picture.url, class: "avatar-large" %>
-              <% end %>
+              <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
+              <div>
+                <% if candidate.picture.url.nil? %>
+                  <%= image_tag "penguin.jpg", class: "avatar-large"%>
+                <% else %>
+                  <%= image_tag candidate.picture.url, class: "avatar-large" %>
+                <% end %>
+              </div>
+            </div>
+            <p><%= candidate.tagline %></p>
+            <div class="candidate-card-links">
+              <div class="candidate-card-link left-link">
+                <%= link_to 'Read more', candidature_path(candidate)%>
+              </div>
+              <div class="candidate-card-link right-link">
+                <%= link_to 'Vote', candidature_confirmation_path(candidate)%>
+              </div>
             </div>
           </div>
-          <p><%= candidate.tagline %></p>
-          <div class="candidate-card-links">
-            <div class="candidate-card-link left-link">
-              <%= link_to 'Read more', candidature_path(candidate)%>
-            </div>
-            <div class="candidate-card-link right-link">
-              <%= link_to 'Vote', candidature_confirmation_path(candidate)%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-  </div>
+        <% end %>
+    </div>
+  <% end %>
 </div>
 
 
