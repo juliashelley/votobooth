@@ -151,8 +151,11 @@
 
 .btn-scroll-down {
   position: absolute;
-  top: 500px;
-  right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  top: 85%;
   color: white;
   a {
     padding-top: 60px;

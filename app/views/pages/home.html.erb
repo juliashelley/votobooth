@@ -1,19 +1,64 @@
-
-  <div class="home-banner green-background">
-
-    <div class="home-banner-content">
-      <div class="title">
-        <h1>You don't need to be present to choose wisely.</h1>
-      </div>
-      <div class="subtitle">
-        <p>Hosting, running and voting in elections made simple.</p>
-      </div>
-      <div class="btn-small-white-no-border">
-        <%=link_to 'Build an election', new_election_path%>
-      </div>
+<div class="home-banner green-background">
+  <div class="home-banner-content">
+    <div class="title">
+      <h1>You don't need to be present to choose wisely.</h1>
     </div>
-
-
+    <div class="subtitle">
+      <p>Hosting, running and voting in elections made simple.</p>
+    </div>
+    <div class="btn-small-white-no-border">
+      <%=link_to 'Build an election', new_election_path%>
+    </div>
+    <div class="btn-scroll-down">
+      <a href="#home-container"><span></span></a>
+    </div>
   </div>
+</div>
 
+<div class="wrapper-white">
+  <div class="container" id="home-container">
+    <br>
+    <h1>Democracy starts with you</h1>
+    <h4>Get involved!</h4>
+    <h4>Inspirational words</h4>
+    <h4>Wow</h4>
+    <p>Votobooth is a service to manage and organize elections</p>
+  </div>
+</div>
 
+<div class="wrapper-light-grey">
+  <div class="container">
+    <br>
+    <h1>1. Build an election</h1>
+  </div>
+</div>
+
+<div class="wrapper-white">
+  <div class="container">
+    <br>
+    <h1>2. Add constituents</h1>
+  </div>
+</div>
+<div class="wrapper-light-grey">
+  <div class="container">
+    <br>
+    <h1>3. See and share the results</h1>
+  </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+  $("a").on('click', function(event) {
+    if (this.hash !== "") {
+      event.preventDefault();
+      var hash = this.hash;
+      $('html, body').animate({
+        scrollTop: $(hash).offset().top
+      }, 800, function(){
+        window.location.hash = hash;
+      });
+    }
+  });
+});
+</script>
