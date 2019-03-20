@@ -73,6 +73,9 @@
 #hamburger-menu {
   font-size: 1.25em;
 }
+#hamburger-menu:hover, :active, :focus {
+  outline: none;
+}
 
 .nav-item a {
   color: white !important;
