@@ -7,10 +7,11 @@ class Election < ApplicationRecord
   validates :voting_start_date, presence: true
 
   def set_time_remaining
-    hour = Time.now.hour - voting_end_date.hour
-    min = Time.now.min - voting_end_date.min
-    sec = Time.now.sec - voting_end_date.sec
-    @time_remaining = [hour, min, sec]
+    day = voting_end_date.day - Time.now.day
+    hour = voting_end_date.hour - Time.now.hour
+    min = voting_end_date.min - Time.now.min
+    sec = voting_end_date.sec - Time.now.sec
+    @time_remaining = [day, hour, min, sec]
   end
 
   def total_votes
