@@ -39,14 +39,17 @@ class CandidaturesController < ApplicationController
 
   def edit
     @candidature = Candidature.find(params[:id])
+    @election = @candidature.election
     authorize @candidature
   end
 
   def update
     @candidature = Candidature.find(params[:id])
+    @election = @candidature.election
     @candidature.update(candidature_params)
+    authorize @candidature
     if @candidature.save
-      redirect_to election_path(@election.id)
+      redirect_to candidature_path(@candidature.id)
     else
       render :edit
     end
