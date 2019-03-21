@@ -1,5 +1,4 @@
 .winner-card {
-  display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0px 10px;
@@ -27,3 +26,13 @@ p {
 #thermo {
   text-align: center;
 }
+
+#election-winner-image {
+  border-radius: 50%;
+}
+
+.winner-image {
+display: flex;
+justify-content: center;
+}
+
