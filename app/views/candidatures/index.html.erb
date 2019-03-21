@@ -26,7 +26,7 @@
                 <% if candidate.picture.url.nil? %>
                   <%= image_tag "penguin.jpg", class: "avatar-large"%>
                 <% else %>
-                  <%= image_tag candidate.picture.url, class: "avatar-large" %>
+                  <%= image_tag candidate.picture.url(:avatar), class: "avatar-large" %>
                 <% end %>
               </div>
             </div>
