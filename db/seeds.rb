@@ -318,9 +318,12 @@ band1 = Candidature.create(
 puts 'Creating votes seeds...'
 
 EligibleVoter.all.each do |eligible_voter|
-  Vote.create(
-    candidature_id: eligible_voter.election.candidatures.sample.id,
-    eligible_voter_id: eligible_voter.id)
+  random = (0..100).to_a.sample
+  if random < 80
+    Vote.create(
+      candidature_id: eligible_voter.election.candidatures.sample.id,
+      eligible_voter_id: eligible_voter.id)
+  end
 
 end
 
