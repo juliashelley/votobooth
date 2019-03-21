@@ -7,8 +7,15 @@ class VotesController < ApplicationController
       @eligible_voter = EligibleVoter.find_by(user_id: current_user)
       @vote = Vote.create(candidature_id: @candidature.id, eligible_voter_id: @eligible_voter.id)
       authorize @vote
-      redirect_to candidature_thank_you_path(@candidature) if @vote.save!
+      if @vote.save
+        redirect_to candidature_thank_you_path(@candidature)
+      else
+        flash[:alert] = "You have already casted a vote for this election!"
+        render :confirmation
+      end
     else
+      @vote = Vote.new
+      authorize @vote
       flash[:alert] = "Something went wrong. Please sign in or contact your election manager."
       render :confirmation
     end
