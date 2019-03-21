@@ -35,10 +35,28 @@
     <h5 >Why vote for me:</h5>
     <p><%= @candidature.whyme %></p>
     </div>
-
+  <div class="video-container">
     <% unless @candidature.youtube_url.nil? || @candidature.youtube_url.empty? %>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>?ps=docs&controls=1" frameborder="0" allowfullscreen></iframe>
     <% end %>
+  </div>
+  <style>
+    .video-container {
+    position:relative;
+    padding-bottom:56.25%;
+    padding-top:30px;
+    height:0;
+    overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+  </style>
 
     <div class="cast-vote-div">
       <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
