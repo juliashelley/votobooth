@@ -44,6 +44,9 @@
       <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
       <br>
       <br>
+      <% if @candidature.user == current_user %>
+        <%= link_to 'Edit candidate', edit_candidature_path(@candidature) %>
+      <% end %>
       <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
     </div>
   </div>
