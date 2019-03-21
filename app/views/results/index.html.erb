@@ -1,19 +1,23 @@
 <div class="page-container" >
   <h4 class="heading-medium-gray-bold-smaller-margin">Results of <%= @election.name%>:</h4>
+  <br>
   <div class="winner-card">
-    <h4 class="heading-medium-gray-thin-smaller-margin">The winner is...</h4>
-    <h5><%= @winner.name %></h5>
+    <p>The winner is...</p>
+    <h4><%= @winner.name %></h4>
   </div>
 
 <div class="election">
     <% if @winner.picture.url.nil? %>
-    <%= image_tag "penguin.jpg", gravity: :center, width: 278.75, height: 300, crop: :fill %>
+    <div class="winner-image">
+    <%= image_tag "penguin.jpg", gravity: :center, width: 250, height: 250, crop: :fill, id: "election-winner-image" %>
+    </div>
      <% else %>
-      <%=  cl_image_path @winner.picture,width: 278.75, height: 300, crop: :fill, gravity: :center %>
+     <div class="winner-image">
+      <%=  cl_image_path @winner.picture, width: 300, height: 300, crop: :fill, gravity: :face, zoom: 0.6, id: "election-winner-image" %>
+    </div>
     <% end %>
-<hr>
-<h4 class="heading-medium-gray-thin-smaller-margin">Election statistics</h4>
 
+<br>
 <div class="election-statistics">
 <div id="thermo"></div>
 <p class="total-votes-text"><%= @election.total_votes %></p>
