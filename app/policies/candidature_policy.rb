@@ -25,6 +25,10 @@ class CandidaturePolicy < ApplicationPolicy
     record.user == user
   end
 
+  def update?
+    record.user == user
+  end
+
   def approval?
     record.election.user == user
   end

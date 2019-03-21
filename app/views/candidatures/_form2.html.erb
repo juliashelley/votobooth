@@ -1,0 +1,48 @@
+
+<%= simple_form_for(@candidature) do |f| %>
+  <div class="input-field">
+    <%= f.input :name, input_html: { class: 'campaign-promise'}, label: 'What is your name', prompt: 'Input name' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :tagline, label: 'State your campaign in a few lines', prompt: '' %>
+  </div>
+   <div class="input-field">
+    <%= f.input :aboutme, label: 'How would you describe yourself?', prompt: 'I am...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise1, label: 'What’s one thing you want to tell your voters?', prompt: 'I promise...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise2, label: 'Another thing?', prompt: 'There will be...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :promise3, label: 'Final thought?', prompt: 'We are going to...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :whyme, label: 'Why vote for me:', prompt: 'I will...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :youtube_url, label: 'Do you have a YouTube URL to show to your voters?', prompt: 'https://www.youtube.com/watch?v=J---aiyznGQ' %>
+  </div>
+  <div class="input-field">
+    <div class="upload-photo" id="photoBox">
+      📷 Upload a photo
+    </div>
+    <%= f.input :picture, label: false, input_html: { id: 'photoBrowse'} %>
+  </div>
+  <%= f.submit "Submit", class: "btn-large-green-new"  %>
+
+<% end %>
+
+<style>
+  #photoBrowse {
+    display: none;
+  }
+</style>
+
+<script>
+  photoBox.addEventListener("click", (event) => {
+    document.getElementById("photoBrowse").click();
+  })
+</script>
+
