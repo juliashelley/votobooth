@@ -68,6 +68,7 @@ class CandidaturesController < ApplicationController
   def deny
     @election = Election.find(params[:election_id])
     @candidate = Candidature.find(params[:candidature_id])
+    authorize @candidate
     @candidate.status = "denied"
     if @candidate.save
       redirect_to election_approval_path(@election)
