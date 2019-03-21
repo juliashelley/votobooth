@@ -20,7 +20,7 @@
               <h4 class="heading-regular-gray-thin"><%= candidate.name %></h4>
               <div>
                 <% if candidate.picture.url.nil? %>
-                  <%= image_tag "Jennifer Louise.jpg", class: "avatar-large"%>
+                  <%= image_tag "jennifer-louise.jpg", class: "avatar-large"%>
                 <% else %>
                   <%= image_tag candidate.picture.url(:avatar), class: "avatar-large" %>
                 <% end %>
