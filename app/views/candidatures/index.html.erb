@@ -1,11 +1,4 @@
 <div class="page-container">
-
-  <%= link_to election_path(@election.id) do  %>
-  <div class="btn-plain text-right header-link">
-    Back to election
-  </div>
-  <% end %>
-
   <h2 class="heading-medium-gray-bold">Get to know your candidates</h2>
 
     <% if @candidatures.empty? %>
@@ -14,8 +7,6 @@
     <% else %>
       <div class="candidate-cards-container">
       <div class="candidate-cards-container">
-        <%= link_to 'Become a candidate', new_election_candidature_path(@election.id), class: "btn btn-small-white" %>
-        <%= link_to 'Back to election', election_path(@election.id), class: "btn btn-small-white" %>
         <% @candidatures.each do |candidate| %>
           <div class="candidate-card">
             <br>
@@ -41,19 +32,30 @@
             </div>
           </div>
         <% end %>
+        <br>
+        <br>
+        <br>
+        <br>
     </div>
   <% end %>
 
+  </div>
 </div>
 
   <% if @election.election_status != "Polls closed" %>
-
     <div class="link-bottom-container">
+      <div>
       <%= link_to new_election_candidature_path(@election.id) do %>
         <div class="btn-large-green-new">
           Become a candidate
         </div>
       <% end %>
+      <%= link_to election_path(@election.id) do  %>
+        <div class="btn-plain text-right header-link">
+          Back to election
+        </div>
+      <% end %>
+      </div>
     </div>
   <% end %>
 
