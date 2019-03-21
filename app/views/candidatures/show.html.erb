@@ -1,40 +1,65 @@
 <% if @candidature.picture.url.nil? %>
-  <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "Jennifer Louise.jpg", gravity: :center %>)">
+
+    <div class="candidature-banner-container" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5)), url(<%= image_path "penguin.jpg", gravity: :center %>)">
+      <div class="candidature-banner-content page-container">
+        <h1><%= @candidature.name %></h1>
+        <h2> For <%=@candidature.election.name %></h2>
+        <h4>"<%= @candidature.tagline %>"</h4>
+      </div>
+
+    </div>
+
   <% else %>
-  <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)), url(<%= cl_image_path @candidature.picture, create_derived: true, bytes_step: 20000, min_width: 200, max_width: 1000, transformation: { crop: :fill, aspect_ratio: "4:6", gravity: :center } %>)">
+
+    <div class="candidature-banner-container" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.7)), url(<%= cl_image_path @candidature.picture, create_derived: true, bytes_step: 20000, min_width: 200, max_width: 1000, transformation: { crop: :fill, aspect_ratio: "4:6", gravity: :center } %>)">
+
+      <div class="candidature-banner-content">
+        <h1><%= @candidature.name %></h1>
+        <h2> For <%=@candidature.election.name %></h2>
+        <h4>"<%= @candidature.tagline %>"</h4>
+      </div>
+
+    </div>
+
 <% end %>
 
-  <h1 id="candidate-header"><%= @candidature.name %></h1>
-  <h2 id="candidate-header"> For <%=@candidature.election.name %></h2>
-  <h4 id="candidate-header"><%= @candidature.tagline %></h4>
 
-        <div class="btn-scroll-down">
-      <a href="#promise-card"><span></span></a>
-    </div>
-  <div class="card promise-card" id="promise-card">
+
+<div class="page-container">
+  <div class="promise-card" id="promise-card">
+
+
+    <% if @candidature.aboutme %>
+      <div class="campaign-promise">
+        <h5 class="heading-regular-gray-thin">Who am I?</h5>
+        <p><%= @candidature.aboutme %></p>
+        <hr>
+      </div>
+    <% end %>
 
     <div class="campaign-promise">
-      <h5>Who am I?</h5>
-      <p><%= @candidature.aboutme %></p>
-      <hr>
-      <h5>What I stand for...</h5>
+      <h5 class="heading-regular-gray-thin">What I stand for...</h5>
       <p><%= @candidature.promise1 %></p>
       <hr>
     </div>
     <div class="campaign-promise">
-      <h5>And...</h5>
+      <h5 class="heading-regular-gray-thin">And...</h5>
       <p><%= @candidature.promise2 %></p>
       <hr>
     </div>
     <div class="campaign-promise">
-      <h5>Also I like...</h5>
+      <h5 class="heading-regular-gray-thin">Also I like...</h5>
       <p><%= @candidature.promise3 %></p>
       <hr>
     </div>
-    <div class="campaign-promise">
-    <h5 >Why vote for me:</h5>
-    <p><%= @candidature.whyme %></p>
-    </div>
+
+    <% if @candidature.whyme %>
+      <div class="campaign-promise">
+        <h5 class="heading-regular-gray-thin">Why vote for me:</h5>
+        <p><%= @candidature.whyme %></p>
+      </div>
+    <% end %>
+
   <div class="video-container">
     <% unless @candidature.youtube_url.nil? || @candidature.youtube_url.empty? %>
     <iframe src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>?ps=docs&controls=1" frameborder="0" allowfullscreen></iframe>
@@ -59,15 +84,30 @@
   </style>
 
     <div class="cast-vote-div">
-      <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
+     <%= link_to candidature_confirmation_path(@candidature) do %>
+        <div class="btn-large-green-new">
+          Vote for this candidate
+        </div>
+      <% end %>
       <br>
       <br>
       <% if @candidature.user == current_user %>
-        <%= link_to 'Edit candidate', edit_candidature_path(@candidature) %>
+        <%= link_to edit_candidature_path(@candidature) do %>
+          <div class="btn-large-green-new">
+            Edit candidate
+          </div>
+        <% end %>
       <% end %>
-      <%= link_to 'Back to candidates', election_candidatures_path(@election) %>
+      <%= link_to election_candidatures_path(@election) do %>
+        <div class="btn-plain">
+          Back to candidates
+        </div>
+      <% end %>
     </div>
   </div>
+</div>
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
