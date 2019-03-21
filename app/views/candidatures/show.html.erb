@@ -37,6 +37,10 @@
     <p><%= @candidature.whyme %></p>
     </div>
 
+    <% unless @candidature.youtube_url.nil? %>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <% end %>
+
     <div class="cast-vote-div">
       <%= link_to 'Vote for this candidate', candidature_confirmation_path(@candidature), class: "btn-large-green btn-cast-vote" %>
       <br>
