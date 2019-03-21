@@ -5,7 +5,10 @@
   color: $dark-grey;
   margin-top: 40px;
   margin-bottom: 30px;
-
+  a {
+    color: $light-gray;
+    font-size: .75em;
+  }
 }
 
 .heading-medium-gray-bold-smaller-margin {
