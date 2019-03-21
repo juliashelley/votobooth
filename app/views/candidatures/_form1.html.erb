@@ -18,8 +18,11 @@
   <div class="input-field">
     <%= f.input :promise3, label: 'Final thought?', prompt: 'We are going to...' %>
   </div>
-    <div class="input-field">
+  <div class="input-field">
     <%= f.input :whyme, label: 'Why vote for me:', prompt: 'I will...' %>
+  </div>
+  <div class="input-field">
+    <%= f.input :youtube_url, label: 'Do you have a YouTube URL to show to your voters?', prompt: 'https://www.youtube.com/watch?v=J---aiyznGQ' %>
   </div>
   <div class="input-field">
     <div class="upload-photo" id="photoBox">
@@ -27,8 +30,7 @@
     </div>
     <%= f.input :picture, label: false, input_html: { id: 'photoBrowse'} %>
   </div>
-  <div class="btn-large-green-new">
-   <%= f.submit "Submit" %></div>
+  <%= f.submit "Submit", class: "btn-large-green-new"  %>
 
 <% end %>
 

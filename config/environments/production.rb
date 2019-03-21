@@ -99,3 +99,4 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: "votobooth-test.herokuapp.com" }
   # or your custom domain name eg. "www.yourdomain.com"
 end
+end

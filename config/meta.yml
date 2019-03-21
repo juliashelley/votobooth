@@ -1,0 +1,5 @@
+meta_product_name: "VotoBooth"
+meta_title: "Votobooth | Organize, Run, and Vote in an election"
+meta_description: "Organize, run and vote in elections easily"
+meta_image: "votobooth-bg-green.png" # cover image # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

@@ -42,7 +42,14 @@
   font-size: 1em;
   font-weight: 400;
   color: $light-gray;
+  a {
+    color: $light-gray;
+    &:hover {
+    color: $dark-grey;
+    }
+  }
 }
+
 
 p {
   font-size: .75em;
@@ -55,6 +62,7 @@ p {
 .header-link {
   margin-top: 2rem;
   text-align: right;
+  color: $dark-grey;
   a {
     color: $dark-grey;
   }
