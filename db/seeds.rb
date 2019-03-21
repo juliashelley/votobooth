@@ -6,6 +6,12 @@ User.destroy_all
 
 
 puts 'Creating user seeds'
+
+gus = User.create(
+  first_name: 'Gus',
+  last_name: 'DeVita',
+  email: 'gus@lewagon.com',
+  password: 'password')
 jim = User.create(
   first_name: 'Jim',
   last_name: 'James',
@@ -31,156 +37,237 @@ jordi = User.create(
   last_name: 'Gramunt',
   email: 'jordi@gmail.com',
   password: 'password')
+doncho = User.create(
+  first_name: 'Doncho',
+  last_name: 'Penev',
+  email: 'doncho@gmail.com',
+  password: 'password')
+chris = User.create(
+  first_name: 'Chris',
+  last_name: 'Beltran',
+  email: 'chris@gmail.com',
+  password: 'password')
+dre = User.create(
+  first_name: 'Dre',
+  last_name: 'Dre',
+  email: 'dre@gmail.com',
+  password: 'password')
+jen = User.create(
+  first_name: 'Jennifer',
+  last_name: 'Louise',
+  email: 'jen@gmail.com',
+  password: 'password')
+marin = User.create(
+  first_name: "Marin",
+  last_name: "",
+  email: "marin@gmail.com",
+  password: 'password')
+minizozzo = User.create(
+  first_name: "Mini",
+  last_name: "Zozzo",
+  email: "minizozzo@gmail.com",
+  password: "password")
+ruby = User.create(
+  first_name: "Ruby",
+  last_name: "Parrot",
+  email: "ruby@gmail.com",
+  password: "password")
 
+
+100.times do |user|
+  User.create(
+    first_name: Faker::Artist.name,
+    last_name: Faker::Artist.name,
+    email: '#{self.first_name}@gmail.com',
+    password: 'password',
+    )
+end
 
 puts 'Creating election seeds...'
 
-acapella = Election.create(
-  name: 'Acapella group president',
-  user_id: rebecca.id,
-  description: "Year twelve's chance to elect the new president of the acapella group",
-  voting_start_date: DateTime.yesterday,
-  voting_end_date: DateTime.tomorrow,
-  campaign_close_date: DateTime.tomorrow
-  )
+le_wagon_band = Election.create(
+  name: 'Le Wagon Band President election',
+  user_id: gus.id,
+  description: "Devs need a soundtrack to their code. We need a leader to organize weekly band rehearsals and performances.  🎤🎸🥁🎶",
+  dates: "#{DateTime.yesterday} to #{DateTime.tomorrow}")
 
-prime = Election.create(
-  name: 'English Prime Minister',
-  user_id: pontus.id,
-  description: "Anything to stop May",
-  voting_start_date: DateTime.yesterday,
-  voting_end_date: DateTime.tomorrow,
-  campaign_close_date: DateTime.tomorrow
-  )
+le_wagon_pet = Election.create(
+  name: 'Le Wagon new pet',
+  user_id: gus.id,
+  description: "Our beloved Zozzo needs a friend. Who should it be?",
+  dates: "#{DateTime.yesterday - 3.day} to #{DateTime.yesterday - 1.day}")
+
+le_wagon_community_manager = Election.create(
+  name: 'Le Wagon Community Manager'
+  user_id: gus.id,
+  description: "Vote for a special person who can turn Le Wagon BCN into an even greater community than it is today",
+  dates: "#{DateTime.yesterday - 500.day} to #{DateTime.yesterday - 480.day}" )
+
 
 puts 'Creating eligible voters...'
 
-a = EligibleVoter.create(
-  election_id: acapella.id,
-  user_id: jim.id
-  )
-b = EligibleVoter.create(
-  election_id: acapella.id,
-  user_id: rebecca.id
-  )
-c = EligibleVoter.create(
-  election_id: acapella.id,
-  user_id: pontus.id
-  )
-d = EligibleVoter.create(
-  election_id: acapella.id,
-  user_id: julia.id
-  )
-e = EligibleVoter.create(
-  election_id: acapella.id,
-  user_id: jordi.id
-  )
+User.all.each do |eligiblevoter|
+  EligibleVoter.create(
+    election_id: le_wagon_band.id,
+    user_id: eligiblevoter.id
+    )
+end
 
-a2 = EligibleVoter.create(
-  election_id: prime.id,
-  user_id: jim.id
-  )
-b2 = EligibleVoter.create(
-  election_id: prime.id,
-  user_id: rebecca.id
-  )
-c2 = EligibleVoter.create(
-  election_id: prime.id,
-  user_id: pontus.id
-  )
-d2 = EligibleVoter.create(
-  election_id: prime.id,
-  user_id: julia.id
-  )
-e2 = EligibleVoter.create(
-  election_id: prime.id,
-  user_id: jordi.id
-  )
+User.all.each do |eligiblevoter|
+  EligibleVoter.create(
+    election_id: le_wagon_pet.id,
+    user_id: eligiblevoter.id
+    )
+end
+
+User.all.each do |eligiblevoter|
+  EligibleVoter.create(
+    election_id: le_wagon_community_manager.id,
+    user_id: eligiblevoter.id)
+end
 
 puts 'Creating candidatures seeds...'
 
-r1 = Candidature.create(
-  name: rebecca.first_name,
-  user_id: jim.id,
-  election_id: acapella.id,
+band1 = Candidature.create (
+  name: "Dre Leroy-Beaulieu",
+  user_id: dre.id,
+  election_id: le_wagon_band.id ,
   status: 'pending',
   picture: 'url',
   video_url: 'video_url',
-  promise1: 'Sing',
-  promise2: 'More singing',
-  promise3: 'Best songs',
-  tagline: "I'm going to manage the accapella group how it deserves to be managed."
-  )
+  tagline: "I am all about the bass",
+  aboutme: "Costa Rican crooner brought up on power ballads but now converted to Raggaeton",
+  promise1: "I will organise monthly performances for all of your family and friends",
+  promise2: "I will never fall asleep during band practice",
+  promise3: "I will only play Reggaeton",
+  whyme: "I am hardworking, dedicated and love music :D" )
 
-j1 = Candidature.create(
-  name: jordi.first_name,
-  user_id: jordi.id,
-  election_id: acapella.id,
+  band2 = Candidature.create (
+  name: "Chris B",
+  user_id: chris.id,
+  election_id: le_wagon_band.id ,
   status: 'pending',
   picture: 'url',
   video_url: 'video_url',
-  promise1: 'Yeah',
-  promise2: "Rock'n roll",
-  promise3: "Whatever",
-  tagline: "They made me do it."
-  )
+  tagline: "Le Wagon band ",
+  aboutme: ,
+  promise1: ,
+  promise2: ,
+  promise3: "We will have weekly Sunday jam sessions",
+  whyme: "I will bring California soul to the heart of Barcelona" )
 
-r2 = Candidature.create(
-  name: rebecca.first_name,
-  user_id: rebecca.id,
-  election_id: prime.id,
+  band3 = Candidature.create (
+  name: "Doncho Penev",
+  user_id: doncho.id,
+  election_id: le_wagon_band.id ,
   status: 'pending',
   picture: 'url',
   video_url: 'video_url',
-  promise1: 'BURN',
-  promise2: 'THEM',
-  promise3: 'ALL',
-  tagline: "Not really, just a GoT reference"
-  )
+  tagline: "",
+  aboutme: ,
+  promise1: "Good playing will be rewarded with chocolate",
+  promise2: ,
+  promise3: ,
+  whyme: )
 
-j2 = Candidature.create(
-  name: julia.first_name,
-  user_id: julia.id,
-  election_id: prime.id,
-  status: 'approved',
+  band4 = Candidature.create (
+  name: "Marin",
+  user_id: marin.id,
+  election_id: le_wagon_band.id ,
+  status: 'pending',
   picture: 'url',
   video_url: 'video_url',
-  promise1: 'Be polite',
-  promise2: 'Revote the brexit with VotoBooth',
-  promise3: 'Kick out May',
-  tagline: "I won't promise: I'll just show you."
-  )
+  tagline: ,
+  aboutme: ,
+  promise1: ,
+  promise2: ,
+  promise3: ,
+  whyme: )
 
-p2 = Candidature.create(
-  name: pontus.first_name,
-  user_id: pontus.id,
-  election_id: prime.id,
-  status: 'approved',
+  band5 = Candidature.create (
+  name: "Jennifer Lynch",
+  user_id: jen.id,
+  election_id: le_wagon_band.id ,
+  status: 'pending',
   picture: 'url',
   video_url: 'video_url',
-  promise1: 'Respect',
-  promise2: 'Attention',
-  promise3: 'Good work',
-  tagline: "I'll show you how democracy looks like."
-  )
+  tagline: ,
+  aboutme: ,
+  promise1: ,
+  promise2: ,
+  promise3: ,
+  whyme: )
+
+  puts "candidates - Chris (drums), Doncho (conductor), Dre (vocals), Jen (cello), avalon won community manager"
+
+  pet1 = Candidature.create (
+  name: "Mini Zozzo",
+  user_id: minizozzo.id,
+  election_id: le_wagon_pet.id ,
+  status: 'pending',
+  picture: 'url',
+  video_url: 'video_url',
+  tagline: "Everybody needs a mini-me",
+  aboutme: "I am actually Zozzo's grandson",
+  promise1: "I will play football with you anytime.",
+  promise2: "I will eat any food that you don't want",
+  promise3: "But...I won't eat any leather boots. Especially not Ellyn's.",
+  whyme: "I will always be there to comfort you when your rake just won't turn green")
+
+ pet2 = Candidature.create(
+ name: "Ruby",
+ user_id: ruby.id,
+ election_id: le_wagon_pet.id ,
+ status: 'pending',
+ picture: 'url',
+ video_url: 'video_url',
+ tagline:  "I'm not just a pet. I can help you pseudocode.",
+ aboutme: "15 year old parrot who has been a TA Le Wagon Bali",
+ promise1:  "Fluent in ruby and javascript - I can help you when you get stuck.",
+ promise2: "",
+ promise3: "I am also surprisingly great at French rap",
+ whyme: "")
+
+ pet3 = Candidature.create(
+ name: "",
+ user_id: ruby.id,
+ election_id: le_wagon_pet.id ,
+ status: 'pending',
+ picture: 'url',
+ video_url: 'video_url',
+ tagline:  "",
+ aboutme: "",
+ promise1:  "",
+ promise2: "",
+ promise3: "",
+ whyme: "")
+
 
 
 puts 'Creating votes seeds...'
-Vote.create(
-  candidature_id: r1.id,
-  eligible_voter_id: a.id,
-  )
-Vote.create(
-  candidature_id: r1.id,
-  eligible_voter_id: b.id,
-  )
-Vote.create(
-  candidature_id: r1.id,
-  eligible_voter_id: c.id,
-  )
-Vote.create(
-  candidature_id: r1.id,
-  eligible_voter_id: d.id,
-  )
+
+User.all.each do |voter|
+  Vote.create(
+    candidature_id: ,
+    eligible_voter_id: ,
+    )
+
+  end
+# Vote.create(
+#   candidature_id: r1.id,
+#   eligible_voter_id: a.id,
+#   )
+# Vote.create(
+#   candidature_id: r1.id,
+#   eligible_voter_id: b.id,
+#   )
+# Vote.create(
+#   candidature_id: r1.id,
+#   eligible_voter_id: c.id,
+#   )
+# Vote.create(
+#   candidature_id: r1.id,
+#   eligible_voter_id: d.id,
+#   )
 
 puts "Finished seeding!"

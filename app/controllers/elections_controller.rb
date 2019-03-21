@@ -18,6 +18,7 @@ require 'securerandom'
     authorize @election
     @election.voting_start_date = @election.dates.split(' to ')[0]
     @election.voting_end_date = @election.dates.split(' to ')[1]
+    raise
     if @election.save
       redirect_to new_election_eligible_voter_path(@election.id)
     else
