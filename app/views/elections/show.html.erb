@@ -9,10 +9,18 @@
           <h6>POLLS CLOSE</h6>
         </div>
 
-        <%= link_to election_candidatures_path(@election) do %>
-        <div class="btn-small-white-no-border">
-          View candidates
-        </div>
+        <% if @election.election_status == "Polls closed" %>
+          <%= link_to election_results_path(@election.id) do %>
+          <div class="btn-small-white-no-border">
+            See results
+          </div>
+          <% end %>
+        <% else %>
+          <%= link_to election_candidatures_path(@election) do %>
+          <div class="btn-small-white-no-border">
+            View candidates
+          </div>
+          <% end %>
         <% end %>
 
       </div>

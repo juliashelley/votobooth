@@ -62,9 +62,13 @@
             <p id="time-remaining">Time remaining</p>
           </div>
         </div>
+
         <div class="election-card-button">
           <%= link_to 'View election', election_path(election.id), class: "btn-medium-white view-election"%>
         </div>
+        <% if election.election_status == "Polls closed" %>
+          <%= link_to 'See results', election_results_path(election.id), class: "btn-medium-white view-election"%>
+        <% end %>
       </div>
     </div>
     <% end %>
@@ -138,9 +142,15 @@
         </p>
       </div>
 
-      <div class="btn-small-white">
-        <%= link_to 'View Candidates',  election_candidatures_path(voter.election) %>
-      </div>
+      <% if voter.election.election_status == "Polls closed" %>
+        <div class="btn-small-white">
+          <%= link_to 'See results',  election_results_path(voter.election.id) %>
+        </div>
+      <% else %>
+        <div class="btn-small-white">
+          <%= link_to 'View Candidates',  election_candidatures_path(voter.election) %>
+        </div>
+      <% end %>
 
     </div>
 
