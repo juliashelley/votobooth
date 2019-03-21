@@ -5,18 +5,17 @@
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <title>Make your voice heard!</title>
 </head>
-<body>
-  <h1>Welcome to VotoBooth</h1>
-  <p>Hello, constituent!</p>
-  <p>You have been added to the eligible voters list for <%= @election.name %>.</p>
-  <p>To make your voice heard in this election, please follow these steps:</p>
-  <ol>
-    <li><%= link_to ' Log in here with your email and password.', election_url(@election) %></li>
-    <li>Select your candidate and place your vote.</li>
+<body style="font-family:'Montserrat', 'san serif', 'Helvetica';">
+  <%= image_tag 'votobooth-logo.png', :style => "width: 100px"%>
+  <h1 class="heading-medium-gray-bold" style="font-family:'Montserrat', 'san serif', 'Helvetica'; margin-top: 1em;">Welcome to VotoBooth</h1>
+  <p style="font-family:'Montserrat', 'san serif', 'Helvetica'">Hello, constituent!</p>
+  <p style="font-family:'Montserrat', 'san serif', 'Helvetica'">You have been added to the eligible voters list for <%= @election.name %>.</p>
+  <p style="font-family:'Montserrat', 'san serif', 'Helvetica'">To make your voice heard in this election, please follow these steps:</p>
+  <ol style="font-size: .75em">
+    <li style="font-family:'Montserrat', 'san serif', 'Helvetica'"><%= link_to ' Log in here with your email and password.', election_url(@election), style: "color: #0CCA4A; font-weight: 700" %></li>
+    <li style="font-family:'Montserrat', 'san serif', 'Helvetica'">Select your candidate and place your vote.</li>
   </ol>
-  <br>
-  <p>If you don't remember your password, don't hesitate to:</p>
-  <%= link_to 'Reset your password', new_user_password_url %>
-  <p>If you think you can make a bigger influence by running in this election, you can <%= link_to 'become a candidate!', new_election_candidature_url(@election), class: "btn-large-green-new" %></p>
+  <p style="font-family:'Montserrat', 'san serif', 'Helvetica'">If you don't remember your password, don't hesitate to <%= link_to 'Reset your password', new_user_password_url, style: "color: #6E8387; font-weight: 700;" %></p>
+  <p style="font-family:'Montserrat', 'san serif', 'Helvetica'">If you think you can make a bigger influence by running in this election, you can <%= link_to 'become a candidate!', new_election_candidature_url(@election), style: "color: #0CCA4A; font-weight: 700" %></p>
 </body>
 </html>

@@ -1,20 +1,13 @@
 
 <div class="page-container">
-  <div class="header-link dropdown">
-    <button class="btn-plain dropdown-toggle" type="button" data-toggle="dropdown">Options
-  <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><%= link_to 'View election', election_path(@election.id) %></li>
-      <li><%= link_to 'Manage Elections', dashboard_path %></li>
-    </ul>
-  </div>
-
   <div class="form-election-new">
     <h2 class="heading-medium-gray-bold">Eligible Voters</h2>
     <%= render './elections/form2' %>
-
-    <hr class="hr-reg">
-
+    <%= link_to election_path(@election.id) do %>
+        <div class="btn-plain header-link">
+          View election
+        </div>
+        <% end %>
     <h4 class="heading-medium-gray-bold">Email List</h4>
 
     <% @election.eligible_voters.each do |eligible_voter| %>
@@ -23,9 +16,5 @@
        <%= link_to 'x', eligible_voter_path(eligible_voter.id), method: :delete, data: { confirm: "Do you want to remove #{eligible_voter.user.first_name}?" } %>
      </div>
     <% end %>
-
   </div>
-
-
 </div>
-
