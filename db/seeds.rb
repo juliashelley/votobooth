@@ -167,7 +167,8 @@ band1 = Candidature.create(
   promise1: "I will organise monthly performances for all of your family and friends",
   promise2: "I will never fall asleep during band practice",
   promise3: "I will only play Reggaeton",
-  whyme: "I am hardworking, dedicated and love music :D" )
+  whyme: "I am hardworking, dedicated and love music :D",
+  youtube_url: "hhttps://www.youtube.com/watch?v=DuvENlZR9zI" )
 
   band2 = Candidature.create(
   name: "Chris B",
@@ -181,7 +182,8 @@ band1 = Candidature.create(
   promise1: "Everyone will get to vote on what pieces we perform",
   promise2: "Once a month, everyone will swap instruments and play something new",
   promise3: "We will have weekly Sunday jam sessions",
-  whyme: "I will bring California soul to the heart of Barcelona" )
+  whyme: "I will bring California soul to the heart of Barcelona",
+  youtube_url: "https://www.youtube.com/watch?v=yE9oTnHhFrM")
 
   band4 = Candidature.create(
   name: "Tori",
@@ -209,7 +211,8 @@ band1 = Candidature.create(
   promise1: "I am also a part-time composer so we can play original music :)",
   promise2: "I know all the night club owners so we will perform at BCN's hottest venues",
   promise3: "Once a month we will do a band bar crawl - playing and drinking at the same time.",
-  whyme: "Pick me for some serious harmonies and a whole lot of instrumental fun")
+  whyme: "Pick me for some serious harmonies and a whole lot of instrumental fun",
+  youtube_url: "https://www.youtube.com/watch?v=-9yOgjmPfG0")
 
 
   puts "creating pet election candidates"
