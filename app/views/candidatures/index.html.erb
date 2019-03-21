@@ -1,5 +1,10 @@
 <div class="page-container">
-  <h2 class="heading-medium-gray-bold">Get to know your candidates</h2>
+
+  <div class="heading-candidatures-index">
+    <h2 class="heading-medium-gray-bold"><%= link_to @election.name, election_path(@election)%></h2>
+    <h4 class="heading-medium-gray-bold">Get to know the candidates</h4>
+  </div>
+
 
     <% if @candidatures.empty? %>
     <p>There are no candidates listed in this election yet.</p>
@@ -48,11 +53,6 @@
       <%= link_to new_election_candidature_path(@election.id) do %>
         <div class="btn-large-green-new">
           Become a candidate
-        </div>
-      <% end %>
-      <%= link_to election_path(@election.id) do  %>
-        <div class="btn-plain text-right header-link">
-          Back to election
         </div>
       <% end %>
       </div>

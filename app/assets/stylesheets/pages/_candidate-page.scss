@@ -9,22 +9,57 @@
 
 #candidate-header {
   position: relative;
-  top: 500px;
-  margin-left: 30px;
   color: white;
 }
 
 .promise-card {
-  top: 565px;
   border-radius: 0px;
 
 }
 
 .campaign-promise {
   margin: 10px;
+  h5 {
+    font-size: 1.25em;
+  }
+  p {
+    font-size: .75em;
+  }
 }
 
 .cast-vote-div {
     text-align: center;
     margin: 15px;
+}
+
+.candidature-banner-container {
+  height: 75vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+  margin-bottom: 3rem;
+  .page-container {
+    padding-bottom: 0px;
+  }
+}
+
+.candidature-banner-content {
+  position: absolute;
+  bottom: 3rem;
+  left: 2rem;
+  color: white;
+  h1 {
+    font-size: 2.5em;
+    font-weight: 700;
+  }
+  h2 {
+    font-size: 1.25em;
+    font-weight: 400;
+  }
+  h4 {
+    font-size: 1em;
+    font-weight: 400;
+  }
 }
