@@ -33,6 +33,10 @@ class CandidaturePolicy < ApplicationPolicy
     record.election.user == user
   end
 
+  def deny?
+    record.election.user == user
+  end
+
   def destroy?
     record.user == user
   end
