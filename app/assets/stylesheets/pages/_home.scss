@@ -45,3 +45,35 @@ a:hover {
   color: $dark-grey;
   height: 70vh;
 }
+
+
+.home-tagline {
+  margin-top: 3rem;
+  h2 {
+    font-size: 2.15em;
+    color: gray;
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+.home-card-container {
+  margin-bottom: 5rem;
+  .home-icon {
+    color: $dark-grey;
+  }
+  img {
+   width: 50%;
+  }
+  h4 {
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1em;
+  }
+  a {
+    color: $green;
+    font-weight: 700;
+  }
+}

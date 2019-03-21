@@ -15,36 +15,43 @@
   </div>
 </div>
 
-<div class="wrapper-white">
-  <div class="container" id="home-container">
-    <br>
-    <h1>Democracy starts with you</h1>
-    <h4>Get involved!</h4>
-    <h4>Inspirational words</h4>
-    <h4>Wow</h4>
-    <p>Votobooth is a service to manage and organize elections</p>
-  </div>
+<div class="page-container text-center" id="home-container">
+
+    <div class="home-tagline">
+      <h2>Votobooth delievers democracy to your inbox</h2>
+    </div>
+
+    <div class="home-card-container">
+      <div class="home-icon icon-vote">
+        <%= image_tag("vote.png") %>
+      </div>
+      <h4 class="heading-regular-gray-thin">Vote in an election</h4>
+      <p>Get involved in your community by having a say</p>
+      <%= link_to 'View elections', dashboard_path%>
+    </div>
+
+    <div class="home-card-container">
+      <div class="home-icon icon-manage">
+        <%= image_tag("manage.png") %>
+      </div>
+      <h4 class="heading-regular-gray-thin">Build elecions</h4>
+      <p>Create, host, and manage elections and easily keep your consistuency informed</p>
+      <%= link_to 'Build an election', new_election_path%>
+    </div>
+
+    <div class="home-card-container">
+      <div class="home-icon icon-manage">
+        <%= image_tag("run.png") %>
+      </div>
+      <h4 class="heading-regular-gray-thin">Become a candidate</h4>
+      <p>Run for positions in your community on issues that you care about</p>
+      <%= link_to 'Get involved', dashboard_path%>
+    </div>
+
 </div>
 
-<div class="wrapper-light-grey">
-  <div class="container">
-    <br>
-    <h1>1. Build an election</h1>
-  </div>
-</div>
 
-<div class="wrapper-white">
-  <div class="container">
-    <br>
-    <h1>2. Add constituents</h1>
-  </div>
-</div>
-<div class="wrapper-light-grey">
-  <div class="container">
-    <br>
-    <h1>3. See and share the results</h1>
-  </div>
-</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>
