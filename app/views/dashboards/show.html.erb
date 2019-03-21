@@ -58,13 +58,13 @@
             <% end %>
           </div>
           <div class="election-card-status-section">
-                          <% if election.set_time_remaining[0] < 0 %>
-                         <h6></h6>
-                         <p id="time-remaining"></p>
-                         <% else %>
-                         <h6><%= election.set_time_remaining[0] %> days, <%= election.set_time_remaining[1] %> hours <%= election.set_time_remaining[2]%>mins</h6>
-                         <p id="time-remaining">Time remaining</p>
-                         <% end %>
+            <% if election.set_time_remaining[0] < 0 %>
+            <h6></h6>
+            <p id="time-remaining"></p>
+            <% else %>
+            <h6><%= election.set_time_remaining[0] %> days, <%= election.set_time_remaining[1] %> hours <%= election.set_time_remaining[2]%>mins</h6>
+            <p id="time-remaining">Time remaining</p>
+            <% end %>
           </div>
         </div>
 
@@ -100,7 +100,7 @@
 
     <ul class="dropdown-menu dropdown-lg-menu" role="menu">
       <li class="dropdown-btn">
-        <div class="element"><%= link_to "Edit candidature", edit_candidature_path(candidature.id), {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %> </div> </li>
+        <div class="element"><%= link_to "Edit candidature", edit_candidature_path(candidature.id), html: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %> </div> </li>
       <li class="dropdown-btn">
         <div class="element"><%= link_to "Withdraw from race", candidature_path(candidature.id), method: :delete, data: { confirm: "Do you want to remove #{candidature.name}?" }, html: {:remote => true, 'data-toggle' =>  "modal", 'data-target' => '#modal-window'} %></div> </li>
     </ul>
