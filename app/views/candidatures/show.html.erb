@@ -1,7 +1,7 @@
 <% if @candidature.picture.url.nil? %>
   <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path "penguin.jpg", gravity: :center %>)">
   <% else %>
-  <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(<%= cl_image_path @candidature.picture, aspect_ratio: "8:16", crop: :thumb, :gravity => :face, zoom: 0.4; %>)">
+  <div class="page-container-candidature" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url(<%= cl_image_path @candidature.picture, aspect_ratio: "8:16", crop: :thumb, gravity: :face, zoom: 2; %>)">
 
 <% end %>
 
