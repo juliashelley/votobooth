@@ -9,7 +9,7 @@
         <p><%= @election.name %></p>
       </div>
       <div>
-        <%= cl_image_tag @candidature.picture, class: "avatar-large"%>
+        <%= image_tag candidate.picture.url(:avatar), class: "avatar-large" %>
       </div>
     </div>
     <p><%= @election.description %></p>
