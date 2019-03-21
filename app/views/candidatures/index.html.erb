@@ -41,19 +41,21 @@
             </div>
           </div>
         <% end %>
+        <br>
+        <br>
     </div>
   <% end %>
 
+  </div>
 </div>
 
   <% if @election.election_status != "Polls closed" %>
-
     <div class="link-bottom-container">
       <%= link_to new_election_candidature_path(@election.id) do %>
         <div class="btn-large-green-new">
           Become a candidate
         </div>
-      <% end %>
     </div>
+  <% end %>
   <% end %>
 
