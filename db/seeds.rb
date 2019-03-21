@@ -101,7 +101,7 @@ rob = User.create(
 
 
 100.times do |user|
- user = User.new(first_name: Faker::Artist.name, last_name: Faker::Artist.name, password: 'password')
+ user = User.new(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, password: 'password')
  user.email = "#{user.first_name}@gmail.com"
  user.save
 end
@@ -319,9 +319,8 @@ puts 'Creating votes seeds...'
 
 EligibleVoter.all.each do |eligible_voter|
   Vote.create(
-    candidature_id: eligible_voter.election.candidatures.sample,
-    eligible_voter_id: eligible_voter.id,
-    )
+    candidature_id: eligible_voter.election.candidatures.sample.id,
+    eligible_voter_id: eligible_voter.id)
 
 end
 
