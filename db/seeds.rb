@@ -5,9 +5,18 @@ Vote.destroy_all
 Candidature.destroy_all
 Election.destroy_all
 User.destroy_all
+EligibleVoter.destroy_all
 
 
 puts 'Creating user seeds'
+
+admin = User.create(
+ first_name: 'Admin',
+ last_name: 'Admin',
+ email: 'admin@gmail.com',
+ password: 'password',
+ admin: true
+ )
 
 gus = User.create(
   first_name: 'Gus',
@@ -305,17 +314,12 @@ band1 = Candidature.create(
 
 puts 'Creating votes seeds...'
 
-# User.all.each do |voter|
-#   Vote.create(
-#     candidature_id: ,
-#     eligible_voter_id: ,
-#     )
+EligibleVoter.all.each do |eligible_voter|
+  Vote.create(
+    candidature_id: eligible_voter.election.candidatures.sample,
+    eligible_voter_id: eligible_voter.id,
+    )
 
-  # end
-# Vote.create(
-#   candidature_id: r1.id,
-#   eligible_voter_id: a.id,
-#   )
-
+end
 
 puts "Finished seeding!"
