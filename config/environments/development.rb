@@ -54,7 +54,7 @@ Rails.application.configure do
 
   # Devise default url settings.
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.default_url_options = { host: "votobooth-test.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "votobooth.herokuapp.com" }
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
@@ -70,5 +70,5 @@ Rails.application.configure do
 
   #Gmail
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: "votobooth-test.herokuapp.com" }
+  config.action_mailer.default_url_options = { host: "votobooth.herokuapp.com" }
 end
