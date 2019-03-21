@@ -72,7 +72,9 @@
           <%= link_to 'View election', election_path(election.id), class: "btn-medium-white view-election"%>
         </div>
         <% if election.election_status == "Polls closed" %>
-          <%= link_to 'See results', election_results_path(election.id), class: "btn-medium-white view-election"%>
+          <%= link_to election_results_path(election.id) do %>
+          <div class="btn-large-green-new">See results</div>
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -148,9 +150,9 @@
       </div>
 
       <% if voter.election.election_status == "Polls closed" %>
-        <div class="btn-small-white">
-          <%= link_to 'See results',  election_results_path(voter.election.id) %>
-        </div>
+          <%= link_to election_results_path(voter.election.id) do %>
+            <div class="btn-large-green-new">See results</div>
+          <% end %>
       <% else %>
         <div class="btn-small-white">
           <%= link_to 'View Candidates',  election_candidatures_path(voter.election) %>
