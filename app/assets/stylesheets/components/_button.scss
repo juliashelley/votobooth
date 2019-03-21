@@ -59,9 +59,7 @@
   border-radius: 5px;
   width: 150px;
   text-align: center;
-  a {
-    color: $dark-grey;
-  }
+  color: $dark-grey;
 }
 
 .btn-medium-white-no-border {
@@ -203,5 +201,25 @@
 
 .view-election {
   width: -webkit-fill-available;
+}
+
+
+.btn-sticky-bottom {
+
+
+}
+
+.link-bottom-container {
+  display: flex;
+  justify-content: space-around;
+  border-top: 1px solid $light-gray;
+  padding: 25px 0px;
+  position: fixed;
+  bottom: 0px;
+  background-color: white;
+  width: 100%;
+  a {
+    width: 20rem;
+  }
 }
 

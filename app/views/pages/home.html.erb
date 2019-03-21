@@ -6,9 +6,11 @@
     <div class="subtitle">
       <p>Hosting, running and voting in elections made simple.</p>
     </div>
-    <div class="btn-small-white-no-border">
-      <%=link_to 'Build an election', new_election_path%>
-    </div>
+    <%= link_to new_election_path do %>
+      <div class="btn-small-white-no-border">
+        Build an election
+      </div>
+    <% end %>
     <div class="btn-scroll-down">
       <a href="#home-container"><span></span></a>
     </div>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_19_113549) do
+ActiveRecord::Schema.define(version: 2019_03_20_161229) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 2019_03_19_113549) do
     t.boolean "approved", default: false
     t.string "aboutme"
     t.string "whyme"
+    t.string "youtube_url"
     t.index ["election_id"], name: "index_candidatures_on_election_id"
     t.index ["user_id"], name: "index_candidatures_on_user_id"
   end
