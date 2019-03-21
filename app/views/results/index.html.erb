@@ -7,7 +7,7 @@
 
 <div class="election">
     <% if @winner.picture.url.nil? %>
-    <%= image_tag "penguin.jpg", gravity: :center, width: 278.75, height: 300, crop: :fill %>
+    <%= image_tag "Jennifer Louise.jpg", gravity: :center, width: 278.75, height: 300, crop: :fill %>
      <% else %>
       <%=  cl_image_path @winner.picture,width: 278.75, height: 300, crop: :fill, gravity: :center %>
     <% end %>
