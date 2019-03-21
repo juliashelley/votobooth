@@ -7,7 +7,7 @@ class Election < ApplicationRecord
   validates :voting_start_date, presence: true
 
   def set_time_remaining
-    ending_time = self.voting_end_date
+     ending_time = self.voting_end_date
     now_time = Time.now
 
     seconds_diff_float = ending_time - now_time

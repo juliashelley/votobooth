@@ -1,5 +1,5 @@
 
-<%= simple_form_for(@candidature, url: election_candidatures_path) do |f| %>
+<%= simple_form_for(@candidature) do |f| %>
   <div class="input-field">
     <%= f.input :name, input_html: { class: 'campaign-promise'}, label: 'What is your name', prompt: 'Input name' %>
   </div>
@@ -7,7 +7,7 @@
     <%= f.input :tagline, label: 'State your campaign in a few lines', prompt: '' %>
   </div>
    <div class="input-field">
-    <%= f.input :aboutme, label: 'About me', prompt: 'How would you describe yourself?' %>
+    <%= f.input :aboutme, label: 'How would you describe yourself?', prompt: 'I am...' %>
   </div>
   <div class="input-field">
     <%= f.input :promise1, label: 'What’s one thing you want to tell your voters?', prompt: 'I promise...' %>
