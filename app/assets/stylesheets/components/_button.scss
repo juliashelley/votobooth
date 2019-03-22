@@ -13,7 +13,7 @@
   padding: 15px 15px;
   text-align: center;
   font-weight: 400;
-  font-size: .75em;
+  font-size: 1em;
   width: 100%;
   a {
     color: white !important;
@@ -24,7 +24,7 @@
 }
 
 .btn-small-white {
-  font-size: 0.75em;
+  font-size: 1em;
   color: $dark-grey;
   background-color: white;
   border: solid 1px;
@@ -53,7 +53,7 @@
 }
 
 .btn-small-white-no-border {
-  font-size: 0.75em;
+  font-size: .75em;
   background-color: white;
   padding: 15px 15px;
   border-radius: 5px;
@@ -111,7 +111,7 @@
   padding-bottom: 18px;
   color: white !important;
   font-weight: 400;
-  font-size: .75em;
+  font-size: 1em;
   border-radius: 5px;
   background-color: $green;
   a {
@@ -153,9 +153,8 @@
   position: absolute;
   margin-left: auto;
   margin-right: auto;
-  left: 0;
-  right: 0;
-  top: 85%;
+  right: 2rem;
+  bottom: 4rem;
   color: white;
   a {
     padding-top: 60px;
@@ -167,8 +166,8 @@
     width: 46px;
     height: 46px;
     margin-left: -23px;
-    border: 1px solid #fff;
-    border-radius: 100%;
+    // border: 1px solid #fff;
+    // border-radius: 100%;
     box-sizing: border-box;
   }
   span::after {
@@ -194,10 +193,6 @@
 .btn-group .btn:focus {
     box-shadow: 0 0 0 0 transparent;
   }
-
-.election-card-button {
-  display: flex;
-}
 
 .view-election {
   width: -webkit-fill-available;
