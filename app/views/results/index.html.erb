@@ -13,7 +13,7 @@
   </div>
      <% else %>
      <div class="winner-image">
-      <%=  cl_image_path @winner.picture, width: 300, height: 300, crop: :fill, gravity: :face, zoom: 0.6, id: "election-winner-image" %>
+      <%=  cl_image_tag @winner.picture, width: 300, height: 300, crop: :fill, gravity: :face, zoom: 0.6, id: "election-winner-image" %>
     </div>
     <% end %>
 
