@@ -47,6 +47,11 @@
     <div class="btn-plain bottom-link">
       <%= link_to 'Host your own election', new_election_path %>
     </div>
+        <div class="btn-plain bottom-link">
+          <%= link_to destroy_user_session_path, method: :delete, class: "nav-link" do %>
+            Log out
+        <% end %>
+    </div>
 
     </div>
 

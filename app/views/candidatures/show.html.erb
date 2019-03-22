@@ -1,6 +1,6 @@
 <% if @candidature.picture.url.nil? %>
 
-    <div class="candidature-banner-container" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5)), url(<%= image_path "penguin.jpg", gravity: :center %>)">
+    <div class="candidature-banner-container" style="background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.5)), url(<%= image_path "jennifer-louise.jpg", gravity: :center %>)">
       <div class="candidature-banner-content page-container">
         <h1><%= @candidature.name %></h1>
         <h2> For <%=@candidature.election.name %></h2>
