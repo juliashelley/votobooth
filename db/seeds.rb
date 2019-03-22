@@ -50,11 +50,7 @@ jordi = User.create(
   password: 'password')
 ferdi = User.create(
   first_name: 'Ferdi',
-<<<<<<< HEAD
   last_name: 'Mercury',
-=======
-  last_name: 'Beltran',
->>>>>>> 9639d3711d6ced045ee5dff2878483aec1ea9c47
   email: 'ferdi@gmail.com',
   password: 'password')
 dre = User.create(
