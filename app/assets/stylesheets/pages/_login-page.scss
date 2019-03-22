@@ -1,0 +1,17 @@
+.login-links {
+  text-align: center;
+  line-height: 1.5;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  .btn-small-white {
+    padding: 15px 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.form-login {
+  margin-top: 75px;
+}
