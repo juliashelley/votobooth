@@ -7,7 +7,7 @@
 .election-card-header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 15px;
 
   h2 {
@@ -39,23 +39,24 @@
   }
 }
 
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
 .election-card-header .pending {
-    color:  $light-gray;
-    border: 1px solid $light-gray;
-    padding: 2px;
-  }
+  background-color: $light-gray;
+}
 
 .election-card-header .live {
-    color: $green;
-    border: 1px solid $green;
-    padding: 2px;
-  }
+  background-color: $green;
+}
+
 
 .election-card-header .closed {
-    color: red;
-    border: 1px solid $red;
-    padding: 2px;
-  }
+  background-color: $red;
+}
 
 
 .election-card-body-polling {

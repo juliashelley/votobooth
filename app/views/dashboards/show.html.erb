@@ -22,9 +22,9 @@
         <div class="election">
           <div class="election-card-header">
             <h2 class="heading-regular-gray-thin"><%= link_to election.name, election_path(election.id), class: "heading-regular-gray-thin" %></h2>
-            <p class="<%=election.status%>">
-            <%= election.election_status%>
-          </p>
+            <div class="<%=election.election_status%> circle">
+
+            </div>
         </div>
         <div class="election-card-body">
           <div class="election-card-body-polling">
