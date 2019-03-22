@@ -48,10 +48,14 @@ jordi = User.create(
   last_name: 'Gramunt',
   email: 'jordi@gmail.com',
   password: 'password')
-chris = User.create(
-  first_name: 'Chris',
+ferdi = User.create(
+  first_name: 'Ferdi',
+<<<<<<< HEAD
+  last_name: 'Mercury',
+=======
   last_name: 'Beltran',
-  email: 'chris@gmail.com',
+>>>>>>> 9639d3711d6ced045ee5dff2878483aec1ea9c47
+  email: 'ferdi@gmail.com',
   password: 'password')
 dre = User.create(
   first_name: 'Dre',
@@ -165,8 +169,8 @@ end
 puts 'Creating candidatures seeds...'
 
 band1 = Candidature.create(
-  name: 'Dre Leroy-Beaulieu',
-  user_id: dre.id,
+  name: 'Ferdi Mercury',
+  user_id: ferdi.id,
   election_id: le_wagon_band.id,
   status: 'pending',
   picture: 'url',
@@ -177,11 +181,11 @@ band1 = Candidature.create(
   promise2: "I will never fall asleep during band practice",
   promise3: "I will only play Reggaeton",
   whyme: "I am hardworking, dedicated and love music :D",
-  youtube_url: "hhttps://www.youtube.com/watch?v=DuvENlZR9zI" )
+  youtube_url: "https://www.youtube.com/watch?v=yE9oTnHhFrM" )
 
   band2 = Candidature.create(
-  name: "Chris B",
-  user_id: chris.id,
+  name: "Andre Leroy",
+  user_id: dre.id,
   election_id: le_wagon_band.id ,
   status: 'pending',
   picture: 'url',
@@ -192,7 +196,7 @@ band1 = Candidature.create(
   promise2: "Once a month, everyone will swap instruments and play something new",
   promise3: "We will have weekly Sunday jam sessions",
   whyme: "I will bring California soul to the heart of Barcelona",
-  youtube_url: "https://www.youtube.com/watch?v=yE9oTnHhFrM")
+  youtube_url: "https://www.youtube.com/watch?v=DuvENlZR9zI")
 
   band4 = Candidature.create(
   name: "Tori",

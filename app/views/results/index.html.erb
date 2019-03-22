@@ -10,7 +10,7 @@
     <% if @winner.picture.url.nil? %>
     <div class="winner-image">
       <%= image_tag "jennifer-louise.jpg", gravity: :center, width: 250, height: 250, crop: :fill, id: "election-winner-image" %>
-  </div>    
+  </div>
      <% else %>
      <div class="winner-image">
       <%=  cl_image_path @winner.picture, width: 300, height: 300, crop: :fill, gravity: :face, zoom: 0.6, id: "election-winner-image" %>
@@ -21,6 +21,8 @@
 <div class="election-statistics">
 <div id="thermo"></div>
 <p class="total-votes-text"><%= @election.total_votes %></p>
+
+  <script src="https://d3js.org/d3.v3.min.js" language="JavaScript"></script>
 
   <style> .liquidFillGaugeText { font-family: Helvetica; font-weight: bold; } </style>
   <div class="Column"><svg id="fillgauge1" width="97%" height="100" onclick="gauge1.update(NewValue());"></svg></div>

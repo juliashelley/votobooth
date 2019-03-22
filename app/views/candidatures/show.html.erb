@@ -62,7 +62,8 @@
 
   <div class="video-container">
     <% unless @candidature.youtube_url.nil? || @candidature.youtube_url.empty? %>
-    <iframe src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>?ps=docs&controls=1" frameborder="0" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/<%= @candidature.youtube_url.scan(/=(.+)/).last.first %>?rel=0&ps=docs&controls=1&autoplay=1" frameborder="0" allowfullscreen></iframe>
+
     <% end %>
   </div>
   <style>
@@ -107,22 +108,3 @@
   </div>
 </div>
 
-
-
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script>
-  $(document).ready(function(){
-  $("a").on('click', function(event) {
-    if (this.hash !== "") {
-      event.preventDefault();
-      var hash = this.hash;
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 800, function(){
-        window.location.hash = hash;
-      });
-    }
-  });
-});
-</script>
