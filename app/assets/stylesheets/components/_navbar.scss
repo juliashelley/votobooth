@@ -15,7 +15,7 @@
 
 
 .navbar {
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 0rem;
 }
 
 
@@ -32,15 +32,18 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+  margin-left: 2rem;
 }
 
 .navbar-toggler {
   color: white;
   border: none;
+  margin-right: 2rem;
 }
 
 .navbar-toggler-icon {
   filter: invert(100%);
+
 }
 
 #navbarSupportedContent {
@@ -84,5 +87,10 @@
 
 .nav-link a {
   color: white;
+}
+
+.navbar-nav {
+  background-color: $green;
+  padding: 1rem 2rem;
 }
 
