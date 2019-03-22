@@ -115,6 +115,13 @@ p {
     font-size: .75em;
     text-align: right;
   }
+  .closed {
+    color: $red;
+    text-transform: uppercase;
+  }
+  .pending {
+    color: $yellow;
+  }
   #time-remaining {
     text-align: right;
   }

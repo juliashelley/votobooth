@@ -22,9 +22,10 @@
         <div class="election">
           <div class="election-card-header">
             <h2 class="heading-regular-gray-thin"><%= link_to election.name, election_path(election.id), class: "heading-regular-gray-thin" %></h2>
-            <div class="<%=election.election_status%> circle">
-
-            </div>
+            <% if election.election_status == "Election live"%>
+              <div class="<%=election.election_status%> circle">
+              </div>
+            <% end %>
         </div>
         <div class="election-card-body">
           <div class="election-card-body-polling">
@@ -59,8 +60,7 @@
           </div>
           <div class="election-card-status-section">
             <% if election.set_time_remaining[0] < 0 %>
-            <h6></h6>
-            <p id="time-remaining"></p>
+              <h6 class="<%= election.election_status %>"><%= election.election_status %></h6>
             <% else %>
             <h6><%= election.set_time_remaining[0] %> days, <%= election.set_time_remaining[1] %> hours <%= election.set_time_remaining[2]%>mins</h6>
             <p id="time-remaining">Time remaining</p>
