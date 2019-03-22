@@ -148,6 +148,16 @@
   }
 }
 
+.dropdown-toggle {
+  color: $dark-grey;
+  border: 1px solid $light-gray;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  color: $dark-grey;
+}
+
 
 .btn-scroll-down {
   position: absolute;
