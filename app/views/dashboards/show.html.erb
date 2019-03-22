@@ -74,11 +74,39 @@
             <div class="btn-large-green-new">See results</div>
             <% end %>
           <% else %>
-          <%= link_to election_path(election.id) do %>
-            <div class="btn-medium-white view-election">View Election</div>
+            <div class="btn-group dropdown-lg">
+              <button type="button" class="btn btn-small-white dropdown-toggle" data-toggle="dropdown">
+                Manage election
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-lg-menu" role="menu">
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'Edit election', edit_election_path(election.id)%>
+                  </div>
+                </li>
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'See eligible voters', new_election_eligible_voter_path(election.id)%>
+                  </div>
+                </li>
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'View candidates', election_candidatures_path(election.id)%>
+                  </div>
+                </li>
+                <% if election.pending_candidates.empty? %>
+                <li class="dropdown-btn">
+                  <div class="element">
+                    <%= link_to 'Review pending candidates', election_approval_path(election)%>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
-        <% end %>
         </div>
+
+
+
+
       </div>
     </div>
     <% end %>
