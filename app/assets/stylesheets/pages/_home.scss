@@ -48,7 +48,6 @@ a:hover {
 
 
 .home-tagline {
-  margin-top: 3rem;
   h2 {
     font-size: 2.15em;
     color: gray;
@@ -77,4 +76,8 @@ a:hover {
     color: $green;
     font-weight: 700;
   }
+}
+
+.text-center {
+    padding-top: 3rem;
 }
