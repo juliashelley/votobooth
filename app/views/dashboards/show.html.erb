@@ -69,13 +69,16 @@
         </div>
 
         <div class="election-card-button">
-          <%= link_to 'View election', election_path(election.id), class: "btn-medium-white view-election"%>
-        </div>
-        <% if election.election_status == "Polls closed" %>
-          <%= link_to election_results_path(election.id) do %>
-          <div class="btn-large-green-new">See results</div>
+          <% if election.election_status == "Polls closed" %>
+            <%= link_to election_results_path(election.id) do %>
+            <div class="btn-large-green-new">See results</div>
+            <% end %>
+          <% else %>
+          <%= link_to election_path(election.id) do %>
+            <div class="btn-medium-white view-election">View Election</div>
           <% end %>
         <% end %>
+        </div>
       </div>
     </div>
     <% end %>
