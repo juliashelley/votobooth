@@ -1,8 +1,8 @@
 .alert {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  position: absolute;
+  position: inherit;
   bottom: 16px;
   z-index: 1000;
   width: 100%;
@@ -17,6 +17,12 @@
   height: 70px;
   padding: 10px 35px;
   text-align: center;
+  .close {
+    position: inherit;
+    position: relative;
+    left: 30px;
+    float: right;
+  }
 }
 
 .alert-container {
@@ -24,5 +30,25 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 44px;
+}
 
+
+.alert-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0px;
+    z-index: 996;
+    width: 100%;
+    color: #6E8387;
+    font-weight: 400;
+    top: auto;
+    border-radius: 0;
+    border: none;
+    margin: 0px auto;
+    font-size: .75em;
+    height: 70px;
+    padding: 10px 35px;
+    text-align: center;
 }

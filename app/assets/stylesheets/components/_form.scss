@@ -63,3 +63,9 @@
 .log-in-form {
     color: $dark-grey;
 }
+
+.text {
+  .required, .optional {
+  resize: none;
+  }
+}
