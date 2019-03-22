@@ -160,9 +160,11 @@
         <h2 class="heading-regular-gray-thin">
           <%= link_to voter.election.name, election_path(voter.election.id) %>
         </h2>
-        <p class="<%=voter.election.status%>">
-              <%= voter.election.election_status%>
-            </p>
+
+        <% if voter.election.election_status == "Election live"%>
+          <div class="<%=voter.election.election_status%> circle">
+          </div>
+        <% end %>
       </div>
 
       <div class="election-card-stats">
@@ -185,6 +187,7 @@
             <div class="btn-large-green-new">See results</div>
           <% end %>
       <% else %>
+
         <div class="btn-small-white">
           <%= link_to 'View Candidates',  election_candidatures_path(voter.election) %>
         </div>
