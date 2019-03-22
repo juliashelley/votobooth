@@ -22,9 +22,10 @@
         <div class="election">
           <div class="election-card-header">
             <h2 class="heading-regular-gray-thin"><%= link_to election.name, election_path(election.id), class: "heading-regular-gray-thin" %></h2>
-            <p class="<%=election.status%>">
-            <%= election.election_status%>
-          </p>
+            <% if election.election_status == "Election live"%>
+              <div class="<%=election.election_status%> circle">
+              </div>
+            <% end %>
         </div>
         <div class="election-card-body">
           <div class="election-card-body-polling">
@@ -59,8 +60,7 @@
           </div>
           <div class="election-card-status-section">
             <% if election.set_time_remaining[0] < 0 %>
-            <h6></h6>
-            <p id="time-remaining"></p>
+              <h6 class="<%= election.election_status %>"><%= election.election_status %></h6>
             <% else %>
             <h6><%= election.set_time_remaining[0] %> days, <%= election.set_time_remaining[1] %> hours <%= election.set_time_remaining[2]%>mins</h6>
             <p id="time-remaining">Time remaining</p>
@@ -74,11 +74,39 @@
             <div class="btn-large-green-new">See results</div>
             <% end %>
           <% else %>
-          <%= link_to election_path(election.id) do %>
-            <div class="btn-medium-white view-election">View Election</div>
+            <div class="btn-group dropdown-lg">
+              <button type="button" class="btn btn-small-white dropdown-toggle" data-toggle="dropdown">
+                Manage election
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-lg-menu" role="menu">
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'Edit election', edit_election_path(election.id)%>
+                  </div>
+                </li>
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'See eligible voters', new_election_eligible_voter_path(election.id)%>
+                  </div>
+                </li>
+                <li class="dropdown-btn">
+                  <div class="element"><%= link_to 'View candidates', election_candidatures_path(election.id)%>
+                  </div>
+                </li>
+                <% if election.pending_candidates.empty? %>
+                <li class="dropdown-btn">
+                  <div class="element">
+                    <%= link_to 'Review pending candidates', election_approval_path(election)%>
+                  </div>
+                </li>
+                <% end %>
+              </ul>
+            </div>
           <% end %>
-        <% end %>
         </div>
+
+
+
+
       </div>
     </div>
     <% end %>
